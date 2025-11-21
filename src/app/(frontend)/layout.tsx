@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import "../(frontend)/styles.css";
 
 export const metadata = {
   description:
