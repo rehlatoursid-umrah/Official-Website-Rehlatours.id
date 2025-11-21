@@ -252,4 +252,21 @@ html {
 }
 
 /* DARK MODE COLORS */
-.dar
+.dark {
+  --background: #0b0b0b;
+  --foreground: #ffffff;
+
+  --primary: #3a0519;
+  --primary-foreground: #f7c566;
+
+  --secondary: #f7c566;
+  --secondary-foreground: #3a0519;
+
+  --muted: #3a0519;
+  --muted-foreground: #f7c566;
+
+  --accent: #f7c566;
+  --accent-foreground: #3a0519;
+
+  --ring: #f7c566;
+}
