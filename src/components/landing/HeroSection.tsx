@@ -134,15 +134,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — FULL PRIMARY, NO HOVER */}
+            {/* SECONDARY BUTTON — SECONDARY (#F7C566) + PRIMARY TEXT (#3A0519) */}
+
             <Button
               size="xl"
               variant="outline"
-              className="border-2 border-[#3A0519] bg-[#3A0519] text-white px-8 py-4 text-lg font-semibold"
+              className="px-8 py-4 text-lg font-semibold bg-[#F7C566] text-[#3A0519] border-2 border-[#F7C566] hover:none focus:outline-none"
               asChild
             >
               <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-2">
-                <Play className="w-5 h-5" />
+                <Play className="w-5 h-5 text-[#3A0519]" />
                 <span>{heroData.secondaryCTA.text}</span>
               </Link>
             </Button>
