@@ -231,43 +231,43 @@ export default function StepsSection({ className }: StepsSectionProps) {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <motion.div
-          initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
-          whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-10 md:mt-16"
-        >
-          <div className="bg-gradient-to-br from-[#3A0519] to-[#3A0519]/90 rounded-2xl p-7 md:p-10 text-white relative overflow-hidden">
-            <div className="relative z-10">
-              <h3 className="text-xl md:text-2xl font-bold mb-3">
-                Siap Memulai Perjalanan Spiritual Anda?
-              </h3>
-              <p className="text-base md:text-lg text-gray-100 mb-5 max-w-xl mx-auto">
-                Tim konsultan kami siap membantu Anda dari langkah pertama hingga kembali dengan
-                penuh keberkahan.
-              </p>
-              <Button
-                type="button"
-                size="lg"
-                className="bg-[#f7c566] hover:bg-[#f7c566]/90 text-white px-7 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl text-base md:text-lg transition-colors duration-300"
-                aria-label="Mulai Konsultasi Gratis"
-              >
-                Mulai Konsultasi Gratis
-              </Button>
-            </div>
-            {/* Decorative Blurs */}
-            <div
-              className="absolute -top-10 -right-10 w-32 h-32 bg-[#3A0519]/10 rounded-full blur-2xl"
-              aria-hidden="true"
-            />
-            <div
-              className="absolute -bottom-10 -left-10 w-24 h-24 bg-[#f7c566]/20 rounded-full blur-2xl"
-              aria-hidden="true"
-            />
-          </div>
-        </motion.div>
+      {/* Bottom CTA */}
+<motion.div
+  initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+  whileInView={shouldReduceMotion ? {} : { opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.4 }}
+  viewport={{ once: true }}
+  className="text-center mt-10 md:mt-16"
+>
+  <div className="bg-gradient-to-br from-[#3A0519] to-[#3A0519]/90 rounded-2xl p-7 md:p-10 text-white relative overflow-hidden">
+    <div className="relative z-10">
+      <h3 className="text-xl md:text-2xl font-bold mb-3">
+        Siap Memulai Perjalanan Spiritual Anda?
+      </h3>
+      <p className="text-base md:text-lg text-gray-100 mb-5 max-w-xl mx-auto">
+        Tim konsultan kami siap membantu Anda dari langkah pertama hingga kembali dengan
+        penuh keberkahan.
+      </p>
+      <Button
+        type="button"
+        size="lg"
+        className="bg-[#f7c566] hover:bg-[#f7c566]/90 text-[#3A0519] px-7 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl text-base md:text-lg transition-colors duration-300"
+        aria-label="Mulai Konsultasi Gratis"
+      >
+        Mulai Konsultasi Gratis
+      </Button>
+    </div>
+    {/* Decorative Blurs */}
+    <div
+      className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+      aria-hidden="true"
+    />
+    <div
+      className="absolute -bottom-10 -left-10 w-24 h-24 bg-[#f7c566]/20 rounded-full blur-2xl"
+      aria-hidden="true"
+    />
+  </div>
+</motion.div>
       </div>
       {/* Section Decorative Blurs */}
       <div
