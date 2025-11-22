@@ -195,7 +195,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#3A0519] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
+                className="border-2 border-white text-[#3A0519] hover:bg-[#3A0519] hover:text-[#3A0519] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
                 asChild
               >
                 <Link
