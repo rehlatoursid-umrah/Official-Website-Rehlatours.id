@@ -15,38 +15,38 @@ const featuresData: FeatureItem[] = [
     title: "Bimbingan Spiritual Lengkap",
     description: "Tim pembimbing berpengalaman mendampingi perjalanan ibadah Anda dengan materi spiritual yang komprehensif dan bimbingan manasik yang detail.",
     icon: "Heart",
-    color: "from-[#3A0519] to-[#3A0519]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Akomodasi Premium",
     description: "Hotel bintang 4-5 di lokasi strategis dekat Masjidil Haram dan Masjid Nabawi dengan fasilitas modern dan pelayanan terbaik.",
     icon: "MapPin",
-    color: "from-[#f7c566] to-[#f7c566]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Jaminan Keamanan",
     description: "Perjalanan yang aman dengan asuransi lengkap, dokumentasi resmi, dan sistem keamanan 24/7 untuk ketenangan pikiran Anda.",
     icon: "Shield",
-    color: "from-[#3A0519] to-[#3A0519]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Grup Kecil Eksklusif",
     description: "Maksimal 45 jamaah per grup untuk pelayanan yang lebih personal, perhatian khusus, dan kekeluargaan yang erat selama perjalanan.",
     icon: "Users",
-    color: "from-[#3A0519] to-[#3A0519]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Fleksibilitas Jadwal",
     description: "Berbagai pilihan keberangkatan sepanjang tahun dengan durasi 9-16 hari sesuai kebutuhan dan kesempatan Anda.",
     icon: "Clock",
-    color: "from-[#3A0519] to-[#3A0519]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Sertifikat Resmi",
     description: "Bersertifikat resmi Kementerian Agama dan IATA dengan track record pelayanan umroh terpercaya sejak tahun 2015.",
     icon: "Award",
-    color: "from-[#f7c566] to-[#f7c566]/80"
-  }
+    color: "from-[#3A0519] to-[#3A0519]/80",
+  },
 ]
 
 const iconComponents = {
@@ -55,7 +55,7 @@ const iconComponents = {
   Shield,
   Users,
   Clock,
-  Award
+  Award,
 }
 
 const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
@@ -64,7 +64,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
       id="features"
       className={cn(
         "py-16 lg:py-24 bg-gradient-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden",
-        className
+        className,
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -102,7 +102,8 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {featuresData.map((feature, index) => {
-            const IconComponent = iconComponents[feature.icon as keyof typeof iconComponents]
+            const IconComponent =
+              iconComponents[feature.icon as keyof typeof iconComponents]
             return (
               <motion.div
                 key={feature.title}
@@ -111,25 +112,25 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                 transition={{
                   duration: 0.6,
                   delay: index * 0.1,
-                  ease: "easeOut"
+                  ease: "easeOut",
                 }}
                 whileHover={{
                   scale: 1.05,
-                  transition: { duration: 0.3 }
+                  transition: { duration: 0.3 },
                 }}
                 viewport={{ once: true }}
                 className="group cursor-pointer"
               >
-                <div className="relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#f7c566]/30 h-full overflow-hidden">
+                <div className="relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#3A0519]/20 h-full overflow-hidden">
                   {/* Background Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#3A0519]/5 to-[#f7c566]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3A0519]/5 to-[#3A0519]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Icon */}
                   <div className="relative z-10 mb-6">
                     <div
                       className={cn(
                         "w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg",
-                        `bg-gradient-to-br ${feature.color}`
+                        `bg-gradient-to-br ${feature.color}`,
                       )}
                     >
                       <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
@@ -153,11 +154,11 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#f7c566]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#3A0519]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
                   <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-[#3A0519]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
 
                   {/* Hover Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl lg:rounded-3xl border-2 border-transparent group-hover:border-[#f7c566]/20 transition-colors duration-500" />
+                  <div className="absolute inset-0 rounded-2xl lg:rounded-3xl border-2 border-transparent group-hover:border-[#3A0519]/20 transition-colors duration-500" />
                 </div>
               </motion.div>
             )
@@ -188,7 +189,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                   {[
                     "Konsultasi gratis sebelum keberangkatan",
                     "Pendampingan 24/7 selama di tanah suci",
-                    "Garansi kepuasan atau uang kembali"
+                    "Garansi kepuasan atau uang kembali",
                   ].map((item, index) => (
                     <motion.div
                       key={item}
@@ -224,9 +225,9 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
       </div>
 
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#f7c566]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#3A0519]/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3A0519]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#3A0519]/3 to-[#f7c566]/3 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#3A0519]/3 to-[#3A0519]/3 rounded-full blur-3xl -z-10" />
     </section>
   )
 }
