@@ -28,7 +28,7 @@ const heroData: HeroData = {
     href: '#video',
   },
   backgroundImage:
-    'https://images.unsplash.com/photo-1591604157118-b94e2684f857?q=80&w=2070&auto=format&fit=crop',
+    'https://unsplash.com/photos/kaaba-mecca-landmark-jiNH5J37Pmg',
 }
 
 const trustIndicators = [
