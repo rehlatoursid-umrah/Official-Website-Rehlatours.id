@@ -1,7 +1,3 @@
-/* UX: Build trust through authentic customer testimonials with visual social proof
-   Emotional connection through real stories of successful spiritual journeys */
-/* DESIGN: Draggable horizontal carousel with customer photos, ratings, and detailed reviews */
-
 'use client'
 
 import React, { useState, useEffect } from 'react'
@@ -147,14 +143,14 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#0A7B64]/10 border border-[#0A7B64]/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#3A0519]/10 border border-[#3A0519]/20 mb-6"
           >
-            <Star className="w-4 h-4 text-[#0A7B64] mr-2" />
-            <span className="text-[#0A7B64] text-sm font-medium">Testimoni Jamaah</span>
+            <Star className="w-4 h-4 text-[#3A0519] mr-2" />
+            <span className="text-[#3A0519] text-sm font-medium">Testimoni Jamaah</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
-            Cerita Jamaah <span className="text-[#0A7B64]">ZeenTravel</span>
+            Cerita Jamaah <span className="text-[#3A0519]">ZeenTravel</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Ribuan jamaah telah merasakan pengalaman umroh yang tak terlupakan bersama kami.
@@ -204,7 +200,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
                           className={cn(
                             'bg-white rounded-2xl p-6 shadow-lg border border-gray-100 transition-all duration-500',
                             isCenter
-                              ? 'shadow-2xl border-[#C19F50]/30 scale-105'
+                              ? 'shadow-2xl border-[#f7c566]/30 scale-105'
                               : 'hover:shadow-xl',
                           )}
                         >
@@ -256,7 +252,9 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
                 onClick={() => goToSlide(index)}
                 className={cn(
                   'w-3 h-3 rounded-full transition-all duration-300',
-                  index === currentIndex ? 'bg-[#0A7B64] w-8' : 'bg-gray-300 hover:bg-gray-400',
+                  index === currentIndex
+                    ? 'bg-[#3A0519] w-8'
+                    : 'bg-gray-300 hover:bg-gray-400',
                 )}
                 aria-label={`Go to testimonial ${index + 1}`}
               />
@@ -274,15 +272,15 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
         >
           <div className="grid grid-cols-3 gap-4 lg:gap-8 max-w-2xl mx-auto">
             <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-[#0A7B64] mb-1">4.9</div>
+              <div className="text-2xl lg:text-3xl font-bold text-[#3A0519] mb-1">4.9</div>
               <div className="text-sm text-gray-600 font-medium">Rating Rata-rata</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-[#0A7B64] mb-1">2,500+</div>
+              <div className="text-2xl lg:text-3xl font-bold text-[#3A0519] mb-1">2,500+</div>
               <div className="text-sm text-gray-600 font-medium">Testimoni Positif</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl lg:text-3xl font-bold text-[#0A7B64] mb-1">100%</div>
+              <div className="text-2xl lg:text-3xl font-bold text-[#3A0519] mb-1">100%</div>
               <div className="text-sm text-gray-600 font-medium">Kepuasan Jamaah</div>
             </div>
           </div>
@@ -290,8 +288,8 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
       </div>
 
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#C19F50]/10 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0A7B64]/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#f7c566]/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3A0519]/10 rounded-full blur-3xl -z-10" />
     </section>
   )
 }
@@ -305,7 +303,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialItem }> = ({ testimoni
             key={index}
             className={cn(
               'w-4 h-4',
-              index < rating ? 'text-[#C19F50] fill-current' : 'text-gray-300',
+              index < rating ? 'text-[#f7c566] fill-current' : 'text-gray-300',
             )}
           />
         ))}
@@ -317,7 +315,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialItem }> = ({ testimoni
     <div className="text-center">
       {/* Quote Icon */}
       <div className="mb-4">
-        <Quote className="w-8 h-8 text-[#C19F50] mx-auto" />
+        <Quote className="w-8 h-8 text-[#f7c566] mx-auto" />
       </div>
 
       {/* Avatar */}
@@ -353,7 +351,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialItem }> = ({ testimoni
       </div>
 
       {/* Package */}
-      <div className="inline-block bg-[#0A7B64]/10 text-[#0A7B64] text-xs font-medium px-3 py-1 rounded-full">
+      <div className="inline-block bg-[#3A0519]/10 text-[#3A0519] text-xs font-medium px-3 py-1 rounded-full">
         {testimonial.package}
       </div>
     </div>
