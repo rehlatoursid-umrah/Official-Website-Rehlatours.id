@@ -259,7 +259,7 @@ export default function StepsSection({ className }: StepsSectionProps) {
             </div>
             {/* Decorative Blurs */}
             <div
-              className="absolute -top-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-2xl"
+              className="absolute -top-10 -right-10 w-32 h-32 bg-[#3A0519]/10 rounded-full blur-2xl"
               aria-hidden="true"
             />
             <div
