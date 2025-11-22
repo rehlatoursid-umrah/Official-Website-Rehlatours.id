@@ -1,7 +1,3 @@
-/* UX: Showcase popular packages to drive conversions from homepage visitors
-   Builds trust through pricing transparency and creates urgency with limited offers */
-/* DESIGN: Horizontal scrollable cards with pricing, highlights, and clear CTAs */
-
 'use client'
 
 import React, { useState, useRef } from 'react'
@@ -98,14 +94,14 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#0A7B64]/10 border border-[#0A7B64]/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#3A0519]/10 border border-[#3A0519]/20 mb-6"
           >
-            <TrendingUp className="w-4 h-4 text-[#0A7B64] mr-2" />
-            <span className="text-[#0A7B64] text-sm font-medium">Paket Populer</span>
+            <TrendingUp className="w-4 h-4 text-[#3A0519] mr-2" />
+            <span className="text-[#3A0519] text-sm font-medium">Paket Populer</span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
-            Pilihan Paket <span className="text-[#0A7B64]">Umroh Terbaik</span>
+            Pilihan Paket <span className="text-[#3A0519]">Umroh Terbaik</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Nikmati perjalanan spiritual yang tak terlupakan dengan berbagai pilihan paket yang
@@ -173,7 +169,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                         {/* Badges */}
                         <div className="absolute top-4 left-4">
                           {pkg.badge && (
-                            <div className="bg-[#C19F50] text-white px-3 py-1 rounded-full text-sm font-semibold mb-2">
+                            <div className="bg-[#f7c566] text-[#3A0519] px-3 py-1 rounded-full text-sm font-semibold mb-2">
                               {pkg.badge}
                             </div>
                           )}
@@ -212,8 +208,8 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                         {/* Header */}
                         <div className="flex items-start justify-between mb-3">
                           <div className="flex items-center space-x-2 mb-2">
-                            <Icon className="w-5 h-5 text-[#0A7B64]" />
-                            <span className="text-sm font-medium text-[#0A7B64] capitalize">
+                            <Icon className="w-5 h-5 text-[#3A0519]" />
+                            <span className="text-sm font-medium text-[#3A0519] capitalize">
                               {pkg.type}
                             </span>
                           </div>
@@ -224,7 +220,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                           </div>
                         </div>
 
-                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#0A7B64] transition-colors duration-300">
+                        <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-[#3A0519] transition-colors duration-300">
                           {pkg.name}
                         </h3>
 
@@ -252,7 +248,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                                 key={idx}
                                 className="flex items-start space-x-2 text-sm text-gray-600"
                               >
-                                <Check className="w-4 h-4 text-[#0A7B64] mt-0.5 flex-shrink-0" />
+                                <Check className="w-4 h-4 text-[#3A0519] mt-0.5 flex-shrink-0" />
                                 <span>{highlight}</span>
                               </li>
                             ))}
@@ -266,7 +262,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                               {formatPrice(pkg.price.original)}
                             </div>
                           )}
-                          <div className="text-2xl font-bold text-[#0A7B64]">
+                          <div className="text-2xl font-bold text-[#3A0519]">
                             {formatPrice(pkg.price.discounted || pkg.price.original)}
                           </div>
                           <div className="text-sm text-gray-500">per orang</div>
@@ -275,7 +271,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                         {/* CTA Buttons */}
                         <div className="space-y-3 mt-auto">
                           <Button
-                            className="w-full bg-[#0A7B64] hover:bg-[#0A7B64]/90 text-white"
+                            className="w-full bg-[#3A0519] hover:bg-[#3A0519]/90 text-white"
                             asChild
                           >
                             <Link
@@ -288,7 +284,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                           </Button>
                           <Button
                             variant="outline"
-                            className="w-full border-[#C19F50] text-[#C19F50] hover:bg-[#C19F50] hover:text-white"
+                            className="w-full border-[#f7c566] text-[#f7c566] hover:bg-[#f7c566] hover:text-[#3A0519]"
                             asChild
                           >
                             <Link
@@ -314,7 +310,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                 onClick={() => setCurrentSlide(index)}
                 className={cn(
                   'w-3 h-3 rounded-full transition-all duration-300',
-                  index === currentSlide ? 'bg-[#0A7B64] w-8' : 'bg-gray-300',
+                  index === currentSlide ? 'bg-[#3A0519] w-8' : 'bg-gray-300',
                 )}
               />
             ))}
@@ -331,7 +327,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
           <Button
             size="lg"
             variant="outline"
-            className="border-[#0A7B64] text-[#0A7B64] hover:bg-[#0A7B64] hover:text-white px-8 py-4"
+            className="border-[#3A0519] text-[#3A0519] hover:bg-[#3A0519] hover:text-white px-8 py-4"
             asChild
           >
             <Link href="/packages" className="flex items-center space-x-2">
@@ -343,8 +339,8 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
       </div>
 
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#C19F50]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0A7B64]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#f7c566]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3A0519]/5 rounded-full blur-3xl -z-10" />
     </section>
   )
 }
