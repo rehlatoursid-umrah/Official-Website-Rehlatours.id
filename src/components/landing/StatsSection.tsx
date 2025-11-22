@@ -37,7 +37,11 @@ interface AnimatedCounterProps {
   suffix?: string
 }
 
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value, prefix = '', suffix = '' }) => {
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
+  value,
+  prefix = '',
+  suffix = '',
+}) => {
   const ref = useRef<HTMLSpanElement>(null)
   const motionValue = useMotionValue(0)
   const springValue = useSpring(motionValue, { duration: 2.2 })
@@ -73,7 +77,10 @@ export default function StatsSection({ className }: StatsSectionProps) {
   return (
     <section
       id="stats"
-      className={cn('py-14 md:py-20 bg-[#F9F7F3] relative overflow-hidden', className)}
+      className={cn(
+        'py-14 md:py-20 bg-[#F9F7F3] relative overflow-hidden',
+        className,
+      )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -85,11 +92,14 @@ export default function StatsSection({ className }: StatsSectionProps) {
           className="text-center mb-10 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B0B0B] mb-3">
-            Dipercaya <span className="text-[#0A7B64]">Ribuan Jamaah</span>
+            Dipercaya{' '}
+            <span className="text-[#3A0519]">
+              Ribuan Jamaah
+            </span>
           </h2>
           <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
-            Angka-angka ini membuktikan komitmen kami dalam memberikan pelayanan terbaik untuk
-            perjalanan spiritual Anda.
+            Angka-angka ini membuktikan komitmen kami dalam memberikan pelayanan
+            terbaik untuk perjalanan spiritual Anda.
           </p>
         </motion.div>
 
@@ -112,13 +122,17 @@ export default function StatsSection({ className }: StatsSectionProps) {
                   scale: 1.03,
                   transition: { duration: 0.3 },
                 }}
-                className="group flex flex-col items-center px-4 py-7 md:py-10 rounded-xl border-2 border-[#0A7B64]/20 bg-white"
+                className="group flex flex-col items-center px-4 py-7 md:py-10 rounded-xl border-2 border-[#3A0519]/20 bg-white"
               >
-                <div className="mb-3 md:mb-5 flex items-center justify-center rounded-full bg-[#0A7B64]/10">
-                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#0A7B64]" />
+                <div className="mb-3 md:mb-5 flex items-center justify-center rounded-full bg-[#3A0519]/10">
+                  <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#3A0519]" />
                 </div>
                 <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-[#0B0B0B] transition-colors duration-300">
-                  <AnimatedCounter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} />
+                  <AnimatedCounter
+                    value={stat.value}
+                    prefix={stat.prefix}
+                    suffix={stat.suffix}
+                  />
                 </div>
                 <div className="text-xs md:text-sm font-semibold text-center text-gray-700 transition-colors duration-300">
                   {stat.label}
@@ -136,7 +150,7 @@ export default function StatsSection({ className }: StatsSectionProps) {
           viewport={{ once: true }}
           className="text-center mt-10 md:mt-16"
         >
-          <div className="rounded-xl border-2 border-[#0A7B64]/20 bg-white px-6 py-8 md:py-10 max-w-2xl mx-auto">
+          <div className="rounded-xl border-2 border-[#3A0519]/20 bg-white px-6 py-8 md:py-10 max-w-2xl mx-auto">
             <h3 className="text-lg md:text-xl font-bold text-[#0B0B0B] mb-2">
               Bergabunglah dengan Ribuan Jamaah Lainnya
             </h3>
@@ -146,7 +160,7 @@ export default function StatsSection({ className }: StatsSectionProps) {
             <Button
               type="button"
               size="lg"
-              className="bg-[#0A7B64] hover:bg-[#0A7B64]/90 text-white px-6 py-3 rounded-lg font-semibold text-base transition-colors duration-300"
+              className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-6 py-3 rounded-lg font-semibold text-base transition-colors duration-300"
               aria-label="Konsultasi Gratis"
             >
               Konsultasi Gratis
