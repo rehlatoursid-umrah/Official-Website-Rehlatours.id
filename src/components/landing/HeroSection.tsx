@@ -134,10 +134,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — FULL SECONDARY (#F7C566), NO HOVER */}
+            {/* SECONDARY BUTTON — FULL PRIMARY, NO HOVER */}
             <Button
               size="xl"
-              className="bg-[#F7C566] border-2 border-[#F7C566] text-[#3A0519] px-8 py-4 text-lg font-semibold shadow-md"
+              variant="outline"
+              className="border-2 border-[#3A0519] bg-[#3A0519] text-white px-8 py-4 text-lg font-semibold"
               asChild
             >
               <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-2">
