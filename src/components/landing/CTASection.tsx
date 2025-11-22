@@ -1,7 +1,3 @@
-/* UX: Final opportunity to convert visitors with compelling urgency and clear value proposition
-   Creates FOMO through limited offers and removes final objections with guarantees */
-/* DESIGN: Bold gradient background with centered content, multiple CTA options, and trust signals */
-
 'use client'
 
 import React from 'react'
@@ -55,7 +51,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
   return (
     <section id="cta" className={cn('py-16 lg:py-24 relative overflow-hidden', className)}>
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0A7B64] via-[#0A7B64]/95 to-[#0A7B64]/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/95 to-[#3A0519]/90" />
       <div className="absolute inset-0 islamic-pattern" />
 
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,8 +72,8 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
               viewport={{ once: true }}
               className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 flex items-center space-x-3 group hover:bg-white/20 transition-all duration-300"
             >
-              <div className="w-10 h-10 bg-[#C19F50] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-[#f7c566] rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                <feature.icon className="w-5 h-5 text-[#3A0519]" />
               </div>
               <div>
                 <div className="text-white font-bold text-sm lg:text-base">{feature.text}</div>
@@ -95,10 +91,10 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#C19F50]/20 border border-[#C19F50]/30 backdrop-blur-sm mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#f7c566]/20 border border-[#f7c566]/30 backdrop-blur-sm mb-6"
           >
-            <Star className="w-4 h-4 text-[#C19F50] mr-2" />
-            <span className="text-[#C19F50] text-sm font-medium">Promo Eksklusif Terbatas</span>
+            <Star className="w-4 h-4 text-[#f7c566] mr-2" />
+            <span className="text-[#f7c566] text-sm font-medium">Promo Eksklusif Terbatas</span>
           </motion.div>
 
           {/* Main Headline */}
@@ -118,7 +114,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
             viewport={{ once: true }}
-            className="text-xl lg:text-2xl font-semibold text-[#C19F50] mb-6"
+            className="text-xl lg:text-2xl font-semibold text-[#f7c566] mb-6"
           >
             {ctaData.subtitle}
           </motion.div>
@@ -151,8 +147,8 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
                 viewport={{ once: true }}
                 className="flex items-center space-x-3 bg-white/10 backdrop-blur-sm rounded-lg p-4 border border-white/20 group hover:bg-white/20 transition-all duration-300"
               >
-                <div className="w-6 h-6 bg-[#C19F50] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <span className="text-white text-sm font-bold">✓</span>
+                <div className="w-6 h-6 bg-[#f7c566] rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <span className="text-[#3A0519] text-sm font-bold">✓</span>
                 </div>
                 <span className="text-white font-medium text-sm lg:text-base text-left">
                   {feature}
@@ -171,7 +167,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
           >
             <Button
               size="xl"
-              className="bg-[#C19F50] hover:bg-[#C19F50]/90 text-white px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl group border-2 border-[#C19F50] w-full sm:w-auto"
+              className="bg-[#f7c566] hover:bg-[#f7c566]/90 text-[#3A0519] px-8 py-4 text-lg font-bold transition-all duration-300 hover:scale-105 shadow-2xl hover:shadow-3xl group border-2 border-[#f7c566] w-full sm:w-auto"
               asChild
             >
               <Link href={ctaData.buttonHref} className="flex items-center space-x-3">
@@ -184,7 +180,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#0A7B64] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#3A0519] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
                 asChild
               >
                 <Link
@@ -199,7 +195,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-[#0A7B64] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
+                className="border-2 border-white text-white hover:bg-white hover:text-[#3A0519] px-6 py-3 font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm w-full sm:w-auto"
                 asChild
               >
                 <Link
@@ -222,15 +218,15 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
             className="flex flex-wrap justify-center items-center gap-6 text-gray-300"
           >
             <div className="flex items-center space-x-2">
-              <Shield className="w-5 h-5 text-[#C19F50]" />
+              <Shield className="w-5 h-5 text-[#f7c566]" />
               <span className="text-sm font-medium">Berlisensi Resmi Kemenag</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Star className="w-5 h-5 text-[#C19F50]" />
+              <Star className="w-5 h-5 text-[#f7c566]" />
               <span className="text-sm font-medium">Rating 4.9/5</span>
             </div>
             <div className="flex items-center space-x-2">
-              <Users className="w-5 h-5 text-[#C19F50]" />
+              <Users className="w-5 h-5 text-[#f7c566]" />
               <span className="text-sm font-medium">2,500+ Jamaah Puas</span>
             </div>
           </motion.div>
@@ -245,7 +241,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
           className="mt-12 text-center"
         >
           <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-6 max-w-md mx-auto">
-            <div className="text-[#C19F50] font-semibold text-sm mb-2">PROMO BERAKHIR DALAM:</div>
+            <div className="text-[#f7c566] font-semibold text-sm mb-2">PROMO BERAKHIR DALAM:</div>
             <div className="grid grid-cols-4 gap-4 text-center">
               {[
                 { value: '02', label: 'Hari' },
@@ -264,11 +260,12 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-40 h-40 bg-[#C19F50]/20 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-40 h-40 bg-[#f7c566]/20 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-56 h-56 bg-white/10 rounded-full blur-3xl" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#C19F50]/10 to-white/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#f7c566]/10 to-white/5 rounded-full blur-3xl" />
     </section>
   )
 }
 
 export default CTASection
+
