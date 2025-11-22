@@ -1,4 +1,4 @@
-/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM 45% */
+/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM 40% */
 
 'use client'
 
@@ -56,19 +56,14 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className,
       )}
     >
-      {/* BACKGROUND GRADIENT — primary */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/90 to-[#3A0519]/80">
-        <div className="absolute inset-0 islamic-pattern opacity-20" />
-      </div>
-
       {/* BACKGROUND IMAGE */}
       <motion.div
         style={{ y: _y, backgroundImage: `url(${heroData.backgroundImage})` }}
-        className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
       />
 
-      {/* DARK OVERLAY HITAM 45% */}
-      <div className="absolute inset-0 bg-black/45" />
+      {/* OVERLAY HITAM 40% */}
+      <div className="absolute inset-0 bg-black/40 -z-10" />
 
       {/* CONTENT */}
       <motion.div
@@ -97,7 +92,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {heroData.title}
           </motion.h1>
 
-          {/* SUBTITLE — secondary */}
+          {/* SUBTITLE */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -124,7 +119,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            {/* PRIMARY BUTTON — primary */}
+            {/* PRIMARY BUTTON */}
             <Button
               size="xl"
               className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
@@ -136,7 +131,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519 */}
+            {/* SECONDARY BUTTON */}
             <Button
               size="xl"
               variant="outline"
@@ -157,7 +152,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </Button>
           </motion.div>
 
-          {/* TRUST INDICATORS */}
+          {/* TRUST INDICATORS (sedikit lebih gelap, tanpa putih) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -172,7 +167,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 className="text-center group cursor-pointer"
               >
-                <div className="bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/55 hover:scale-105 border border-white/10">
+                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-black/40 hover:scale-105 border border-white/10">
                   <indicator.icon className="w-8 h-8 text-[#F7C566] mx-auto mb-3" />
                   <div className="text-2xl lg:text-3xl font-bold text-white mb-1">
                     {indicator.value}
