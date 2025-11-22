@@ -1,7 +1,3 @@
-/* UX: Showcase key differentiators that address common travel concerns and build confidence
-   Highlights unique value propositions that separate ZeenTravel from competitors */
-/* DESIGN: 2x3 responsive grid with card hover effects, icons, and benefit-focused messaging */
-
 "use client"
 
 import React from 'react'
@@ -19,37 +15,37 @@ const featuresData: FeatureItem[] = [
     title: "Bimbingan Spiritual Lengkap",
     description: "Tim pembimbing berpengalaman mendampingi perjalanan ibadah Anda dengan materi spiritual yang komprehensif dan bimbingan manasik yang detail.",
     icon: "Heart",
-    color: "from-[#0A7B64] to-[#0A7B64]/80"
+    color: "from-[#3A0519] to-[#3A0519]/80"
   },
   {
     title: "Akomodasi Premium",
     description: "Hotel bintang 4-5 di lokasi strategis dekat Masjidil Haram dan Masjid Nabawi dengan fasilitas modern dan pelayanan terbaik.",
     icon: "MapPin",
-    color: "from-[#C19F50] to-[#C19F50]/80"
+    color: "from-[#f7c566] to-[#f7c566]/80"
   },
   {
     title: "Jaminan Keamanan",
     description: "Perjalanan yang aman dengan asuransi lengkap, dokumentasi resmi, dan sistem keamanan 24/7 untuk ketenangan pikiran Anda.",
     icon: "Shield",
-    color: "from-purple-600 to-purple-500"
+    color: "from-[#3A0519] to-[#3A0519]/80"
   },
   {
     title: "Grup Kecil Eksklusif",
     description: "Maksimal 45 jamaah per grup untuk pelayanan yang lebih personal, perhatian khusus, dan kekeluargaan yang erat selama perjalanan.",
     icon: "Users",
-    color: "from-blue-600 to-blue-500"
+    color: "from-[#3A0519] to-[#3A0519]/80"
   },
   {
     title: "Fleksibilitas Jadwal",
     description: "Berbagai pilihan keberangkatan sepanjang tahun dengan durasi 9-16 hari sesuai kebutuhan dan kesempatan Anda.",
     icon: "Clock",
-    color: "from-emerald-600 to-emerald-500"
+    color: "from-[#3A0519] to-[#3A0519]/80"
   },
   {
     title: "Sertifikat Resmi",
     description: "Bersertifikat resmi Kementerian Agama dan IATA dengan track record pelayanan umroh terpercaya sejak tahun 2015.",
     icon: "Award",
-    color: "from-amber-600 to-amber-500"
+    color: "from-[#f7c566] to-[#f7c566]/80"
   }
 ]
 
@@ -85,17 +81,17 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#0A7B64]/10 border border-[#0A7B64]/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#3A0519]/10 border border-[#3A0519]/20 mb-6"
           >
-            <CheckCircle className="w-4 h-4 text-[#0A7B64] mr-2" />
-            <span className="text-[#0A7B64] text-sm font-medium">
+            <CheckCircle className="w-4 h-4 text-[#3A0519] mr-2" />
+            <span className="text-[#3A0519] text-sm font-medium">
               Keunggulan ZeenTravel
             </span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
             Mengapa Memilih{" "}
-            <span className="text-[#0A7B64]">ZeenTravel?</span>
+            <span className="text-[#3A0519]">ZeenTravel?</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Pengalaman umroh yang tak terlupakan dengan standar pelayanan internasional
@@ -124,23 +120,25 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                 viewport={{ once: true }}
                 className="group cursor-pointer"
               >
-                <div className="relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#C19F50]/30 h-full overflow-hidden">
+                <div className="relative bg-white rounded-2xl lg:rounded-3xl p-6 lg:p-8 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 hover:border-[#f7c566]/30 h-full overflow-hidden">
                   {/* Background Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0A7B64]/5 to-[#C19F50]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#3A0519]/5 to-[#f7c566]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                   {/* Icon */}
                   <div className="relative z-10 mb-6">
-                    <div className={cn(
-                      "w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg",
-                      `bg-gradient-to-br ${feature.color}`
-                    )}>
+                    <div
+                      className={cn(
+                        "w-16 h-16 lg:w-20 lg:h-20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg",
+                        `bg-gradient-to-br ${feature.color}`
+                      )}
+                    >
                       <IconComponent className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                     </div>
                   </div>
 
                   {/* Content */}
                   <div className="relative z-10">
-                    <h3 className="text-xl lg:text-2xl font-bold text-[#0B0B0B] mb-4 group-hover:text-[#0A7B64] transition-colors duration-300">
+                    <h3 className="text-xl lg:text-2xl font-bold text-[#0B0B0B] mb-4 group-hover:text-[#3A0519] transition-colors duration-300">
                       {feature.title}
                     </h3>
                     <p className="text-gray-600 leading-relaxed mb-6">
@@ -148,18 +146,18 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                     </p>
 
                     {/* Learn More Link */}
-                    <div className="flex items-center text-[#0A7B64] font-semibold group-hover:text-[#C19F50] transition-colors duration-300">
+                    <div className="flex items-center text-[#3A0519] font-semibold group-hover:text-[#f7c566] transition-colors duration-300">
                       <span className="text-sm">Pelajari Lebih Lanjut</span>
                       <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
 
                   {/* Decorative Elements */}
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#C19F50]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
-                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-[#0A7B64]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
+                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-gradient-to-br from-[#f7c566]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
+                  <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-gradient-to-tr from-[#3A0519]/10 to-transparent rounded-full group-hover:scale-150 transition-transform duration-700" />
 
                   {/* Hover Border Effect */}
-                  <div className="absolute inset-0 rounded-2xl lg:rounded-3xl border-2 border-transparent group-hover:border-[#C19F50]/20 transition-colors duration-500" />
+                  <div className="absolute inset-0 rounded-2xl lg:rounded-3xl border-2 border-transparent group-hover:border-[#f7c566]/20 transition-colors duration-500" />
                 </div>
               </motion.div>
             )
@@ -180,7 +178,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
               <div className="lg:col-span-2">
                 <h3 className="text-2xl lg:text-3xl font-bold text-[#0B0B0B] mb-4">
                   Komitmen Kami untuk{" "}
-                  <span className="text-[#0A7B64]">Pelayanan Terbaik</span>
+                  <span className="text-[#3A0519]">Pelayanan Terbaik</span>
                 </h3>
                 <p className="text-gray-600 text-lg leading-relaxed mb-6">
                   Setiap detail perjalanan umroh Anda direncanakan dengan cermat oleh tim berpengalaman.
@@ -200,7 +198,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                       viewport={{ once: true }}
                       className="flex items-center space-x-3"
                     >
-                      <CheckCircle className="w-5 h-5 text-[#0A7B64] flex-shrink-0" />
+                      <CheckCircle className="w-5 h-5 text-[#3A0519] flex-shrink-0" />
                       <span className="text-gray-700 font-medium">{item}</span>
                     </motion.div>
                   ))}
@@ -212,7 +210,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-[#0A7B64] to-[#0A7B64]/90 hover:from-[#0A7B64]/90 hover:to-[#0A7B64] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-lg w-full lg:w-auto"
+                  className="bg-gradient-to-r from-[#3A0519] to-[#3A0519]/90 hover:from-[#3A0519]/90 hover:to-[#3A0519] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-lg w-full lg:w-auto"
                 >
                   Konsultasi Sekarang
                 </motion.button>
@@ -226,9 +224,9 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
       </div>
 
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#C19F50]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0A7B64]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#0A7B64]/3 to-[#C19F50]/3 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#f7c566]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3A0519]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-r from-[#3A0519]/3 to-[#f7c566]/3 rounded-full blur-3xl -z-10" />
     </section>
   )
 }
