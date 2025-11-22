@@ -1,7 +1,3 @@
-/* UX: Primary navigation that builds trust through clear branding and easy access to key pages
-   Converts visitors by making registration/contact immediately accessible */
-/* DESIGN: Sticky header with Islamic green branding, mobile hamburger menu, prominent CTA buttons */
-
 'use client'
 
 import React, { useState, useEffect } from 'react'
@@ -69,12 +65,11 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             onClick={() => handleNavClick('#hero')}
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
-              <div
-                className="w-full h-full rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
-                style={{ backgroundColor: 'var(--primary)' }}
-              >
-                <span className="text-white font-bold text-lg lg:text-xl">Z</span>
-              </div>
+              <img
+                src="/image.jpg"
+                alt="Logo ZeenTravel"
+                className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
             <div className="flex flex-col">
@@ -239,4 +234,3 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 }
 
 export default Navbar
-
