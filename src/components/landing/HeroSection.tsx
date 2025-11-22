@@ -1,4 +1,4 @@
-/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM 40% */
+/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM SAJA */
 
 'use client'
 
@@ -56,14 +56,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className,
       )}
     >
+      {/* BACKGROUND GRADIENT — primary */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/90 to-[#3A0519]/80">
+        <div className="absolute inset-0 islamic-pattern opacity-20" />
+      </div>
+
       {/* BACKGROUND IMAGE */}
       <motion.div
         style={{ y: _y, backgroundImage: `url(${heroData.backgroundImage})` }}
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-20"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
       />
 
-      {/* OVERLAY HITAM 40% */}
-      <div className="absolute inset-0 bg-black/40 -z-10" />
+      {/* PURE DARK OVERLAY (NO WHITE) */}
+      <div className="absolute inset-0 bg-black/55" />
 
       {/* CONTENT */}
       <motion.div
@@ -76,7 +81,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 backdrop-blur-sm mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 mb-6"
           >
             <Star className="w-4 h-4 text-[#F7C566] mr-2" />
             <span className="text-[#F7C566] text-sm font-medium">#1 Travel Umroh Terpercaya</span>
@@ -92,7 +97,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             {heroData.title}
           </motion.h1>
 
-          {/* SUBTITLE */}
+          {/* SUBTITLE — secondary */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +124,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            {/* PRIMARY BUTTON */}
+            {/* PRIMARY BUTTON — primary */}
             <Button
               size="xl"
               className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
@@ -131,7 +136,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON */}
+            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519 */}
             <Button
               size="xl"
               variant="outline"
@@ -152,7 +157,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </Button>
           </motion.div>
 
-          {/* TRUST INDICATORS (sedikit lebih gelap, tanpa putih) */}
+          {/* TRUST INDICATORS (DARK CARDS) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -167,7 +172,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 className="text-center group cursor-pointer"
               >
-                <div className="bg-black/30 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-black/40 hover:scale-105 border border-white/10">
+                <div className="bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/55 hover:scale-105 border border-white/10">
                   <indicator.icon className="w-8 h-8 text-[#F7C566] mx-auto mb-3" />
                   <div className="text-2xl lg:text-3xl font-bold text-white mb-1">
                     {indicator.value}
@@ -184,3 +189,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
+
