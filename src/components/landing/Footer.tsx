@@ -1,7 +1,3 @@
-/* UX: Final touchpoint that reinforces trust, provides essential links, and maintains brand presence
-   Converts through contact options and builds confidence with certifications and social proof */
-/* DESIGN: Multi-column responsive layout with company info, quick links, contact details, and social media */
-
 'use client'
 
 import React from 'react'
@@ -117,7 +113,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             >
               {/* Logo */}
               <Link href="/" className="flex items-center space-x-3 mb-6 group">
-                <div className="w-12 h-12 bg-[#0A7B64] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="w-12 h-12 bg-[#3A0519] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                   <span className="text-white font-bold text-xl">Z</span>
                 </div>
                 <div className="flex flex-col">
@@ -136,15 +132,15 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               {/* Trust Badges */}
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
-                  <Shield className="w-5 h-5 text-[#C19F50]" />
+                  <Shield className="w-5 h-5 text-[#f7c566]" />
                   <span className="text-sm text-gray-300">Berlisensi Resmi Kemenag RI</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <Award className="w-5 h-5 text-[#C19F50]" />
+                  <Award className="w-5 h-5 text-[#f7c566]" />
                   <span className="text-sm text-gray-300">Sertifikat ISO 9001:2015</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 text-[#C19F50]" />
+                  <CheckCircle className="w-5 h-5 text-[#f7c566]" />
                   <span className="text-sm text-gray-300">Member ASITA & IATA</span>
                 </div>
               </div>
@@ -174,7 +170,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                     >
                       <Link
                         href={link.href}
-                        className="text-gray-300 hover:text-[#C19F50] transition-colors duration-300 text-sm block hover:translate-x-1 transform transition-transform"
+                        className="text-gray-300 hover:text-[#f7c566] transition-colors duration-300 text-sm block hover:translate-x-1 transform transition-transform"
                       >
                         {link.label}
                       </Link>
@@ -199,44 +195,44 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 <h3 className="font-bold text-lg text-white mb-6">Hubungi Kami</h3>
                 <div className="space-y-4">
                   <div className="flex items-start space-x-3 group">
-                    <MapPin className="w-5 h-5 text-[#C19F50] mt-0.5 group-hover:scale-110 transition-transform duration-300" />
+                    <MapPin className="w-5 h-5 text-[#f7c566] mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                     <div>
                       <p className="text-gray-300 text-sm leading-relaxed">{contactInfo.address}</p>
                     </div>
                   </div>
 
                   <div className="flex items-center space-x-3 group">
-                    <Phone className="w-5 h-5 text-[#C19F50] group-hover:scale-110 transition-transform duration-300" />
+                    <Phone className="w-5 h-5 text-[#f7c566] group-hover:scale-110 transition-transform duration-300" />
                     <Link
                       href={`tel:${contactInfo.phone}`}
-                      className="text-gray-300 hover:text-[#C19F50] transition-colors duration-300 text-sm"
+                      className="text-gray-300 hover:text-[#f7c566] transition-colors duration-300 text-sm"
                     >
                       {contactInfo.phone}
                     </Link>
                   </div>
 
                   <div className="flex items-center space-x-3 group">
-                    <MessageCircle className="w-5 h-5 text-[#C19F50] group-hover:scale-110 transition-transform duration-300" />
+                    <MessageCircle className="w-5 h-5 text-[#f7c566] group-hover:scale-110 transition-transform duration-300" />
                     <Link
                       href={`https://wa.me/${contactInfo.whatsapp.replace(/\D/g, '')}`}
-                      className="text-gray-300 hover:text-[#C19F50] transition-colors duration-300 text-sm"
+                      className="text-gray-300 hover:text-[#f7c566] transition-colors duration-300 text-sm"
                     >
                       {contactInfo.whatsapp}
                     </Link>
                   </div>
 
                   <div className="flex items-center space-x-3 group">
-                    <Mail className="w-5 h-5 text-[#C19F50] group-hover:scale-110 transition-transform duration-300" />
+                    <Mail className="w-5 h-5 text-[#f7c566] group-hover:scale-110 transition-transform duration-300" />
                     <Link
                       href={`mailto:${contactInfo.email}`}
-                      className="text-gray-300 hover:text-[#C19F50] transition-colors duration-300 text-sm"
+                      className="text-gray-300 hover:text-[#f7c566] transition-colors duration-300 text-sm"
                     >
                       {contactInfo.email}
                     </Link>
                   </div>
 
                   <div className="flex items-center space-x-3 group">
-                    <Clock className="w-5 h-5 text-[#C19F50] group-hover:scale-110 transition-transform duration-300" />
+                    <Clock className="w-5 h-5 text-[#f7c566] group-hover:scale-110 transition-transform duration-300" />
                     <span className="text-gray-300 text-sm">Senin - Minggu: 08:00 - 22:00 WIB</span>
                   </div>
                 </div>
@@ -262,7 +258,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                           href={social.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="w-10 h-10 bg-gray-800 hover:bg-[#0A7B64] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                          className="w-10 h-10 bg-gray-800 hover:bg-[#3A0519] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
                           aria-label={`Follow us on ${social.platform}`}
                         >
                           <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
@@ -282,9 +278,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                     <input
                       type="email"
                       placeholder="Email Anda"
-                      className="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#0A7B64] transition-colors duration-300"
+                      className="flex-1 bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#3A0519] transition-colors duration-300"
                     />
-                    <button className="bg-[#0A7B64] hover:bg-[#0A7B64]/90 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-300">
+                    <button className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-4 py-2 rounded text-sm font-medium transition-colors duration-300">
                       Subscribe
                     </button>
                   </div>
@@ -334,14 +330,14 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                   © 2024 ZeenTravel. All rights reserved. |{' '}
                   <Link
                     href="/privasi"
-                    className="hover:text-[#C19F50] transition-colors duration-300"
+                    className="hover:text-[#f7c566] transition-colors duration-300"
                   >
                     Privacy Policy
                   </Link>{' '}
                   |{' '}
                   <Link
                     href="/syarat"
-                    className="hover:text-[#C19F50] transition-colors duration-300"
+                    className="hover:text-[#f7c566] transition-colors duration-300"
                   >
                     Terms of Service
                   </Link>
@@ -354,7 +350,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={scrollToTop}
-                className="w-10 h-10 bg-[#0A7B64] hover:bg-[#0A7B64]/90 rounded-full flex items-center justify-center transition-colors duration-300 group"
+                className="w-10 h-10 bg-[#3A0519] hover:bg-[#3A0519]/90 rounded-full flex items-center justify-center transition-colors duration-300 group"
                 aria-label="Back to top"
               >
                 <ArrowUp className="w-5 h-5 text-white group-hover:translate-y-[-2px] transition-transform duration-300" />
@@ -365,10 +361,11 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#0A7B64]/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#C19F50]/10 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#3A0519]/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#f7c566]/10 rounded-full blur-3xl" />
     </footer>
   )
 }
 
 export default Footer
+
