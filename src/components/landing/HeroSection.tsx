@@ -140,12 +140,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               variant="outline"
               className="
                 px-8 py-4 text-lg font-semibold
-                bg-transparent
-                text-[#F7C566]
-                border-2 border-[#F7C566]
-                hover:bg-[#F7C566]/10
-                hover:text-[#F7C566]
-                hover:border-[#F7C566]
+                bg-[#F7C566]
+                text-[#3A0519]
+                border-2 border-[#3A0519]
+                hover:bg-[#F7C566]
+                hover:text-[#3A0519]
+                hover:border-[#3A0519]
                 transition-all duration-300
                 focus:outline-none
               "
