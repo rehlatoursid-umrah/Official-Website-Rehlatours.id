@@ -32,9 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const isPackagesDetail = useIsPackagesDetailPage()
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 20)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
@@ -45,9 +43,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
     setIsOpen(false)
     if (href.startsWith('#')) {
       const element = document.querySelector(href)
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
+      if (element) element.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
@@ -73,27 +69,32 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             onClick={() => handleNavClick('#hero')}
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
-              <div className="w-full h-full bg-[#0A7B64] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+              <div
+                className="w-full h-full rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300"
+                style={{ backgroundColor: 'var(--primary)' }}
+              >
                 <span className="text-white font-bold text-lg lg:text-xl">Z</span>
               </div>
             </div>
+
             <div className="flex flex-col">
               <span
                 className={cn(
                   'font-bold text-lg lg:text-xl transition-colors duration-300',
                   isScrolled
-                    ? 'text-[#0A7B64]'
-                    : `text-[#0A7B64] ${isPackagesDetail ? 'text-[#0A7B64]' : 'lg:text-white'}`,
+                    ? 'text-[var(--primary)]'
+                    : `${isPackagesDetail ? 'text-[var(--primary)]' : 'lg:text-white text-[var(--primary)]'}`
                 )}
               >
                 ZeenTravel
               </span>
+
               <span
                 className={cn(
                   'text-xs lg:text-sm transition-colors duration-300',
                   isScrolled
                     ? 'text-gray-600'
-                    : `${isPackagesDetail ? 'text-gray-600' : 'text-gray-600 lg:text-gray-200'}`,
+                    : `${isPackagesDetail ? 'text-gray-600' : 'text-gray-600 lg:text-gray-200'}`
                 )}
               >
                 Umroh Terpercaya
@@ -116,12 +117,12 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                   className={cn(
                     'text-sm font-medium transition-all duration-300 hover:scale-105 relative group',
                     isScrolled
-                      ? 'text-gray-900 hover:text-[#0A7B64]'
-                      : `${isPackagesDetail ? 'text-gray-900' : 'text-white'} hover:text-[#C19F50]`,
+                      ? 'text-gray-900 hover:text-[var(--primary)]'
+                      : `${isPackagesDetail ? 'text-gray-900' : 'text-white'} hover:text-[var(--secondary)]`,
                   )}
                 >
                   {item.label}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C19F50] transition-all duration-300 group-hover:w-full" />
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--secondary)] transition-all duration-300 group-hover:w-full" />
                 </Link>
               </motion.div>
             ))}
@@ -135,8 +136,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               className={cn(
                 'border-2 transition-all duration-300 hover:scale-105',
                 isScrolled
-                  ? 'border-[#0A7B64] text-[#0A7B64] hover:bg-[#0A7B64] hover:text-white'
-                  : 'border-white text-[#0A7B64] hover:bg-white hover:text-[#0A7B64]',
+                  ? 'border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white'
+                  : 'border-white text-[var(--primary)] hover:bg-white hover:text-[var(--primary)]'
               )}
               asChild
             >
@@ -145,9 +146,10 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 <span>Hubungi Kami</span>
               </Link>
             </Button>
+
             <Button
               size="sm"
-              className="bg-[#C19F50] hover:bg-[#C19F50]/90 text-white transition-all duration-300 hover:scale-105"
+              className="bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 text-white transition-all duration-300 hover:scale-105"
               asChild
             >
               <Link href="https://wa.me/628123456789" className="flex items-center space-x-2">
@@ -164,19 +166,9 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X
-                className={cn(
-                  'w-6 h-6',
-                  isScrolled ? 'text-gray-700' : 'text-gray-700 lg:text-white',
-                )}
-              />
+              <X className={cn('w-6 h-6', isScrolled ? 'text-gray-700' : 'text-gray-700 lg:text-white')} />
             ) : (
-              <Menu
-                className={cn(
-                  'w-6 h-6',
-                  isScrolled ? 'text-gray-700' : 'text-gray-700 lg:text-white',
-                )}
-              />
+              <Menu className={cn('w-6 h-6', isScrolled ? 'text-gray-700' : 'text-gray-700 lg:text-white')} />
             )}
           </button>
         </div>
@@ -202,7 +194,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     <Link
                       href={item.href}
                       onClick={() => handleNavClick(item.href)}
-                      className="block text-gray-700 hover:text-[#0A7B64] font-medium transition-colors duration-300 py-2"
+                      className="block text-gray-700 hover:text-[var(--primary)] font-medium transition-colors duration-300 py-2"
                     >
                       {item.label}
                     </Link>
@@ -218,22 +210,20 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                 >
                   <Button
                     variant="outline"
-                    className="w-full border-[#0A7B64] text-[#0A7B64] hover:bg-[#0A7B64] hover:text-white"
+                    className="w-full border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
                     asChild
                   >
-                    <Link
-                      href="tel:+628123456789"
-                      className="flex items-center justify-center space-x-2"
-                    >
+                    <Link href="tel:+628123456789" className="flex items-center justify-center space-x-2">
                       <Phone className="w-4 h-4" />
                       <span>Hubungi Kami</span>
                     </Link>
                   </Button>
-                  <Button className="w-full bg-[#C19F50] hover:bg-[#C19F50]/90 text-white" asChild>
-                    <Link
-                      href="https://wa.me/628123456789"
-                      className="flex items-center justify-center space-x-2"
-                    >
+
+                  <Button
+                    className="w-full bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 text-white"
+                    asChild
+                  >
+                    <Link href="https://wa.me/628123456789" className="flex items-center justify-center space-x-2">
                       <MessageCircle className="w-4 h-4" />
                       <span>Chat WhatsApp</span>
                     </Link>
@@ -249,3 +239,4 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 }
 
 export default Navbar
+
