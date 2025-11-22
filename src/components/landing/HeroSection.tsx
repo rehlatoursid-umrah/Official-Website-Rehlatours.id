@@ -42,7 +42,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
   const _y = useTransform(scrollY, [0, 800], [0, 200])
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]) // FIXED
+  const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => setMounted(true), [])
 
@@ -122,7 +122,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            {/* PRIMARY BUTTON */}
+            {/* PRIMARY BUTTON — primary */}
             <Button
               size="xl"
               className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
@@ -134,26 +134,24 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — border secondary (#F7C566) */}
+            {/* SECONDARY BUTTON — BACKGROUND #F7C566, BORDER & TEXT & ICON #3A0519, NO HOVER */}
             <Button
               size="xl"
               variant="outline"
-              className="
-                px-8 py-4 text-lg font-semibold
-                bg-[#F7C566]
-                text-[#3A0519]
-                border-2 border-[#3A0519]
-                hover:bg-[#F7C566]
-                hover:text-[#3A0519]
-                hover:border-[#3A0519]
-                transition-all duration-300
-                focus:outline-none
-              "
+              className={cn(
+                'px-8 py-4 text-lg font-semibold',
+                'bg-[#F7C566]',
+                'text-[#3A0519]',
+                'border-2 border-[#3A0519]',
+                'focus:outline-none',
+                // pastikan tidak ada hover color yang mengubah brand:
+                'hover:bg-[#F7C566] hover:text-[#3A0519] hover:border-[#3A0519]'
+              )}
               asChild
             >
               <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-2">
-                <Play className="w-5 h-5 text-[#F7C566]" />
-                <span>{heroData.secondaryCTA.text}</span>
+                <Play className="w-5 h-5 text-[#3A0519]" />
+                <span className="text-[#3A0519]">{heroData.secondaryCTA.text}</span>
               </Link>
             </Button>
           </motion.div>
