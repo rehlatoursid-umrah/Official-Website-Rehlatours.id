@@ -1,7 +1,3 @@
-/* UX: Address common concerns and objections to reduce booking friction and build confidence
-   Proactively answers questions that might prevent conversion decisions */
-/* DESIGN: Clean accordion interface with smooth animations and search functionality */
-
 'use client'
 
 import React, { useState } from 'react'
@@ -79,14 +75,16 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#0A7B64]/10 border border-[#0A7B64]/20 mb-6"
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#3A0519]/10 border border-[#3A0519]/20 mb-6"
           >
-            <HelpCircle className="w-4 h-4 text-[#0A7B64] mr-2" />
-            <span className="text-[#0A7B64] text-sm font-medium">Frequently Asked Questions</span>
+            <HelpCircle className="w-4 h-4 text-[#3A0519] mr-2" />
+            <span className="text-[#3A0519] text-sm font-medium">
+              Frequently Asked Questions
+            </span>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
-            Pertanyaan yang <span className="text-[#0A7B64]">Sering Ditanyakan</span>
+            Pertanyaan yang <span className="text-[#3A0519]">Sering Ditanyakan</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Temukan jawaban untuk pertanyaan umum seputar layanan umroh kami. Jika tidak menemukan
@@ -109,7 +107,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
               placeholder="Cari pertanyaan..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#0A7B64]/20 focus:border-[#0A7B64] transition-colors duration-300"
+              className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#3A0519]/20 focus:border-[#3A0519] transition-colors duration-300"
             />
           </div>
         </motion.div>
@@ -147,14 +145,14 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
                         value={`item-${index}`}
                         className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden"
                       >
-                        <AccordionTrigger className="px-6 py-4 hover:no-underline group [&[data-state=open]]:bg-[#0A7B64]/5">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group [&[data-state=open]]:bg-[#3A0519]/5">
                           <div className="flex items-center justify-between w-full">
-                            <span className="text-left font-semibold text-gray-900 group-hover:text-[#0A7B64] transition-colors duration-300">
+                            <span className="text-left font-semibold text-gray-900 group-hover:text-[#3A0519] transition-colors duration-300">
                               {faq.question}
                             </span>
                             <div className="ml-4 flex-shrink-0">
-                              <div className="w-8 h-8 bg-[#0A7B64]/10 rounded-full flex items-center justify-center group-hover:bg-[#0A7B64]/20 transition-colors duration-300">
-                                <Plus className="w-4 h-4 text-[#0A7B64] transition-transform duration-300 group-data-[state=open]:rotate-45" />
+                              <div className="w-8 h-8 bg-[#3A0519]/10 rounded-full flex items-center justify-center group-hover:bg-[#3A0519]/20 transition-colors duration-300">
+                                <Plus className="w-4 h-4 text-[#3A0519] transition-transform duration-300 group-data-[state=open]:rotate-45" />
                               </div>
                             </div>
                           </div>
@@ -206,7 +204,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
           viewport={{ once: true }}
           className="mt-12 lg:mt-16"
         >
-          <div className="bg-gradient-to-br from-[#F4E8D0] to-[#F4E8D0]/80 rounded-2xl p-6 lg:p-8 text-center border border-[#C19F50]/20">
+          <div className="bg-gradient-to-br from-[#F4E8D0] to-[#F4E8D0]/80 rounded-2xl p-6 lg:p-8 text-center border border-[#f7c566]/20">
             <div className="max-w-2xl mx-auto">
               <h3 className="text-2xl lg:text-3xl font-bold text-[#0B0B0B] mb-4">
                 Masih Ada Pertanyaan?
@@ -220,7 +218,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#0A7B64] hover:bg-[#0A7B64]/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
+                  className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 shadow-lg hover:shadow-xl w-full sm:w-auto"
                 >
                   Chat WhatsApp
                 </motion.button>
@@ -228,7 +226,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="border-2 border-[#0A7B64] text-[#0A7B64] hover:bg-[#0A7B64] hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto"
+                  className="border-2 border-[#3A0519] text-[#3A0519] hover:bg-[#3A0519] hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 w-full sm:w-auto"
                 >
                   Hubungi Telepon
                 </motion.button>
@@ -245,10 +243,11 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
       </div>
 
       {/* Background Decorations */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-[#C19F50]/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#0A7B64]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-20 left-10 w-32 h-32 bg-[#f7c566]/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-[#3A0519]/5 rounded-full blur-3xl -z-10" />
     </section>
   )
 }
 
 export default FAQSection
+
