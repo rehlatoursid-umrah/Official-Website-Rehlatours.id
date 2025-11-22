@@ -42,7 +42,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
   const _y = useTransform(scrollY, [0, 800], [0, 200])
-  the opacity = useTransform(scrollY, [0, 400], [1, 0])
+  const opacity = useTransform(scrollY, [0, 400], [1, 0]) // ← FIXED ERROR
 
   useEffect(() => setMounted(true), [])
 
@@ -134,7 +134,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — FULL SECONDARY + BORDER SECONDARY */}
+            {/* SECONDARY BUTTON — SECONDARY + BORDER SECONDARY + NO HOVER */}
             <Button
               size="xl"
               variant="outline"
