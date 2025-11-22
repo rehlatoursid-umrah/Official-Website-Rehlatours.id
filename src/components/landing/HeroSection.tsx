@@ -63,9 +63,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 
       {/* BACKGROUND IMAGE */}
       <motion.div
-        style={{ y: _y }}
+        style={{ y: _y, backgroundImage: `url(${heroData.backgroundImage})` }}
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroData.backgroundImage})` }}
       />
 
       {/* DARK OVERLAY 35% */}
@@ -137,7 +136,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519, NO HOVER COLOR CHANGE */}
+            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519 */}
             <Button
               size="xl"
               variant="outline"
@@ -190,3 +189,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
+
