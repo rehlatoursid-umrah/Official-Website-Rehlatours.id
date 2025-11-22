@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
               <img
-                src="/image.jpg"
+                src="/mra.png"
                 alt="Logo ZeenTravel"
                 className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
@@ -81,7 +81,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     : `${isPackagesDetail ? 'text-[var(--primary)]' : 'lg:text-white text-[var(--primary)]'}`
                 )}
               >
-                ZeenTravel
+                Rehlatours.id
               </span>
 
               <span
@@ -92,7 +92,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     : `${isPackagesDetail ? 'text-gray-600' : 'text-gray-600 lg:text-gray-200'}`
                 )}
               >
-                Umroh Terpercaya
+                Umroh Ditangan Anda
               </span>
             </div>
           </Link>
