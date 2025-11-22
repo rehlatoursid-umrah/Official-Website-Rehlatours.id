@@ -284,7 +284,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                           </Button>
                           <Button
                             variant="outline"
-                            className="w-full border-[#f7c566] text-[#f7c566] hover:bg-[#f7c566] hover:text-[#3A0519]"
+                            className="w-full border-[#3A0519] text-[#3A0519] hover:bg-[#f7c566] hover:text-[#3A0519]"
                             asChild
                           >
                             <Link
