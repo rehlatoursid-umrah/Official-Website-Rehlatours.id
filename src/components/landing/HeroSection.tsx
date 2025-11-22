@@ -58,22 +58,25 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
     >
       {/* BACKGROUND GRADIENT — primary */}
       <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/90 to-[#3A0519]/80">
-        <div className="absolute inset-0 islamic-pattern opacity-20"></div>
+        <div className="absolute inset-0 islamic-pattern opacity-20" />
       </div>
 
       {/* BACKGROUND IMAGE */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+      <motion.div
+        style={{ y: _y }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${heroData.backgroundImage})` }}
       />
 
-      {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+      {/* DARK OVERLAY 35% */}
+      <div className="absolute inset-0 bg-black/35" />
 
       {/* CONTENT */}
-      <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <motion.div
+        style={{ opacity }}
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+      >
         <div className="max-w-4xl mx-auto">
-
           {/* BADGE — secondary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -134,7 +137,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — BACKGROUND #F7C566, BORDER & TEXT & ICON #3A0519, NO HOVER */}
+            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519, NO HOVER COLOR CHANGE */}
             <Button
               size="xl"
               variant="outline"
@@ -144,8 +147,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 'text-[#3A0519]',
                 'border-2 border-[#3A0519]',
                 'focus:outline-none',
-                // pastikan tidak ada hover color yang mengubah brand:
-                'hover:bg-[#F7C566] hover:text-[#3A0519] hover:border-[#3A0519]'
+                'hover:bg-[#F7C566] hover:text-[#3A0519] hover:border-[#3A0519]',
               )}
               asChild
             >
