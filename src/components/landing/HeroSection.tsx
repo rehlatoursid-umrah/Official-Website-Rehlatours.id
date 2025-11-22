@@ -1,4 +1,5 @@
-/* HERO SECTION — WARNA SUDAH DISESUAIKAN */
+/* HERO SECTION WARNA SUDAH SESUAI PRIMARY (#3A0519) & SECONDARY (#F7C566) */
+
 'use client'
 
 import React, { useEffect, useState } from 'react'
@@ -9,8 +10,9 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import type { HeroData } from '@/types/landing'
 
-const PRIMARY = '#0A7B64'
-const SECONDARY = '#C19F50'
+interface HeroSectionProps {
+  className?: string
+}
 
 const heroData: HeroData = {
   title: 'Wujudkan Impian Umroh Anda',
@@ -36,12 +38,14 @@ const trustIndicators = [
   { icon: Shield, value: '100%', label: 'Terpercaya' },
 ]
 
-const HeroSection = ({ className }: { className?: string }) => {
+const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
+  const _y = useTransform(scrollY, [0, 800], [0, 200])
   const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => setMounted(true), [])
+
   if (!mounted) return null
 
   return (
@@ -52,102 +56,123 @@ const HeroSection = ({ className }: { className?: string }) => {
         className,
       )}
     >
-      {/* Primary Background */}
+      {/* BACKGROUND GRADIENT — primary */}
+      <div className="absolute inset-0 -z-10 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/90 to-[#3A0519]/80">
+        <div className="absolute inset-0 islamic-pattern opacity-20"></div>
+      </div>
+
+      {/* BACKGROUND IMAGE */}
       <div
-        className="absolute inset-0 -z-10"
-        style={{
-          background: `linear-gradient(to bottom right, ${PRIMARY}, ${PRIMARY}CC)`,
-        }}
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
+        style={{ backgroundImage: `url(${heroData.backgroundImage})` }}
       />
 
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${heroData.backgroundImage})`,
-        }}
-      />
+      {/* DARK OVERLAY */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
 
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50" />
+      {/* CONTENT */}
+      <motion.div style={{ opacity }} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-4xl mx-auto">
 
-      {/* Content */}
-      <motion.div
-        style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 text-center"
-      >
-        {/* Badge */}
-        <div className="inline-flex items-center px-4 py-2 rounded-full mb-6"
-          style={{
-            background: `${SECONDARY}20`,
-            border: `1px solid ${SECONDARY}55`,
-          }}
-        >
-          <Star className="w-4 h-4 mr-2" style={{ color: SECONDARY }} />
-          <span className="text-sm font-medium" style={{ color: SECONDARY }}>
-            #1 Travel Umroh Terpercaya
-          </span>
-        </div>
-
-        {/* Title */}
-        <h1 className="text-4xl sm:text-6xl font-bold text-white mb-4">
-          {heroData.title}
-        </h1>
-
-        {/* Subtitle */}
-        <div
-          className="text-3xl font-semibold mb-6"
-          style={{ color: SECONDARY }}
-        >
-          {heroData.subtitle}
-        </div>
-
-        {/* Description */}
-        <p className="text-lg text-gray-200 mb-8 max-w-2xl mx-auto">
-          {heroData.description}
-        </p>
-
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row justify-center gap-4 mb-12">
-          <Button
-            size="xl"
-            className="text-white px-8 py-4 text-lg font-semibold shadow-lg hover:scale-105 transition"
-            style={{
-              backgroundColor: PRIMARY,
-            }}
-            asChild
+          {/* BADGE — secondary */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="inline-flex items-center px-4 py-2 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 backdrop-blur-sm mb-6"
           >
-            <Link href={heroData.primaryCTA.href}>
-              <span>{heroData.primaryCTA.text}</span>
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </Link>
-          </Button>
+            <Star className="w-4 h-4 text-[#F7C566] mr-2" />
+            <span className="text-[#F7C566] text-sm font-medium">#1 Travel Umroh Terpercaya</span>
+          </motion.div>
 
-          <Button
-            size="xl"
-            variant="outline"
-            className="border-white text-white px-8 py-4 text-lg font-semibold hover:bg-white hover:text-black transition"
-            asChild
+          {/* TITLE */}
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight"
           >
-            <Link href={heroData.secondaryCTA.href}>
-              <Play className="w-5 h-5 mr-2" />
-              <span>{heroData.secondaryCTA.text}</span>
-            </Link>
-          </Button>
-        </div>
+            {heroData.title}
+          </motion.h1>
 
-        {/* Trust Indicators */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {trustIndicators.map((item) => (
-            <div
-              key={item.label}
-              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl text-center border border-white/20"
+          {/* SUBTITLE — secondary */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#F7C566] mb-6"
+          >
+            {heroData.subtitle}
+          </motion.div>
+
+          {/* DESCRIPTION */}
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed"
+          >
+            {heroData.description}
+          </motion.p>
+
+          {/* CTA BUTTONS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          >
+            {/* PRIMARY BUTTON — primary */}
+            <Button
+              size="xl"
+              className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
+              asChild
             >
-              <item.icon className="w-8 h-8 mx-auto mb-3" style={{ color: SECONDARY }} />
-              <div className="text-3xl font-bold text-white">{item.value}</div>
-              <div className="text-gray-300 text-sm">{item.label}</div>
-            </div>
-          ))}
+              <Link href={heroData.primaryCTA.href} className="flex items-center space-x-2">
+                <span>{heroData.primaryCTA.text}</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            </Button>
+
+            {/* SECONDARY BUTTON — FULL PRIMARY, NO HOVER */}
+            <Button
+              size="xl"
+              variant="outline"
+              className="border-2 border-[#3A0519] bg-[#3A0519] text-white px-8 py-4 text-lg font-semibold"
+              asChild
+            >
+              <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-2">
+                <Play className="w-5 h-5" />
+                <span>{heroData.secondaryCTA.text}</span>
+              </Link>
+            </Button>
+          </motion.div>
+
+          {/* TRUST INDICATORS */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
+            className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+          >
+            {trustIndicators.map((indicator, index) => (
+              <motion.div
+                key={indicator.label}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
+                className="text-center group cursor-pointer"
+              >
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 transition-all duration-300 hover:bg-white/20 hover:scale-105 border border-white/20">
+                  <indicator.icon className="w-8 h-8 text-[#F7C566] mx-auto mb-3" />
+                  <div className="text-2xl lg:text-3xl font-bold text-white mb-1">
+                    {indicator.value}
+                  </div>
+                  <div className="text-sm text-gray-300 font-medium">{indicator.label}</div>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </motion.div>
     </section>
