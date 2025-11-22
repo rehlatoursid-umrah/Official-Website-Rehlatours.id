@@ -1,4 +1,4 @@
-/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY FULL HITAM */
+/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM 45% */
 
 'use client'
 
@@ -56,7 +56,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className,
       )}
     >
-      {/* BACKGROUND GRADIENT — primary (di bawah image, hampir tidak kelihatan tapi tetap brand) */}
+      {/* BACKGROUND GRADIENT — primary */}
       <div className="absolute inset-0 -z-20 bg-gradient-to-br from-[#3A0519] via-[#3A0519]/90 to-[#3A0519]/80">
         <div className="absolute inset-0 islamic-pattern opacity-20" />
       </div>
@@ -67,8 +67,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
         className="absolute inset-0 -z-10 bg-cover bg-center bg-no-repeat"
       />
 
-      {/* DARK OVERLAY FULL HITAM (35%) */}
-      <div className="absolute inset-0 bg-black/35" />
+      {/* DARK OVERLAY HITAM 45% */}
+      <div className="absolute inset-0 bg-black/45" />
 
       {/* CONTENT */}
       <motion.div
@@ -157,7 +157,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             </Button>
           </motion.div>
 
-          {/* TRUST INDICATORS — tanpa bg putih */}
+          {/* TRUST INDICATORS */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -189,3 +189,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
+
