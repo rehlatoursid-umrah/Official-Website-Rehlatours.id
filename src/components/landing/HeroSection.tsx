@@ -42,7 +42,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [mounted, setMounted] = useState(false)
   const { scrollY } = useScroll()
   const _y = useTransform(scrollY, [0, 800], [0, 200])
-  const opacity = useTransform(scrollY, [0, 400], [1, 0])
+  the opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => setMounted(true), [])
 
@@ -134,12 +134,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — SECONDARY (#F7C566) + PRIMARY TEXT (#3A0519) */}
-
+            {/* SECONDARY BUTTON — FULL SECONDARY + BORDER SECONDARY */}
             <Button
               size="xl"
               variant="outline"
-              className="px-8 py-4 text-lg font-semibold bg-[#F7C566] text-[#3A0519] border-2 border-[#F7C566] hover:none focus:outline-none"
+              className="px-8 py-4 text-lg font-semibold 
+                         bg-[#F7C566] 
+                         text-[#3A0519] 
+                         border-2 border-[#F7C566] 
+                         hover:bg-[#F7C566] 
+                         hover:text-[#3A0519] 
+                         hover:border-[#F7C566] 
+                         focus:outline-none"
               asChild
             >
               <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-2">
