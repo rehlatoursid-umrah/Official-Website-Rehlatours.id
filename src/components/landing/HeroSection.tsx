@@ -16,7 +16,7 @@ const heroData: HeroData = {
   title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
   subtitle: 'Bersama Rehlatours.id',
   description:
-    'Mulai perjalanan umroh pertamamu dengan mudah, didampingi tim profesional, harga bersahabat, dan bimbingan step-by-step. Banyak jamaah baru yang sudah mempercayakan umroh pertamanya bersama Rehlatours.id. Sekarang Giliran Anda!',
+    'Mulai umroh pertamamu dengan mudah, didampingi tim profesional dan harga bersahabat. Sudah banyak jamaah baru percaya ke Rehlatours.id. Sekarang giliran Anda!﻿',
   primaryCTA: {
     text: 'Daftar Sekarang',
     href: '/packages',
@@ -30,10 +30,10 @@ const heroData: HeroData = {
 }
 
 const trustIndicators = [
-  { icon: Users, value: '2,500+', label: 'Jamaah Terlayani' },
-  { icon: Star, value: '4.9', label: 'Rating Kepuasan' },
-  { icon: Calendar, value: '8', label: 'Tahun Pengalaman' },
-  { icon: Shield, value: '100%', label: 'Terpercaya' },
+  { icon: Users, value: 'Jamaah Terlayani﻿', label: 'Layanan penuh perhatian di setiap perjalanan.﻿' },
+  { icon: Star, value: 'Rating Kepuasan﻿', label: 'Kenyamanan dan respons cepat setiap saat.' },
+  { icon: Calendar, value: 'Tahun Pengalaman﻿', label: 'Tim berpengalaman, siap membimbing' },
+  { icon: Shield, value: 'Terpercaya', label: 'Proses transparan, aman, dan nyaman.﻿' },
 ]
 
 const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
