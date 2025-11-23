@@ -4,8 +4,8 @@ import "../(frontend)/styles.css";
 
 export const metadata = {
   description:
-    'ZeenTravel - Travel Umroh Terpercaya dengan Pelayanan Terbaik. Wujudkan impian umroh Anda dengan fasilitas premium dan harga terjangkau.',
-  title: 'ZeenTravel - Travel Umroh Terpercaya | Paket Umroh Terbaik Indonesia',
+    'Rehlatours.id - Umroh Ditangan Anda. Wujudkan impian umroh Anda dengan fasilitas premium dan harga terjangkau.',
+  title: 'Rehlatours.id - Umroh Ditangan Anda | Paket Umroh Terbaik Indonesia',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -15,7 +15,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="id" className="scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#0A7B64" />
+        <meta name="theme-color" content="#3A0519" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
