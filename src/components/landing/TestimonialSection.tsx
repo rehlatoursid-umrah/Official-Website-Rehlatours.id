@@ -29,8 +29,7 @@ const testimonialsData: TestimonialItem[] = [
 
          Oiya di rehlatours tidak hanya ada umroh backpacker, tapi juga ada paket umroh hemat yg murah loh.. 
          So, yuk yg mau umroh hemat ataupun backpacker ke rehlatours.id ajaa ',
-    avatar:
-      'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
+    avatar: '/avatars/hana.png',
     package: 'Paket Umroh Reguler 9 Hari',
   },
   {
@@ -52,8 +51,7 @@ const testimonialsData: TestimonialItem[] = [
   
        Jawabannya jelas: Rehlatour! ✨
 ',
-    avatar:
-      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
+    avatar: '/avatars/pakmul.png',
     package: 'Paket Umroh Premium 10 Hari',
   },
   {
@@ -70,8 +68,7 @@ const testimonialsData: TestimonialItem[] = [
       saya mendapatkan layanan yang memuaskan. Fasilitas yang diberikan juga worth it untuk anak anak muda, 
       maskapai yang digunakan nyaman banget, hotel Mekah dan Madinah juga nyaman untuk istirahat, dan yang paling penting kita bisa bebas untuk kemana mana, 
       napak tilas perjalanan Rasulullah dan para sahabat, bisa juga wisata kuliner, intinya kita bisa request mau kemana.So, rehlatour my favorite travel for the next umroh.',
-    avatar:
-      'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
+    avatar: '/avatars/revi.png',
     package: 'Paket Umroh VIP 16 Hari',
   },
   {
@@ -81,9 +78,8 @@ const testimonialsData: TestimonialItem[] = [
     rating: 5,
     content:
       'Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama Rehlatours.id.',
-    avatar:
-      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
-    package: 'Paket Umroh Ekonomi 10 Hari',
+    avatar: '/avatars/afif.jpg',
+    package: 'Paket Umroh Ekonomi 10 Hari', 
   },
   {
     id: 5,
