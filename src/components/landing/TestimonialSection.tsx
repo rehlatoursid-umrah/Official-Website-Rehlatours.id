@@ -14,69 +14,87 @@ interface TestimonialSectionProps {
 const testimonialsData: TestimonialItem[] = [
   {
     id: 1,
-    name: 'Ibu Siti Aminah',
-    location: 'Jakarta',
+    name: 'Hanna Fatimah, S.Gz, M.Gz.',
+    location: 'Bekasi',
     rating: 5,
     content:
-      'Alhamdulillah, perjalanan umroh bersama ZeenTravel sangat berkesan. Pelayanan yang luar biasa, hotel nyaman, dan pembimbing yang sabar. Saya merasa sangat terbantu dalam menjalankan ibadah dengan khusyuk.',
+        'Pengalaman umroh backpacker yang bikin ketagihan mau lagi dan lagi xixi.. (Aamiin Yaa Allah) 
+         Kalau yg kita tau backpacker itu serba ngurus sendiri, tapi di rehlatours kita gaperlu ribet ngurus ini itu.
+
+         Karena sebelum berangkat ada tim dari rehla yg bantu buat kolektifin dari mulai tiket pesawat, hotel, visa, dll.. jadi kita tinggal terima beres tapi tetep ngerasain nuansa umroh backpacker yang serba fleksibel dan murah.. kita bisa lebih nikmatin ibadah di Tanah Suci, bisa umroh berkali2, city tour ke tempat yg kita mau, ngerasain berbagai kuliner Saudi, dan juga ngerasain pengalaman naik uber dan transportasi umum di Mekkah Madinah 
+
+         Oiya muthowwif dan tourguide nya juga sangat mengayomi dan berpengalaman, jadi jangan ragu untuk bisa tau banyak wawasan terkait ibadah dan tempat2 disana hehe
+
+         Terima kasih rehlatours.id atas pengalaman ibadah yang luaar biasaa MaasyaaAllah TabarakAllah AlhamduliLLAH
+
+         Oiya di rehlatours tidak hanya ada umroh backpacker, tapi juga ada paket umroh hemat yg murah loh.. 
+         So, yuk yg mau umroh hemat ataupun backpacker ke rehlatours.id ajaa ',
     avatar:
       'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
-    package: 'Paket Umroh Reguler 12 Hari',
+    package: 'Paket Umroh Reguler 9 Hari',
   },
   {
     id: 2,
-    name: 'Bapak Ahmad Rizki',
-    location: 'Surabaya',
+    name: 'Bapak Mulyadi',
+    location: 'Tangerang',
     rating: 5,
     content:
-      'Pengalaman yang tak terlupakan! Tim ZeenTravel sangat profesional dan perhatian. Fasilitas hotel dekat Masjidil Haram memudahkan kami untuk beribadah. Highly recommended untuk keluarga yang ingin umroh.',
+      'Alhamdulillah, Allah kasih saya kesempatan umroh bareng Rehlatour. Jujur, awalnya saya sempat mikir: “Umroh? Bukannya itu biasanya buat orang tua?” Tapi ternyata, dengan konsep Umroh Backpacker, pengalaman ini jadi ibadah paling seru dan bermakna dalam hidup saya.
+       Ternyata backpacker bukan berarti seadanya. Perjalanan bareng Rehlatour tetap nyaman dan terorganisir: mulai dari maskapai yang oke, hotel strategis dekat Masjidil Haram & Nabawi, sampai layanan yang bikin hati tenang.
+
+       Yang bikin beda, konsepnya friendly, fleksibel, dan pas banget buat anak muda. Kita bisa:
+       ✅ Napak tilas sejarah Rasulullah ﷺ dan sahabat
+       ✅ Wisata kuliner khas Arab – dari nasi mandi sampai teh mint
+       ✅ Quality time bareng teman-teman, foto-foto, bikin momen memorable
+
+       Buat saya, umroh kali ini bukan hanya soal ibadah, tapi juga perjalanan spiritual yang nyatu dengan gaya hidup anak muda: ibadah dapet, pengalaman dapet. Dan yang paling penting, saya sadar umroh nggak harus nunggu “tua” dulu. Justru saat muda, energi kita lebih besar buat beribadah dan belajar.
+       Kalau ada yang tanya travel mana yang cocok banget buat anak muda?
+  
+       Jawabannya jelas: Rehlatour! ✨
+',
     avatar:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
     package: 'Paket Umroh Premium 14 Hari',
   },
   {
     id: 3,
-    name: 'Ibu Fatimah Zahra',
+    name: 'Reviani Lestari, S.P',
     location: 'Bandung',
     rating: 5,
     content:
-      'Subhanallah, perjalanan yang sangat spiritual. Dari awal pendaftaran hingga pulang, semuanya diatur dengan sangat baik. Bimbingan manasik yang detail membuat kami lebih siap menjalankan ibadah umroh.',
+      'My umroh journey with rehlatours
+       Alhamdulillah Alhamdulillah, Allah pertemukan saya dengan travel umroh rehlatour. Di awal saya sudah tertarik karena rehlatour pakai metode backpacker. 
+
+      Yang saya tahu umroh backpackeran itu fasilitasnya sederhana krena low budget. 
+      Tapi ternyata rehlatour beda bangeet, mulai dari persiapan sampai pulang lagi ke tanah air, 
+      saya mendapatkan layanan yang memuaskan. Fasilitas yang diberikan juga worth it untuk anak anak muda, 
+      maskapai yang digunakan nyaman banget, hotel Mekah dan Madinah juga nyaman untuk istirahat, dan yang paling penting kita bisa bebas untuk kemana mana, 
+      napak tilas perjalanan Rasulullah dan para sahabat, bisa juga wisata kuliner, intinya kita bisa request mau kemana.So, rehlatour my favorite travel for the next umroh.',
     avatar:
       'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
     package: 'Paket Umroh VIP 16 Hari',
   },
   {
     id: 4,
-    name: 'Bapak Muhammad Yusuf',
-    location: 'Medan',
+    name: 'Muhammad Iqbal',
+    location: 'Sumatera Barat',
     rating: 5,
     content:
-      'ZeenTravel benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama ZeenTravel.',
+      'Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama Rehlatours.id.',
     avatar:
       'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
     package: 'Paket Umroh Ekonomi 10 Hari',
   },
   {
     id: 5,
-    name: 'Ibu Khadijah Rahman',
-    location: 'Yogyakarta',
+    name: 'Afif Fachry, Lc.',
+    location: 'Sumatera Barat',
     rating: 5,
     content:
       'Perjalanan umroh pertama saya dan keluarga berjalan dengan sempurna. Grup kecil membuat suasana lebih intim dan kekeluargaan. Pembimbing yang berpengalaman membantu kami memahami setiap ritual dengan baik.',
     avatar:
       'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
     package: 'Paket Umroh Keluarga 12 Hari',
-  },
-  {
-    id: 6,
-    name: 'Bapak Ibrahim Malik',
-    location: 'Makassar',
-    rating: 5,
-    content:
-      'Masya Allah, pengalaman yang sangat berharga. Hotel mewah, makanan halal yang lezat, transportasi nyaman. Yang paling berkesan adalah bimbingan spiritual yang mendalam selama di tanah suci.',
-    avatar:
-      'https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
-    package: 'Paket Umroh Executive 15 Hari',
   },
 ]
 
@@ -150,10 +168,10 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
-            Cerita Jamaah <span className="text-[#3A0519]">ZeenTravel</span>
+            Cerita Jamaah <span className="text-[#3A0519]">Rehlatours.id</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ribuan jamaah telah merasakan pengalaman umroh yang tak terlupakan bersama kami.
+            Jamaah telah merasakan pengalaman umroh yang tak terlupakan bersama kami.
             Dengarkan cerita mereka dan rasakan kepercayaan yang sama.
           </p>
         </motion.div>
