@@ -18,7 +18,7 @@ interface FAQSectionProps {
 
 const faqData: FAQItem[] = [
   {
-    question: 'Bagaimana cara mendaftar umroh di ZeenTravel?',
+    question: 'Bagaimana cara mendaftar umroh di Rehlatours.id?',
     answer:
       'Pendaftaran sangat mudah! Anda bisa menghubungi kami melalui WhatsApp, telepon, atau datang langsung ke kantor. Tim kami akan membantu memilihkan paket yang sesuai dengan kebutuhan dan budget Anda. Proses pendaftaran hanya membutuhkan fotokopi KTP, KK, dan foto 4x6 latar belakang putih.',
   },
@@ -250,4 +250,3 @@ const FAQSection: React.FC<FAQSectionProps> = ({ className }) => {
 }
 
 export default FAQSection
-
