@@ -15,8 +15,8 @@ interface HeroSectionProps {
 }
 
 const heroData: HeroData = {
-  title: 'Wujudkan Impian Umroh Anda',
-  subtitle: 'Bersama ZeenTravel',
+  title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
+  subtitle: 'Bersama ZeenTravel, Panduan Lengkap untuk Jamaah Baru',
   description:
     'Nikmati perjalanan spiritual yang tak terlupakan dengan pelayanan terbaik, bimbingan profesional, dan harga terjangkau. Telah dipercaya ribuan jamaah sejak 2015.',
   primaryCTA: {
