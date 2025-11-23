@@ -16,7 +16,7 @@ interface HeroSectionProps {
 
 const heroData: HeroData = {
   title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
-  subtitle: 'Bersama ZeenTravel, Panduan Lengkap untuk Jamaah Baru',
+  subtitle: 'Bersama Rehlatours.id',
   description:
     'Nikmati perjalanan spiritual yang tak terlupakan dengan pelayanan terbaik, bimbingan profesional, dan harga terjangkau. Telah dipercaya ribuan jamaah sejak 2015.',
   primaryCTA: {
