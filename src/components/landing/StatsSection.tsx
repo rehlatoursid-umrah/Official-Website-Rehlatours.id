@@ -101,7 +101,7 @@ export default function StatsSection({ className }: StatsSectionProps) {
         >
           <div className="rounded-xl border-2 border-[#3A0519]/20 bg-white px-6 py-8 md:py-10 max-w-2xl mx-auto">
             <h3 className="text-lg md:text-xl font-bold text-[#0B0B0B] mb-2">
-              Konsultasikan kebutuhan umrohmu bersama kami
+              Konsultasikan umrohmu bersama kami
             </h3>
             <p className="text-gray-700 mb-4">
               Bergabunglah dan rasakan pengalaman umroh yang nyaman dan terjangkau bersama Rehlatours.id
