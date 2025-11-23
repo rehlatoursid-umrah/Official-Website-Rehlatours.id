@@ -9,16 +9,13 @@ import {
   Mail,
   MessageCircle,
   Clock,
-  Facebook,
-  Instagram,
-  Youtube,
-  Twitter,
   ArrowUp,
   Shield,
   Award,
   CheckCircle,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+// Import tipe tetap tapi jangan pakai icon lucide-react di socialLinks
 import type { FooterSection, SocialLink, ContactInfo } from '@/types/landing'
 
 interface FooterProps {
@@ -61,11 +58,12 @@ const footerSections: FooterSection[] = [
   },
 ]
 
-const socialLinks: SocialLink[] = [
-  { platform: 'Facebook', href: 'https://facebook.com/rehlatours.id', icon: Facebook },
-  { platform: 'Instagram', href: 'https://instagram.com/rehlatours.id', icon: Instagram },
-  { platform: 'YouTube', href: 'https://youtube.com/rehlatoursid', icon: Youtube },
-  { platform: 'Twitter', href: 'https://twitter.com/rehlatoursid', icon: Twitter },
+// Deleted icons to prevent type error, just keep platform and href
+const socialLinks: Omit<SocialLink, 'icon'>[] = [
+  { platform: 'Facebook', href: 'https://facebook.com/rehlatours.id' },
+  { platform: 'Instagram', href: 'https://instagram.com/rehlatours.id' },
+  { platform: 'YouTube', href: 'https://youtube.com/rehlatoursid' },
+  { platform: 'Twitter', href: 'https://twitter.com/rehlatoursid' },
 ]
 
 const contactInfo: ContactInfo = {
@@ -233,30 +231,27 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               <div>
                 <h3 className="font-bold text-lg text-white mb-6">Ikuti Kami</h3>
 
-                {/* Social Links */}
+                {/* Social Links Without icons to prevent error */}
                 <div className="flex space-x-4 mb-6">
-                  {socialLinks.map((social, index) => {
-                    const IconComponent = social.icon
-                    return (
-                      <motion.div
-                        key={social.platform}
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.1 }}
-                        viewport={{ once: true }}
+                  {socialLinks.map((social) => (
+                    <motion.div
+                      key={social.platform}
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4 }}
+                      viewport={{ once: true }}
+                    >
+                      <Link
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-10 h-10 bg-gray-800 hover:bg-[#3A0519] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                        aria-label={`Follow us on ${social.platform}`}
                       >
-                        <Link
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="w-10 h-10 bg-gray-800 hover:bg-[#3A0519] rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110 group"
-                          aria-label={`Follow us on ${social.platform}`}
-                        >
-                          <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors duration-300" />
-                        </Link>
-                      </motion.div>
-                    )
-                  })}
+                        <span className="text-white text-sm font-semibold">{social.platform}</span>
+                      </Link>
+                    </motion.div>
+                  ))}
                 </div>
 
                 {/* Newsletter Signup */}
@@ -359,3 +354,4 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 }
 
 export default Footer
+
