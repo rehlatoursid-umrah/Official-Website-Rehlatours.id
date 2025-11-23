@@ -66,7 +66,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
               <img
-                src="/mra.png"
+                src={isScrolled ? '/logo-sticky.png' : '/logo-transparent.png'}
                 alt="Logo ZeenTravel"
                 className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
@@ -188,49 +188,3 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                   >
                     <Link
                       href={item.href}
-                      onClick={() => handleNavClick(item.href)}
-                      className="block text-gray-700 hover:text-[var(--primary)] font-medium transition-colors duration-300 py-2"
-                    >
-                      {item.label}
-                    </Link>
-                  </motion.div>
-                ))}
-
-                {/* Mobile CTA Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.3 }}
-                  className="pt-4 border-t border-gray-200 space-y-3"
-                >
-                  <Button
-                    variant="outline"
-                    className="w-full border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
-                    asChild
-                  >
-                    <Link href="tel:+628123456789" className="flex items-center justify-center space-x-2">
-                      <Phone className="w-4 h-4" />
-                      <span>Hubungi Kami</span>
-                    </Link>
-                  </Button>
-
-                  <Button
-                    className="w-full bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 text-white"
-                    asChild
-                  >
-                    <Link href="https://wa.me/628123456789" className="flex items-center justify-center space-x-2">
-                      <MessageCircle className="w-4 h-4" />
-                      <span>Chat WhatsApp</span>
-                    </Link>
-                  </Button>
-                </motion.div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </nav>
-    </motion.header>
-  )
-}
-
-export default Navbar
