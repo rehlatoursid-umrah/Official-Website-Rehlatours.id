@@ -71,18 +71,18 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
       {/* CONTENT */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
+        className="relative z-10 max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 text-center"
       >
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-xs sm:max-w-md md:max-w-xl mx-auto">
           {/* BADGE — secondary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="inline-flex items-center px-4 py-2 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 mb-6"
+            className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 mb-4 sm:mb-6"
           >
             <Star className="w-4 h-4 text-[#F7C566] mr-2" />
-            <span className="text-[#F7C566] text-sm font-medium">#1 Travel Umroh Terpercaya</span>
+            <span className="text-[#F7C566] text-xs sm:text-sm font-medium">#1 Travel Umroh Terpercaya</span>
           </motion.div>
 
           {/* TITLE */}
@@ -90,7 +90,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight"
+            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-3 sm:mb-4 leading-tight"
           >
             {heroData.title}
           </motion.h1>
@@ -100,7 +100,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-[#F7C566] mb-6"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-[#F7C566] mb-4 sm:mb-6"
           >
             {heroData.subtitle}
           </motion.div>
@@ -110,7 +110,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="text-lg sm:text-xl text-gray-200 mb-8 max-w-2xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 max-w-sm sm:max-w-md md:max-w-lg mx-auto leading-relaxed"
           >
             {heroData.description}
           </motion.p>
@@ -120,12 +120,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-8 sm:mb-10"
           >
             {/* PRIMARY BUTTON — primary */}
             <Button
               size="xl"
-              className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
+              className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl group"
               asChild
             >
               <Link href={heroData.primaryCTA.href} className="flex items-center space-x-2">
@@ -139,7 +139,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               size="xl"
               variant="outline"
               className={cn(
-                'px-8 py-4 text-lg font-semibold',
+                'px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold',
                 'bg-[#F7C566]',
                 'text-[#3A0519]',
                 'border-2 border-[#3A0519]',
@@ -160,7 +160,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8"
           >
             {trustIndicators.map((indicator, index) => (
               <motion.div
@@ -170,12 +170,12 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
                 className="text-center group cursor-pointer"
               >
-                <div className="bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/55 hover:scale-105 border border-white/10">
-                  <indicator.icon className="w-8 h-8 text-[#F7C566] mx-auto mb-3" />
+                <div className="bg-black/40 rounded-2xl p-5 sm:p-6 transition-all duration-300 hover:bg-black/55 hover:scale-105 border border-white/10">
+                  <indicator.icon className="w-7 h-7 text-[#F7C566] mx-auto mb-2 sm:mb-3" />
                   <div className="text-lg lg:text-xl font-bold text-white mb-1">
                     {indicator.value}
                   </div>
-                  <div className="text-sm text-gray-200 font-medium">{indicator.label}</div>
+                  <div className="text-sm sm:text-base text-gray-200 font-medium">{indicator.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -187,5 +187,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
-
-
