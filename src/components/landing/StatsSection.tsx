@@ -21,12 +21,12 @@ interface StatsSectionProps {
 }
 
 const statsData: StatItem[] = [
-  { value: 2500, label: 'Jamaah Terlayani', suffix: '+', prefix: '' },
-  { value: 4.9, label: 'Rating Kepuasan', suffix: '/5', prefix: '' },
-  { value: 8, label: 'Tahun Pengalaman', suffix: '+', prefix: '' },
-  { value: 15, label: 'Paket Tersedia', suffix: '+', prefix: '' },
-  { value: 100, label: 'Kepuasan Jamaah', suffix: '%', prefix: '' },
-  { value: 50, label: 'Kota di Indonesia', suffix: '+', prefix: '' },
+  { value: Terlayani, label: 'Pendampingan ramah untuk setiap jamaah.﻿', suffix: '+', prefix: '' },
+  { value: Kepuasan, label: 'Layanan responsif dan nyaman.﻿', suffix: '/5', prefix: '' },
+  { value: Pengalaman, label: 'Tim berpengalaman siap membantu.﻿', suffix: '+', prefix: '' },
+  { value: Tersedia, label: 'Paket sesuai kebutuhan Anda.', suffix: '+', prefix: '' },
+  { value: Prioritas, label: 'Prioritaskan kenyamanan ibadah.', suffix: '%', prefix: '' },
+  { value: Akses, label: 'Layanan bisa diakses dari berbagai kota.﻿', suffix: '+', prefix: '' },
 ]
 
 const statIcons = [Users, Star, Calendar, MapPin, Award, Heart]
