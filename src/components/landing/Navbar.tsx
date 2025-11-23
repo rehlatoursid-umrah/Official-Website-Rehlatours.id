@@ -148,7 +148,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               asChild
             >
               <Link href="https://wa.me/628123456789" className="flex items-center space-x-2">
-              <MessageCircle className="w-4 h-4" />
+              <MessageCircle className="w-4 h-4 text-[#3a0519]" />
               <span className="text-[#3a0519]">WhatsApp</span>
               </Link>
             </Button>
