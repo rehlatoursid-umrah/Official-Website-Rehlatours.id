@@ -15,9 +15,8 @@ interface CTASectionProps {
 const ctaData: CTAData = {
   title: 'Jangan Tunda Niat Baikmu, Mulai Umroh Pertamamu Hari Ini!',
   subtitle: 'Penawaran Terbatas untuk Jamaah Baru',
-  description:
-    'Wujudkan impian ke tanah suci dengan proses mudah, bimbingan ramah, dan harga terjangkau.
-     kami berkomitmen memberikan layanan jujur, transparan, dan selalu siap mendampingi setiap langkah perjalanan umroh Anda.',
+  description: `Wujudkan impian ke tanah suci dengan proses mudah, bimbingan ramah, dan harga terjangkau.
+Kami berkomitmen memberikan layanan jujur, transparan, dan selalu siap mendampingi setiap langkah perjalanan umroh Anda.`,
   buttonText: 'Daftar Sekarang - Promo Terbatas',
   buttonHref: '#contact',
   features: [
@@ -269,4 +268,5 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
 }
 
 export default CTASection
+
 
