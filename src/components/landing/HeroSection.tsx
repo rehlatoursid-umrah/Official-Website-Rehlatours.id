@@ -18,7 +18,7 @@ const heroData: HeroData = {
   description:
     'Mulai umroh pertamamu dengan mudah, didampingi tim profesional dan harga bersahabat. Sudah banyak jamaah baru percaya ke Rehlatours.id. Sekarang giliran Anda!',
   primaryCTA: {
-    text: 'Daftar Sekarang',
+    text: 'Layanan Kami',
     href: '/packages',
   },
   secondaryCTA: {
