@@ -40,7 +40,7 @@ const footerSections: FooterSection[] = [
   {
     title: 'Informasi',
     links: [
-      { label: 'Tentang ZeenTravel', href: '/tentang' },
+      { label: 'Tentang Rehlatours.id', href: '/tentang' },
       { label: 'Mengapa Memilih Kami', href: '/keunggulan' },
       { label: 'Tim Profesional', href: '/tim' },
       { label: 'Sertifikasi', href: '/sertifikasi' },
@@ -62,17 +62,17 @@ const footerSections: FooterSection[] = [
 ]
 
 const socialLinks: SocialLink[] = [
-  { platform: 'Facebook', href: 'https://facebook.com/zeentravel', icon: 'Facebook' },
-  { platform: 'Instagram', href: 'https://instagram.com/zeentravel', icon: 'Instagram' },
-  { platform: 'YouTube', href: 'https://youtube.com/zeentravel', icon: 'Youtube' },
-  { platform: 'Twitter', href: 'https://twitter.com/zeentravel', icon: 'Twitter' },
+  { platform: 'Facebook', href: 'https://facebook.com/rehlatours.id', icon: 'Facebook' },
+  { platform: 'Instagram', href: 'https://instagram.com/rehlatours.id', icon: 'Instagram' },
+  { platform: 'YouTube', href: 'https://youtube.com/rehlatoursid', icon: 'Youtube' },
+  { platform: 'Twitter', href: 'https://twitter.com/rehlatoursid', icon: 'Twitter' },
 ]
 
 const contactInfo: ContactInfo = {
-  phone: '(021) 123-4567',
-  email: 'info@zeentravel.com',
-  address: 'Jl. Raya Umroh No. 123, Jakarta Selatan 12345',
-  whatsapp: '+62 812-3456-7890',
+  phone: '+6283197321658,
+  email: 'info@rehlatours.id',
+  address: 'Permata Biru Rw 001 Rt 027 Desa Cinunuk Kec. Cileunyi Kab. Bandung Jawa Barat',
+  whatsapp: '+6283197321658',
 }
 
 const certifications = [
@@ -114,19 +114,17 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               {/* Logo */}
               <Link href="/" className="flex items-center space-x-3 mb-6 group">
                 <div className="w-12 h-12 bg-[#3A0519] rounded-lg flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-white font-bold text-xl">Z</span>
+                  <span className="text-white font-bold text-xl">R</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-bold text-xl text-white">ZeenTravel</span>
-                  <span className="text-sm text-gray-400">Umroh Terpercaya</span>
+                  <span className="font-bold text-xl text-white">Rehlatours.id</span>
+                  <span className="text-sm text-gray-400">Umroh Amanah dan Ramah</span>
                 </div>
               </Link>
 
               {/* Company Description */}
               <p className="text-gray-300 leading-relaxed mb-6">
-                ZeenTravel adalah travel umroh terpercaya dengan pengalaman 8+ tahun melayani ribuan
-                jamaah. Kami berkomitmen memberikan pelayanan terbaik untuk perjalanan spiritual
-                Anda.
+                Rehlatours.id adalah travel umroh yang berkomitmen memberi layanan ramah, jujur, dan transparan bagi jamaah baru dan keluarga. Kami selalu siap mendampingi perjalanan spiritual Anda ke Tanah Suci dengan solusi fleksibel dan proses yang mudah.
               </p>
 
               {/* Trust Badges */}
@@ -327,7 +325,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-gray-400 text-sm text-center md:text-left">
                 <p>
-                  © 2024 ZeenTravel. All rights reserved. |{' '}
+                  © 2024 Rehlatours.id. All rights reserved. |{' '}
                   <Link
                     href="/privasi"
                     className="hover:text-[#f7c566] transition-colors duration-300"
@@ -368,4 +366,5 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 }
 
 export default Footer
+
 
