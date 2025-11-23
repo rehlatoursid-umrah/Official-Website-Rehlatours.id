@@ -13,13 +13,13 @@ interface FeatureSectionProps {
 const featuresData: FeatureItem[] = [
   {
     title: "Bimbingan Spiritual Lengkap",
-    description: "Tim pembimbing berpengalaman mendampingi perjalanan ibadah Anda dengan materi spiritual yang komprehensif dan bimbingan manasik yang detail.",
+    description: "Tim pembimbing berpengalaman mendampingi perjalanan ibadah Anda dibekali dengan materi manasik yang komprehensif dan bimbingan navigasi yang detail.",
     icon: "Heart",
     color: "from-[#3A0519] to-[#3A0519]/80",
   },
   {
     title: "Akomodasi Premium",
-    description: "Hotel bintang 4-5 di lokasi strategis dekat Masjidil Haram dan Masjid Nabawi dengan fasilitas modern dan pelayanan terbaik.",
+    description: "Hotel bintang 4-5 di lokasi strategis dan nyaman dan dengan fasilitas layanan armada terbaik.",
     icon: "MapPin",
     color: "from-[#3A0519] to-[#3A0519]/80",
   },
@@ -43,7 +43,7 @@ const featuresData: FeatureItem[] = [
   },
   {
     title: "Sertifikat Resmi",
-    description: "Bersertifikat resmi Kementerian Agama dan IATA dengan track record pelayanan umroh terpercaya sejak tahun 2015.",
+    description: "Standar resmi Kementerian Agama dengan track record pelayanan umroh terpercaya.",
     icon: "Award",
     color: "from-[#3A0519] to-[#3A0519]/80",
   },
@@ -85,7 +85,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
           >
             <CheckCircle className="w-4 h-4 text-[#3A0519] mr-2" />
             <span className="text-[#3A0519] text-sm font-medium">
-              Keunggulan ZeenTravel
+              Keunggulan Rehlatours.id
             </span>
           </motion.div>
 
