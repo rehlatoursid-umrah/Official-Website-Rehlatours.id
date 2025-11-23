@@ -16,7 +16,7 @@ const heroData: HeroData = {
   title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
   subtitle: 'Bersama Rehlatours.id',
   description:
-    'Mulai umroh pertamamu dengan mudah, didampingi tim profesional dan harga bersahabat. Sudah banyak jamaah baru percaya ke Rehlatours.id. Sekarang giliran Anda!﻿',
+    'Mulai umroh pertamamu dengan mudah, didampingi tim profesional dan harga bersahabat. Sudah banyak jamaah baru percaya ke Rehlatours.id. Sekarang giliran Anda!',
   primaryCTA: {
     text: 'Daftar Sekarang',
     href: '/packages',
@@ -30,10 +30,10 @@ const heroData: HeroData = {
 }
 
 const trustIndicators = [
-  { icon: Users, value: 'Jamaah Terlayani﻿', label: 'Layanan penuh perhatian di setiap perjalanan.﻿' },
-  { icon: Star, value: 'Rating Kepuasan﻿', label: 'Kenyamanan dan respons cepat setiap saat.' },
-  { icon: Calendar, value: 'Tahun Pengalaman﻿', label: 'Tim berpengalaman, siap membimbing' },
-  { icon: Shield, value: 'Terpercaya', label: 'Proses transparan, aman, dan nyaman.﻿' },
+  { icon: Users, value: 'Jamaah Terlayani', label: 'Layanan penuh perhatian di setiap perjalanan.' },
+  { icon: Star, value: 'Rating Kepuasan', label: 'Kenyamanan dan respons cepat setiap saat.' },
+  { icon: Calendar, value: 'Tahun Pengalaman', label: 'Tim berpengalaman, siap membimbing' },
+  { icon: Shield, value: 'Terpercaya', label: 'Proses transparan, aman, dan nyaman.' },
 ]
 
 const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
@@ -85,7 +85,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             <span className="text-[#F7C566] text-sm font-medium">#1 Travel Umroh Terpercaya</span>
           </motion.div>
 
-          {/* TITLE, now smaller */}
+          {/* TITLE */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -172,7 +172,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               >
                 <div className="bg-black/40 rounded-2xl p-6 transition-all duration-300 hover:bg-black/55 hover:scale-105 border border-white/10">
                   <indicator.icon className="w-8 h-8 text-[#F7C566] mx-auto mb-3" />
-                  <div className="text-2xl lg:text-3xl font-bold text-white mb-1">
+                  <div className="text-lg lg:text-xl font-bold text-white mb-1">
                     {indicator.value}
                   </div>
                   <div className="text-sm text-gray-200 font-medium">{indicator.label}</div>
@@ -187,3 +187,4 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
+
