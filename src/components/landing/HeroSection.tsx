@@ -95,7 +95,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight"
           >
             {heroData.title}
-          </motion.h1>
+          </motion.h2>
 
           {/* SUBTITLE — secondary */}
           <motion.div
