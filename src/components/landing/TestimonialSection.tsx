@@ -18,19 +18,9 @@ const testimonialsData: TestimonialItem[] = [
     location: 'Bekasi',
     rating: 5,
     content: `
-Pengalaman umroh backpacker yang bikin ketagihan mau lagi dan lagi xixi.. (Aamiin Yaa Allah) 
-Kalau yg kita tau backpacker itu serba ngurus sendiri, tapi di rehlatours kita gaperlu ribet ngurus ini itu.
-
-Karena sebelum berangkat ada tim dari rehlatours yang bantu kolektifin mulai tiket pesawat, hotel, visa, dll, jadi kita tinggal terima beres tapi tetap ngerasain nuansa umroh backpacker yang fleksibel dan murah. Kita bisa lebih nikmatin ibadah di Tanah Suci, bisa umroh berkali-kali, city tour ke tempat yang kita mau, ngerasain berbagai kuliner Saudi, dan juga pengalaman naik uber serta transportasi umum di Mekkah & Madinah.
-
-Oiya muthawwif dan tourguide-nya juga sangat mengayomi dan berpengalaman, jadi jangan ragu untuk bisa tahu banyak wawasan terkait ibadah dan tempat-tempat di sana.
-
-Terima kasih Rehlatours.id atas pengalaman ibadah yang luar biasa. MaasyaaAllah TabarakAllah Alhamdulillah.
-
-Oiya di Rehlatours tidak hanya ada umroh backpacker, tapi juga ada paket umroh hemat yang murah loh.
-So, yuk yang mau umroh hemat ataupun backpacker ke Rehlatours.id aja!
+Umroh backpacker di Rehlatours benar-benar fleksibel dan bikin nagih! Semua diurus tim profesional—mulai tiket, hotel, sampai visa. Nikmatin city tour, kuliner Saudi, dan transportasi lokal tanpa ribet. Pembimbingnya ramah dan berpengalaman. Mau umroh hemat atau backpacker? Pilih Rehlatours aja!
 `,
-    avatar: '/avatars/hanna.jpg',
+    avatar: '/hanna.jpg',
     package: 'Paket Umroh Reguler 9 Hari',
   },
   {
@@ -39,21 +29,9 @@ So, yuk yang mau umroh hemat ataupun backpacker ke Rehlatours.id aja!
     location: 'Tangerang',
     rating: 5,
     content: `
-Alhamdulillah, Allah kasih saya kesempatan umroh bareng Rehlatours. Jujur, awalnya saya mikir: “Umroh? Bukannya itu biasanya buat orang tua?” Tapi ternyata, dengan konsep Umroh Backpacker, pengalaman ini jadi ibadah paling seru dan bermakna.
-
-Ternyata backpacker bukan berarti seadanya. Perjalanan bareng Rehlatours tetap nyaman dan terorganisir: mulai dari maskapai yang oke, hotel strategis dekat Masjidil Haram & Nabawi, sampai layanan yang bikin hati tenang.
-
-Konsepnya friendly, fleksibel, dan pas banget buat anak muda. Kita bisa:
-✅ Napak tilas sejarah Rasulullah dan sahabat
-✅ Wisata kuliner khas Arab – dari nasi mandi sampai teh mint
-✅ Quality time dengan teman-teman, foto-foto, bikin momen memorable
-
-Buat saya, umroh bukan hanya soal ibadah, tapi perjalanan spiritual yang nyatu dengan gaya hidup anak muda: ibadah dapat, pengalaman dapat. Yang paling penting, saya sadar umroh nggak harus nunggu “tua” dulu. Saat muda energi lebih besar buat beribadah dan belajar.
-
-Kalau ada yang tanya travel mana yang cocok banget buat anak muda?  
-Jawabannya jelas: Rehlatours! ✨
+Awalnya ragu, ternyata umroh backpacker bareng Rehlatours nyaman dan seru banget! Hotel, maskapai, dan layanan terorganisir, cocok untuk anak muda. Bisa city tour, wisata kuliner, dan makin banyak momen berkesan. Umroh jadi pengalaman spiritual sekaligus gaya hidup muda. Anak muda, pilih Rehlatours!
 `,
-    avatar: '/avatars/mulyadi.jpg',
+    avatar: '/mulyadi.jpg',
     package: 'Paket Umroh Premium 10 Hari',
   },
   {
@@ -62,14 +40,9 @@ Jawabannya jelas: Rehlatours! ✨
     location: 'Bandung',
     rating: 5,
     content: `
-My umroh journey with Rehlatours.
-Alhamdulillah, Allah pertemukan saya dengan travel umroh Rehlatours. Dari awal sudah tertarik karena Rehlatours pakai metode backpacker.
-
-Yang saya tahu umroh backpackeran itu fasilitasnya sederhana karena low budget. Tapi ternyata Rehlatours beda, dari persiapan sampai pulang lagi ke tanah air, saya dapat layanan yang memuaskan. Fasilitas jadinya worth it untuk anak muda, maskapai nyaman, hotel Mekkah dan Madinah juga nyaman untuk istirahat, dan paling penting kita bisa bebas ke mana saja, napak tilas perjalanan Rasulullah dan para sahabat, wisata kuliner, dan bisa request mau ke mana.
-
-So, Rehlatours my favorite travel for the next umroh!
+Umroh backpacker bareng Rehlatours bikin puas! Awalnya kira fasilitas standar, ternyata semua serba profesional dan nyaman—dari tiket, hotel, sampai request itinerary bebas. Rehlatours jadi pilihan favorit untuk umroh selanjutnya!
 `,
-    avatar: '/avatars/reviani.jpg',
+    avatar: '/reviani.jpg',
     package: 'Paket Umroh VIP 16 Hari',
   },
   {
@@ -80,7 +53,7 @@ So, Rehlatours my favorite travel for the next umroh!
     content: `
 Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama Rehlatours.id.
 `,
-    avatar: '/avatars/iqbal.jpg',
+    avatar: '/iqbal.jpg',
     package: 'Paket Umroh Ekonomi 10 Hari',
   },
   {
@@ -91,7 +64,7 @@ Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi.
     content: `
 Perjalanan umroh pertama saya dan keluarga berjalan dengan sempurna. Grup kecil membuat suasana lebih intim dan kekeluargaan. Pembimbing yang berpengalaman membantu kami memahami setiap ritual dengan baik.
 `,
-    avatar: '/avatars/afif.jpg',
+    avatar: '/afif.jpg',
     package: 'Paket Umroh Keluarga 12 Hari',
   },
 ]
