@@ -30,10 +30,10 @@ const heroData: HeroData = {
 }
 
 const trustIndicators = [
-  { icon: Users, value: 'Jamaah Terlayani', label: 'Layanan penuh perhatian di setiap perjalanan.' },
-  { icon: Star, value: 'Rating Kepuasan', label: 'Kenyamanan dan respons cepat setiap saat.' },
-  { icon: Calendar, value: 'Tahun Pengalaman', label: 'Tim berpengalaman, siap membimbing' },
-  { icon: Shield, value: 'Terpercaya', label: 'Proses transparan, aman, dan nyaman.' },
+  { icon: Users, value: 'Layanan', label: 'Layanan penuh perhatian di setiap perjalanan.' },
+  { icon: Star, value: 'Kepuasan', label: 'Kenyamanan dan respons cepat setiap saat.' },
+  { icon: Calendar, value: 'Pengalaman', label: 'Tim berpengalaman, siap membimbing' },
+  { icon: Shield, value: 'Kepercayaan', label: 'Proses transparan, aman, dan nyaman.' },
 ]
 
 const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
