@@ -13,18 +13,19 @@ interface CTASectionProps {
 }
 
 const ctaData: CTAData = {
-  title: 'Jangan Tunda Lagi, Wujudkan Impian Umroh Anda Hari Ini!',
-  subtitle: 'Penawaran Terbatas - Hanya untuk 100 Jamaah Pertama',
+  title: 'Jangan Tunda Niat Baikmu, Mulai Umroh Pertamamu Hari Ini!',
+  subtitle: 'Penawaran Terbatas untuk Jamaah Baru',
   description:
-    'Dapatkan kesempatan emas untuk menunaikan ibadah umroh dengan fasilitas premium, harga spesial, dan pelayanan terbaik. Promo ini berlaku terbatas!',
+    'Wujudkan impian ke tanah suci dengan proses mudah, bimbingan ramah, dan harga terjangkau.
+     kami berkomitmen memberikan layanan jujur, transparan, dan selalu siap mendampingi setiap langkah perjalanan umroh Anda.',
   buttonText: 'Daftar Sekarang - Promo Terbatas',
   buttonHref: '#contact',
   features: [
-    'Diskon hingga Rp 3.000.000 untuk pendaftar pertama',
-    'Gratis upgrade hotel bintang 5 di Makkah',
-    'Bebas biaya admin dan pengurusan visa',
-    'Dapat tas koper eksklusif dan perlengkapan umroh',
-    'Garansi uang kembali 100% jika tidak puas',
+    'Pendaftaran mudah dan dibantu tim profesional﻿',
+    'Bimbingan manasik & konsultasi gratis sebelum keberangkatan',
+    'Proses dokumen umroh mudah dan jelas',
+    'Fleksibilitas paket sesuai kebutuhan jamaah﻿',
+    'Harga transparan dan bisa konsultasi langsung﻿',
     'Cicilan 0% hingga 12 bulan tanpa bunga',
   ],
 }
@@ -184,7 +185,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
                 asChild
               >
                 <Link
-                  href="https://wa.me/628123456789"
+                  href="https://wa.me/+6283197321658"
                   className="flex items-center justify-center space-x-2"
                 >
                   <MessageCircle className="w-5 h-5" />
@@ -199,7 +200,7 @@ const CTASection: React.FC<CTASectionProps> = ({ className }) => {
                 asChild
               >
                 <Link
-                  href="tel:+628123456789"
+                  href="tel:+6283197321658"
                   className="flex items-center justify-center space-x-2"
                 >
                   <Phone className="w-5 h-5" />
