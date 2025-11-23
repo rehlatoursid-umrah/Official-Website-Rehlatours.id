@@ -69,7 +69,7 @@ const socialLinks: SocialLink[] = [
 ]
 
 const contactInfo: ContactInfo = {
-  phone: '+6283197321658,
+  phone: '+6283197321658',
   email: 'info@rehlatours.id',
   address: 'Permata Biru Rw 001 Rt 027 Desa Cinunuk Kec. Cileunyi Kab. Bandung Jawa Barat',
   whatsapp: '+6283197321658',
