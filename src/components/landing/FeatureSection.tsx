@@ -91,7 +91,7 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#0B0B0B] mb-4">
             Mengapa Memilih{" "}
-            <span className="text-[#3A0519]">ZeenTravel?</span>
+            <span className="text-[#3A0519]">Rehlatours.id?</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Pengalaman umroh yang tak terlupakan dengan standar pelayanan internasional
