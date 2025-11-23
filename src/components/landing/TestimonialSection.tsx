@@ -17,19 +17,20 @@ const testimonialsData: TestimonialItem[] = [
     name: 'Hanna Fatimah, S.Gz, M.Gz.',
     location: 'Bekasi',
     rating: 5,
-    content:
-        'Pengalaman umroh backpacker yang bikin ketagihan mau lagi dan lagi xixi.. (Aamiin Yaa Allah) 
-         Kalau yg kita tau backpacker itu serba ngurus sendiri, tapi di rehlatours kita gaperlu ribet ngurus ini itu.
+    content: `
+Pengalaman umroh backpacker yang bikin ketagihan mau lagi dan lagi xixi.. (Aamiin Yaa Allah) 
+Kalau yg kita tau backpacker itu serba ngurus sendiri, tapi di rehlatours kita gaperlu ribet ngurus ini itu.
 
-         Karena sebelum berangkat ada tim dari rehla yg bantu buat kolektifin dari mulai tiket pesawat, hotel, visa, dll.. jadi kita tinggal terima beres tapi tetep ngerasain nuansa umroh backpacker yang serba fleksibel dan murah.. kita bisa lebih nikmatin ibadah di Tanah Suci, bisa umroh berkali2, city tour ke tempat yg kita mau, ngerasain berbagai kuliner Saudi, dan juga ngerasain pengalaman naik uber dan transportasi umum di Mekkah Madinah 
+Karena sebelum berangkat ada tim dari rehlatours yang bantu kolektifin mulai tiket pesawat, hotel, visa, dll, jadi kita tinggal terima beres tapi tetap ngerasain nuansa umroh backpacker yang fleksibel dan murah. Kita bisa lebih nikmatin ibadah di Tanah Suci, bisa umroh berkali-kali, city tour ke tempat yang kita mau, ngerasain berbagai kuliner Saudi, dan juga pengalaman naik uber serta transportasi umum di Mekkah & Madinah.
 
-         Oiya muthowwif dan tourguide nya juga sangat mengayomi dan berpengalaman, jadi jangan ragu untuk bisa tau banyak wawasan terkait ibadah dan tempat2 disana hehe
+Oiya muthawwif dan tourguide-nya juga sangat mengayomi dan berpengalaman, jadi jangan ragu untuk bisa tahu banyak wawasan terkait ibadah dan tempat-tempat di sana.
 
-         Terima kasih rehlatours.id atas pengalaman ibadah yang luaar biasaa MaasyaaAllah TabarakAllah AlhamduliLLAH
+Terima kasih Rehlatours.id atas pengalaman ibadah yang luar biasa. MaasyaaAllah TabarakAllah Alhamdulillah.
 
-         Oiya di rehlatours tidak hanya ada umroh backpacker, tapi juga ada paket umroh hemat yg murah loh.. 
-         So, yuk yg mau umroh hemat ataupun backpacker ke rehlatours.id ajaa ',
-    avatar: '/avatars/hana.png',
+Oiya di Rehlatours tidak hanya ada umroh backpacker, tapi juga ada paket umroh hemat yang murah loh.
+So, yuk yang mau umroh hemat ataupun backpacker ke Rehlatours.id aja!
+`,
+    avatar: '/avatars/hanna.jpg',
     package: 'Paket Umroh Reguler 9 Hari',
   },
   {
@@ -37,21 +38,22 @@ const testimonialsData: TestimonialItem[] = [
     name: 'Bapak Mulyadi',
     location: 'Tangerang',
     rating: 5,
-    content:
-      'Alhamdulillah, Allah kasih saya kesempatan umroh bareng Rehlatour. Jujur, awalnya saya sempat mikir: “Umroh? Bukannya itu biasanya buat orang tua?” Tapi ternyata, dengan konsep Umroh Backpacker, pengalaman ini jadi ibadah paling seru dan bermakna dalam hidup saya.
-       Ternyata backpacker bukan berarti seadanya. Perjalanan bareng Rehlatour tetap nyaman dan terorganisir: mulai dari maskapai yang oke, hotel strategis dekat Masjidil Haram & Nabawi, sampai layanan yang bikin hati tenang.
+    content: `
+Alhamdulillah, Allah kasih saya kesempatan umroh bareng Rehlatours. Jujur, awalnya saya mikir: “Umroh? Bukannya itu biasanya buat orang tua?” Tapi ternyata, dengan konsep Umroh Backpacker, pengalaman ini jadi ibadah paling seru dan bermakna.
 
-       Yang bikin beda, konsepnya friendly, fleksibel, dan pas banget buat anak muda. Kita bisa:
-       ✅ Napak tilas sejarah Rasulullah ﷺ dan sahabat
-       ✅ Wisata kuliner khas Arab – dari nasi mandi sampai teh mint
-       ✅ Quality time bareng teman-teman, foto-foto, bikin momen memorable
+Ternyata backpacker bukan berarti seadanya. Perjalanan bareng Rehlatours tetap nyaman dan terorganisir: mulai dari maskapai yang oke, hotel strategis dekat Masjidil Haram & Nabawi, sampai layanan yang bikin hati tenang.
 
-       Buat saya, umroh kali ini bukan hanya soal ibadah, tapi juga perjalanan spiritual yang nyatu dengan gaya hidup anak muda: ibadah dapet, pengalaman dapet. Dan yang paling penting, saya sadar umroh nggak harus nunggu “tua” dulu. Justru saat muda, energi kita lebih besar buat beribadah dan belajar.
-       Kalau ada yang tanya travel mana yang cocok banget buat anak muda?
-  
-       Jawabannya jelas: Rehlatour! ✨
-',
-    avatar: '/avatars/pakmul.png',
+Konsepnya friendly, fleksibel, dan pas banget buat anak muda. Kita bisa:
+✅ Napak tilas sejarah Rasulullah dan sahabat
+✅ Wisata kuliner khas Arab – dari nasi mandi sampai teh mint
+✅ Quality time dengan teman-teman, foto-foto, bikin momen memorable
+
+Buat saya, umroh bukan hanya soal ibadah, tapi perjalanan spiritual yang nyatu dengan gaya hidup anak muda: ibadah dapat, pengalaman dapat. Yang paling penting, saya sadar umroh nggak harus nunggu “tua” dulu. Saat muda energi lebih besar buat beribadah dan belajar.
+
+Kalau ada yang tanya travel mana yang cocok banget buat anak muda?  
+Jawabannya jelas: Rehlatours! ✨
+`,
+    avatar: '/avatars/mulyadi.jpg',
     package: 'Paket Umroh Premium 10 Hari',
   },
   {
@@ -59,16 +61,15 @@ const testimonialsData: TestimonialItem[] = [
     name: 'Reviani Lestari, S.P',
     location: 'Bandung',
     rating: 5,
-    content:
-      'My umroh journey with rehlatours
-       Alhamdulillah Alhamdulillah, Allah pertemukan saya dengan travel umroh rehlatour. Di awal saya sudah tertarik karena rehlatour pakai metode backpacker. 
+    content: `
+My umroh journey with Rehlatours.
+Alhamdulillah, Allah pertemukan saya dengan travel umroh Rehlatours. Dari awal sudah tertarik karena Rehlatours pakai metode backpacker.
 
-      Yang saya tahu umroh backpackeran itu fasilitasnya sederhana krena low budget. 
-      Tapi ternyata rehlatour beda bangeet, mulai dari persiapan sampai pulang lagi ke tanah air, 
-      saya mendapatkan layanan yang memuaskan. Fasilitas yang diberikan juga worth it untuk anak anak muda, 
-      maskapai yang digunakan nyaman banget, hotel Mekah dan Madinah juga nyaman untuk istirahat, dan yang paling penting kita bisa bebas untuk kemana mana, 
-      napak tilas perjalanan Rasulullah dan para sahabat, bisa juga wisata kuliner, intinya kita bisa request mau kemana.So, rehlatour my favorite travel for the next umroh.',
-    avatar: '/avatars/revi.png',
+Yang saya tahu umroh backpackeran itu fasilitasnya sederhana karena low budget. Tapi ternyata Rehlatours beda, dari persiapan sampai pulang lagi ke tanah air, saya dapat layanan yang memuaskan. Fasilitas jadinya worth it untuk anak muda, maskapai nyaman, hotel Mekkah dan Madinah juga nyaman untuk istirahat, dan paling penting kita bisa bebas ke mana saja, napak tilas perjalanan Rasulullah dan para sahabat, wisata kuliner, dan bisa request mau ke mana.
+
+So, Rehlatours my favorite travel for the next umroh!
+`,
+    avatar: '/avatars/reviani.jpg',
     package: 'Paket Umroh VIP 16 Hari',
   },
   {
@@ -76,20 +77,21 @@ const testimonialsData: TestimonialItem[] = [
     name: 'Muhammad Iqbal',
     location: 'Sumatera Barat',
     rating: 5,
-    content:
-      'Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama Rehlatours.id.',
-    avatar: '/avatars/afif.jpg',
-    package: 'Paket Umroh Ekonomi 10 Hari', 
+    content: `
+Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Pelayanan ramah dan profesional. Saya sudah merekomendasikan ke keluarga dan teman-teman untuk umroh bersama Rehlatours.id.
+`,
+    avatar: '/avatars/iqbal.jpg',
+    package: 'Paket Umroh Ekonomi 10 Hari',
   },
   {
     id: 5,
     name: 'Afif Fachry, Lc.',
     location: 'Sumatera Barat',
     rating: 5,
-    content:
-      'Perjalanan umroh pertama saya dan keluarga berjalan dengan sempurna. Grup kecil membuat suasana lebih intim dan kekeluargaan. Pembimbing yang berpengalaman membantu kami memahami setiap ritual dengan baik.',
-    avatar:
-      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=150&h=150&q=80',
+    content: `
+Perjalanan umroh pertama saya dan keluarga berjalan dengan sempurna. Grup kecil membuat suasana lebih intim dan kekeluargaan. Pembimbing yang berpengalaman membantu kami memahami setiap ritual dengan baik.
+`,
+    avatar: '/avatars/afif.jpg',
     package: 'Paket Umroh Keluarga 12 Hari',
   },
 ]
