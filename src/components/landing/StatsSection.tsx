@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
 interface StatItem {
-  value: number
+  value: string
   label: string
   suffix?: string
   prefix?: string
