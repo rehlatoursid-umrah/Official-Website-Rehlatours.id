@@ -133,7 +133,7 @@ export default function PackagesPage() {
             className="text-center text-white"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-              Paket Umroh <span className="text-[#C19F50]">ZeenTravel</span>
+              Paket Umroh <span className="text-[#C19F50]">Rehlatours.id</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
               Temukan paket umroh yang sesuai dengan kebutuhan dan budget Anda. Nikmati perjalanan
@@ -457,3 +457,4 @@ const PackageCard: React.FC<PackageCardProps> = ({
     </motion.div>
   )
 }
+
