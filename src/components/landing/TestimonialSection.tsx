@@ -20,7 +20,7 @@ const testimonialsData: TestimonialItem[] = [
     content: `
 Umroh backpacker di Rehlatours benar-benar fleksibel dan bikin nagih! Semua diurus tim profesional—mulai tiket, hotel, sampai visa. Nikmatin city tour, kuliner Saudi, dan transportasi lokal tanpa ribet. Pembimbingnya ramah dan berpengalaman. Mau umroh hemat atau backpacker? Pilih Rehlatours aja!
 `,
-    avatar: '/hanna.jpg',
+    avatar: '/hana.png',
     package: 'Paket Umroh Reguler 9 Hari',
   },
   {
@@ -31,7 +31,7 @@ Umroh backpacker di Rehlatours benar-benar fleksibel dan bikin nagih! Semua diur
     content: `
 Awalnya ragu, ternyata umroh backpacker bareng Rehlatours nyaman dan seru banget! Hotel, maskapai, dan layanan terorganisir, cocok untuk anak muda. Bisa city tour, wisata kuliner, dan makin banyak momen berkesan. Umroh jadi pengalaman spiritual sekaligus gaya hidup muda. Anak muda, pilih Rehlatours!
 `,
-    avatar: '/mulyadi.jpg',
+    avatar: '/pakmul.png',
     package: 'Paket Umroh Premium 10 Hari',
   },
   {
@@ -42,7 +42,7 @@ Awalnya ragu, ternyata umroh backpacker bareng Rehlatours nyaman dan seru banget
     content: `
 Umroh backpacker bareng Rehlatours bikin puas! Awalnya kira fasilitas standar, ternyata semua serba profesional dan nyaman—dari tiket, hotel, sampai request itinerary bebas. Rehlatours jadi pilihan favorit untuk umroh selanjutnya!
 `,
-    avatar: '/reviani.jpg',
+    avatar: '/revi.png',
     package: 'Paket Umroh VIP 16 Hari',
   },
   {
