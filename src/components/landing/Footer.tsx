@@ -62,10 +62,10 @@ const footerSections: FooterSection[] = [
 ]
 
 const socialLinks: SocialLink[] = [
-  { platform: 'Facebook', href: 'https://facebook.com/rehlatours.id', icon: 'Facebook' },
-  { platform: 'Instagram', href: 'https://instagram.com/rehlatours.id', icon: 'Instagram' },
-  { platform: 'YouTube', href: 'https://youtube.com/rehlatoursid', icon: 'Youtube' },
-  { platform: 'Twitter', href: 'https://twitter.com/rehlatoursid', icon: 'Twitter' },
+  { platform: 'Facebook', href: 'https://facebook.com/rehlatours.id', icon: Facebook },
+  { platform: 'Instagram', href: 'https://instagram.com/rehlatours.id', icon: Instagram },
+  { platform: 'YouTube', href: 'https://youtube.com/rehlatoursid', icon: Youtube },
+  { platform: 'Twitter', href: 'https://twitter.com/rehlatoursid', icon: Twitter },
 ]
 
 const contactInfo: ContactInfo = {
@@ -81,13 +81,6 @@ const certifications = [
   { name: 'ASITA', logo: '/images/logo-asita.png' },
   { name: 'ISO 9001', logo: '/images/logo-iso.png' },
 ]
-
-const socialIcons = {
-  Facebook,
-  Instagram,
-  Youtube,
-  Twitter,
-}
 
 const Footer: React.FC<FooterProps> = ({ className }) => {
   const scrollToTop = () => {
@@ -243,7 +236,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
                 {/* Social Links */}
                 <div className="flex space-x-4 mb-6">
                   {socialLinks.map((social, index) => {
-                    const IconComponent = socialIcons[social.icon as keyof typeof socialIcons]
+                    const IconComponent = social.icon
                     return (
                       <motion.div
                         key={social.platform}
@@ -366,5 +359,6 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 }
 
 export default Footer
+
 
 
