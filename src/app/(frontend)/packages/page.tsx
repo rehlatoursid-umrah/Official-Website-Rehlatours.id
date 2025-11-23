@@ -57,7 +57,9 @@ const packageCategories: PackageCategory[] = [
   },
 ]
 
-// Using shared data from centralized packages data file
+// Updated primary and secondary colors
+const primaryColor = '#3A0519' // menggantikan #0A7B64
+const secondaryColor = '#F7C566' // menggantikan #C19F50
 
 export default function PackagesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
@@ -124,7 +126,12 @@ export default function PackagesPage() {
       <Navbar />
 
       {/* Page Header */}
-      <section className="pt-20 pb-12 bg-gradient-to-br from-[#0A7B64] to-[#0A7B64]/90">
+      <section
+        className="pt-20 pb-12"
+        style={{
+          background: `linear-gradient(to bottom right, ${primaryColor}, ${primaryColor}CC)`,
+        }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -133,7 +140,7 @@ export default function PackagesPage() {
             className="text-center text-white"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4">
-              Paket Umroh <span className="text-[#C19F50]">Rehlatours.id</span>
+              Paket Umroh <span style={{ color: secondaryColor }}>Rehlatours.id</span>
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto">
               Temukan paket umroh yang sesuai dengan kebutuhan dan budget Anda. Nikmati perjalanan
@@ -155,7 +162,7 @@ export default function PackagesPage() {
                 placeholder="Cari paket umroh..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A7B64]/20 focus:border-[#0A7B64]"
+                className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3A0519]/20 focus:border-[#3A0519]"
               />
             </div>
 
@@ -166,7 +173,7 @@ export default function PackagesPage() {
                 className={cn(
                   'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300',
                   selectedCategory === 'all'
-                    ? 'bg-[#0A7B64] text-white'
+                    ? `bg-[${primaryColor}] text-white`
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
                 )}
               >
@@ -179,7 +186,7 @@ export default function PackagesPage() {
                   className={cn(
                     'px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300',
                     selectedCategory === category.id
-                      ? 'bg-[#0A7B64] text-white'
+                      ? `bg-[${primaryColor}] text-white`
                       : 'bg-gray-100 text-gray-700 hover:bg-gray-200',
                   )}
                 >
@@ -193,7 +200,7 @@ export default function PackagesPage() {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0A7B64]/20"
+                className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#3A0519]/20"
               >
                 <option value="popularity">Terpopuler</option>
                 <option value="price-low">Harga Terendah</option>
@@ -208,7 +215,7 @@ export default function PackagesPage() {
                   className={cn(
                     'p-2 transition-colors duration-300',
                     viewMode === 'grid'
-                      ? 'bg-[#0A7B64] text-white'
+                      ? `bg-[${primaryColor}] text-white`
                       : 'bg-white text-gray-600 hover:bg-gray-50',
                   )}
                 >
@@ -219,7 +226,7 @@ export default function PackagesPage() {
                   className={cn(
                     'p-2 transition-colors duration-300',
                     viewMode === 'list'
-                      ? 'bg-[#0A7B64] text-white'
+                      ? `bg-[${primaryColor}] text-white`
                       : 'bg-white text-gray-600 hover:bg-gray-50',
                   )}
                 >
@@ -285,7 +292,7 @@ export default function PackagesPage() {
                   setSearchTerm('')
                   setPriceRange([0, 50000000])
                 }}
-                className="bg-[#0A7B64] hover:bg-[#0A7B64]/90"
+                className={`bg-[${primaryColor}] hover:bg-[${primaryColor}]/90 text-white`}
               >
                 Reset Filter
               </Button>
@@ -345,7 +352,10 @@ const PackageCard: React.FC<PackageCardProps> = ({
 
         {/* Badge */}
         {pkg.badge && (
-          <div className="absolute top-4 left-4 bg-[#C19F50] text-white px-3 py-1 rounded-full text-sm font-semibold">
+          <div
+            className="absolute top-4 left-4 text-white px-3 py-1 rounded-full text-sm font-semibold"
+            style={{ backgroundColor: secondaryColor }}
+          >
             {pkg.badge}
           </div>
         )}
@@ -376,7 +386,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
         {/* Header */}
         <div className="flex items-start justify-between mb-3">
           <div>
-            <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#0A7B64] transition-colors duration-300">
+            <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-[#3A0519] transition-colors duration-300">
               {pkg.name}
             </h3>
             <div className="flex items-center space-x-4 text-sm text-gray-600">
@@ -408,7 +418,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
           <ul className="space-y-1">
             {pkg.highlights.slice(0, 3).map((highlight, idx) => (
               <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
-                <Check className="w-4 h-4 text-[#0A7B64] mt-0.5 flex-shrink-0" />
+                <Check className="w-4 h-4" style={{ color: primaryColor }} />
                 <span>{highlight}</span>
               </li>
             ))}
@@ -423,7 +433,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
                 {formatPrice(pkg.price.original)}
               </div>
             )}
-            <div className="text-2xl font-bold text-[#0A7B64]">
+            <div className="text-2xl font-bold" style={{ color: primaryColor }}>
               {formatPrice(pkg.price.discounted || pkg.price.original)}
             </div>
             <div className="text-sm text-gray-500">per orang</div>
@@ -432,7 +442,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-3">
-          <Button className="flex-1 bg-[#0A7B64] hover:bg-[#0A7B64]/90 text-white" asChild>
+          <Button className={`flex-1 bg-[${primaryColor}] hover:bg-[${primaryColor}]/90 text-white`} asChild>
             <Link
               href={`/packages/${pkg.id}`}
               className="flex items-center justify-center space-x-2"
@@ -443,7 +453,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
           </Button>
           <Button
             variant="outline"
-            className="flex-1 border-[#C19F50] text-[#C19F50] hover:bg-[#C19F50] hover:text-white"
+            className={`flex-1 border-[${secondaryColor}] text-[${secondaryColor}] hover:bg-[${secondaryColor}] hover:text-white`}
             asChild
           >
             <Link
@@ -457,4 +467,5 @@ const PackageCard: React.FC<PackageCardProps> = ({
     </motion.div>
   )
 }
+
 
