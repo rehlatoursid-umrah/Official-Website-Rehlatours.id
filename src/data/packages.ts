@@ -3,6 +3,9 @@
 
 import type { Package } from '@/types/landing'
 
+// Branding global variable
+export const brandName = 'Rehlatours.id'
+
 export const packagesData: Record<string, Package> = {
   'ekonomi-9-hari': {
     id: 'ekonomi-9-hari',
@@ -368,7 +371,7 @@ export const reviewsData = [
     rating: 5,
     date: 'Oktober 2023',
     content:
-      'ZeenTravel benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Bimbingan spiritual yang diberikan sangat berkesan dan membantu.',
+      'Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Bimbingan spiritual yang diberikan sangat berkesan dan membantu.',
     helpful: 15,
     package: 'Umroh VIP Deluxe',
     avatar:
@@ -401,3 +404,4 @@ export const getDiscountPercentage = (original: number, discounted?: number): nu
   if (!discounted) return 0
   return Math.round(((original - discounted) / original) * 100)
 }
+
