@@ -144,11 +144,11 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 
             <Button
               size="sm"
-              className="bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 text-white transition-all duration-300 hover:scale-105"
+              className="bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 transition-all duration-300 hover:scale-105"
               asChild
             >
-              <Link href="https://wa.me/628123456789" className="flex items-center space-x-2">
-                <MessageCircle className="w-4 h-4" />
+              <Link href="https://wa.me/628123456789" className="flex items-center space-x-2 text-[#3a0519]">
+                <MessageCircle className="w-4 h-4 text-[#3a0519]" />
                 <span>WhatsApp</span>
               </Link>
             </Button>
@@ -215,11 +215,11 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                   </Button>
 
                   <Button
-                    className="w-full bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 text-white"
+                    className="w-full bg-[var(--secondary)] hover:bg-[var(--secondary)]/90"
                     asChild
                   >
-                    <Link href="https://wa.me/628123456789" className="flex items-center justify-center space-x-2">
-                      <MessageCircle className="w-4 h-4" />
+                    <Link href="https://wa.me/628123456789" className="flex items-center justify-center space-x-2 text-[#3a0519]">
+                      <MessageCircle className="w-4 h-4 text-[#3a0519]" />
                       <span>Chat WhatsApp</span>
                     </Link>
                   </Button>
@@ -234,4 +234,5 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 }
 
 export default Navbar
+
 
