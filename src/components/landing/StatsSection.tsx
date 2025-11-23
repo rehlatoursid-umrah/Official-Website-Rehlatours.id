@@ -1,10 +1,7 @@
-/* UX: Statistik utama tampil flat, seragam, mudah dibaca, membangun kepercayaan */
-/* DESIGN: Flat, tanpa shadow, tanpa highlight, warna Umrah, grid responsif, animasi counter */
-
 'use client'
 
-import React, { useEffect, useRef } from 'react'
-import { motion, useInView, useMotionValue, useSpring } from 'framer-motion'
+import React from 'react'
+import { motion } from 'framer-motion'
 import { Users, Star, Calendar, MapPin, Award, Heart } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
@@ -12,8 +9,6 @@ import { cn } from '@/lib/utils'
 interface StatItem {
   value: string
   label: string
-  suffix?: string
-  prefix?: string
 }
 
 interface StatsSectionProps {
@@ -21,57 +16,15 @@ interface StatsSectionProps {
 }
 
 const statsData: StatItem[] = [
-  { value: 'Terlayani', label: 'Pendampingan ramah untuk setiap jamaah.﻿', suffix: '+', prefix: '' },
-  { value: 'Kepuasan', label: 'Layanan responsif dan nyaman.﻿', suffix: '/5', prefix: '' },
-  { value: 'Pengalaman', label: 'Tim berpengalaman siap membantu.﻿', suffix: '+', prefix: '' },
-  { value: 'Tersedia', label: 'Paket sesuai kebutuhan Anda.', suffix: '+', prefix: '' },
-  { value: 'Prioritas', label: 'Prioritaskan kenyamanan ibadah.', suffix: '%', prefix: '' },
-  { value: 'Akses', label: 'Layanan bisa diakses dari berbagai kota.﻿', suffix: '+', prefix: '' },
+  { value: 'Terlayani', label: 'Pendampingan ramah untuk setiap jamaah.' },
+  { value: 'Kepuasan', label: 'Layanan responsif dan nyaman.' },
+  { value: 'Pengalaman', label: 'Tim berpengalaman siap membantu.' },
+  { value: 'Tersedia', label: 'Paket sesuai kebutuhan Anda.' },
+  { value: 'Prioritas', label: 'Kenyamanan ibadah jadi prioritas.' },
+  { value: 'Akses', label: 'Bisa diakses dari berbagai kota.' },
 ]
 
 const statIcons = [Users, Star, Calendar, MapPin, Award, Heart]
-
-interface AnimatedCounterProps {
-  value: number
-  prefix?: string
-  suffix?: string
-}
-
-const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
-  value,
-  prefix = '',
-  suffix = '',
-}) => {
-  const ref = useRef<HTMLSpanElement>(null)
-  const motionValue = useMotionValue(0)
-  const springValue = useSpring(motionValue, { duration: 2.2 })
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
-  useEffect(() => {
-    if (isInView) {
-      motionValue.set(value)
-    }
-  }, [motionValue, isInView, value])
-
-  useEffect(() => {
-    springValue.on('change', (latest) => {
-      if (ref.current) {
-        ref.current.textContent =
-          prefix +
-          (typeof value === 'number' && !Number.isInteger(value)
-            ? latest.toFixed(1)
-            : Math.floor(latest).toLocaleString()) +
-          suffix
-      }
-    })
-  }, [springValue, prefix, suffix, value])
-
-  return (
-    <span ref={ref}>
-      {prefix}0{suffix}
-    </span>
-  )
-}
 
 export default function StatsSection({ className }: StatsSectionProps) {
   return (
@@ -127,12 +80,8 @@ export default function StatsSection({ className }: StatsSectionProps) {
                 <div className="mb-3 md:mb-5 flex items-center justify-center rounded-full bg-[#3A0519]/10">
                   <Icon className="w-8 h-8 md:w-10 md:h-10 text-[#3A0519]" />
                 </div>
-                <div className="text-2xl md:text-3xl lg:text-4xl font-bold mb-1 text-[#0B0B0B] transition-colors duration-300">
-                  <AnimatedCounter
-                    value={stat.value}
-                    prefix={stat.prefix}
-                    suffix={stat.suffix}
-                  />
+                <div className="text-lg md:text-xl font-bold mb-1 text-[#0B0B0B] transition-colors duration-300">
+                  {stat.value}
                 </div>
                 <div className="text-xs md:text-sm font-semibold text-center text-gray-700 transition-colors duration-300">
                   {stat.label}
@@ -155,7 +104,7 @@ export default function StatsSection({ className }: StatsSectionProps) {
               Bergabunglah dengan Ribuan Jamaah Lainnya
             </h3>
             <p className="text-gray-700 mb-4">
-              Rasakan pengalaman umroh yang tak terlupakan bersama ZeenTravel.
+              Rasakan pengalaman umroh yang nyaman dan terjangkau bersama Rehlatours.id.
             </p>
             <Button
               type="button"
