@@ -1,5 +1,3 @@
-/* HERO SECTION — PRIMARY (#3A0519) & SECONDARY (#F7C566), OVERLAY HITAM SAJA */
-
 'use client'
 
 import React, { useEffect, useState } from 'react'
@@ -18,7 +16,7 @@ const heroData: HeroData = {
   title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
   subtitle: 'Bersama Rehlatours.id',
   description:
-    'Nikmati perjalanan spiritual yang tak terlupakan dengan pelayanan terbaik, bimbingan profesional, dan harga terjangkau. Telah dipercaya ribuan jamaah sejak 2015.',
+    'Nikmati perjalanan spiritual yang tak terlupakan dengan pelayanan terbaik, bimbingan profesional, dan harga terjangkau. Banyak jamaah baru yang sudah mempercayakan umroh pertamanya bersama Rehlatours.id sejak 2015.',
   primaryCTA: {
     text: 'Daftar Sekarang',
     href: '/packages',
@@ -87,15 +85,15 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             <span className="text-[#F7C566] text-sm font-medium">#1 Travel Umroh Terpercaya</span>
           </motion.div>
 
-          {/* TITLE */}
+          {/* TITLE, now smaller */}
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-4 leading-tight"
+            className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 leading-tight"
           >
             {heroData.title}
-          </motion.h2>
+          </motion.h1>
 
           {/* SUBTITLE — secondary */}
           <motion.div
@@ -189,4 +187,3 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
 }
 
 export default HeroSection
-
