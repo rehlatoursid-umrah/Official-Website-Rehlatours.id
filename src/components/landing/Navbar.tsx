@@ -65,10 +65,17 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
             onClick={() => handleNavClick('#hero')}
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
+              {/* Logo desktop: berubah sesuai scroll */}
               <img
                 src={isScrolled ? '/rehlasticky.png' : '/rehlatrans.png'}
-                alt="Logo ZeenTravel"
-                className="w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+                alt="Logo desktop"
+                className="hidden lg:block w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
+              />
+              {/* Logo mobile/tablet: selalu sticky */}
+              <img
+                src="/rehlasticky.png"
+                alt="Logo mobile"
+                className="block lg:hidden w-full h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-300"
               />
             </div>
 
@@ -148,8 +155,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               asChild
             >
               <Link href="https://wa.me/628123456789" className="flex items-center space-x-2">
-              <MessageCircle className="w-4 h-4 text-[#3a0519]" />
-              <span className="text-[#3a0519]">WhatsApp</span>
+                <MessageCircle className="w-4 h-4 text-[#3a0519]" />
+                <span className="text-[#3a0519]">WhatsApp</span>
               </Link>
             </Button>
           </div>
@@ -234,5 +241,6 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
 }
 
 export default Navbar
+
 
 
