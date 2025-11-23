@@ -45,14 +45,14 @@ export default function StatsSection({ className }: StatsSectionProps) {
           className="text-center mb-10 md:mb-16"
         >
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B0B0B] mb-3">
-            Dipercaya{' '}
+            Didampingi﻿{' '}
             <span className="text-[#3A0519]">
-              Ribuan Jamaah
+              Setulus Hati
             </span>
           </h2>
           <p className="text-base md:text-lg text-gray-700 max-w-2xl mx-auto">
-            Angka-angka ini membuktikan komitmen kami dalam memberikan pelayanan
-            terbaik untuk perjalanan spiritual Anda.
+           Setiap perjalanan umroh Anda kami layani dengan sepenuh perhatian, komitmen, dan transparansi
+            demi pengalaman spiritual yang berkesan dan nyaman.﻿
           </p>
         </motion.div>
 
