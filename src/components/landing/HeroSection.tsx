@@ -16,7 +16,7 @@ const heroData: HeroData = {
   title: 'Wujudkan Umroh Pertamamu, Gampang & Tenang',
   subtitle: 'Bersama Rehlatours.id',
   description:
-    'Nikmati perjalanan spiritual yang tak terlupakan dengan pelayanan terbaik, bimbingan profesional, dan harga terjangkau. Banyak jamaah baru yang sudah mempercayakan umroh pertamanya bersama Rehlatours.id sejak 2015.',
+    'Mulai perjalanan umroh pertamamu dengan mudah, didampingi tim profesional, harga bersahabat, dan bimbingan step-by-step. Banyak jamaah baru yang sudah mempercayakan umroh pertamanya bersama Rehlatours.id. Sekarang Giliran Anda!',
   primaryCTA: {
     text: 'Daftar Sekarang',
     href: '/packages',
