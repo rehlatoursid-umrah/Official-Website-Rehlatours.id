@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: PackageDetailPageProps): Prom
 
   if (!packageData) {
     return {
-      title: 'Package Tidak Ditemukan - ZeenTravel',
+      title: 'Package Tidak Ditemukan - Rehlatours.id',
       description: 'Paket umroh yang Anda cari tidak dapat ditemukan.',
     }
   }
@@ -31,7 +31,7 @@ export async function generateMetadata({ params }: PackageDetailPageProps): Prom
   const basePrice = formatPrice(packageData.price.discounted || packageData.price.original)
 
   return {
-    title: `${packageData.name} - ${basePrice} | ZeenTravel Umroh Terpercaya`,
+    title: `${packageData.name} - ${basePrice} | Rehlatours.id Umroh Terpercaya`,
     description: `${packageData.description} Durasi ${packageData.duration} hari dengan rating ${packageData.rating}/5 dari ${packageData.reviewCount} reviews. ${packageData.highlights.slice(0, 2).join(', ')}.`,
     keywords: [
       'umroh',
@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: PackageDetailPageProps): Prom
       `umroh ${packageData.duration} hari`,
       'makkah',
       'madinah',
-      'zeen travel',
+      'rehlatours.id',
     ],
     openGraph: {
       title: `${packageData.name} - ${basePrice}`,
