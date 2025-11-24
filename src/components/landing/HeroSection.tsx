@@ -36,13 +36,20 @@ const trustIndicators = [
   { icon: Shield, value: 'Kepercayaan', label: 'Proses transparan, aman, dan nyaman.' },
 ]
 
+const YOUTUBE_ID = '8f1JjFzirZ0' // dari URL secondaryCTA
+
 const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
   const [mounted, setMounted] = useState(false)
+  const [isVideoOpen, setIsVideoOpen] = useState(false)
+
   const { scrollY } = useScroll()
   const _y = useTransform(scrollY, [0, 800], [0, 200])
   const opacity = useTransform(scrollY, [0, 400], [1, 0])
 
   useEffect(() => setMounted(true), [])
+
+  const openVideo = () => setIsVideoOpen(true)
+  const closeVideo = () => setIsVideoOpen(false)
 
   if (!mounted) return null
 
@@ -50,7 +57,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
     <section
       id="hero"
       className={cn(
-        'relative min-h-screen pt-14 lg:pt-0 flex items-center justify-center overflow-hidden', // pt-14 sedikit lebih kecil dari pt-20
+        'relative min-h-screen pt-14 lg:pt-0 flex items-center justify-center overflow-hidden',
         className,
       )}
     >
@@ -71,9 +78,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
       {/* CONTENT */}
       <motion.div
         style={{ opacity }}
-        className="relative z-10 max-w-7xl mx-auto px-3 sm:px-5 lg:px-7 text-center" // px lebih kecil
+        className="relative z-10 max-w-7xl mx-auto px-3 sm:px-5 lg:px-7 text-center"
       >
-        <div className="max-w-3xl mx-auto"> {/* max-w lebih kecil */}
+        <div className="max-w-3xl mx-auto">
           {/* BADGE — secondary */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -81,8 +88,10 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="inline-flex items-center px-3 py-1.5 rounded-full bg-[#F7C566]/20 border border-[#F7C566]/40 mb-4"
           >
-            <Star className="w-3.5 h-3.5 text-[#F7C566] mr-2" /> {/* ukuran icon dikecilkan */}
-            <span className="text-[#F7C566] text-xs font-medium">#1 Travel Umroh Terpercaya</span>
+            <Star className="w-3.5 h-3.5 text-[#F7C566] mr-2" />
+            <span className="text-[#F7C566] text-xs font-medium">
+              #1 Travel Umroh Terpercaya
+            </span>
           </motion.div>
 
           {/* TITLE */}
@@ -90,7 +99,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 leading-tight" // Semua font-size dan mb diperkecil 1 tingkat
+            className="text-2xl sm:text-3xl lg:text-5xl font-bold text-white mb-3 leading-tight"
           >
             {heroData.title}
           </motion.h1>
@@ -134,10 +143,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
               </Link>
             </Button>
 
-            {/* SECONDARY BUTTON — BG #F7C566, BORDER/TEXT/ICON #3A0519 */}
+            {/* SECONDARY BUTTON — buka modal video */}
             <Button
               size="lg"
               variant="outline"
+              onClick={openVideo}
               className={cn(
                 'px-5 py-3 text-sm font-semibold',
                 'bg-[#F7C566]',
@@ -146,12 +156,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                 'focus:outline-none',
                 'hover:bg-[#F7C566] hover:text-[#3A0519] hover:border-[#3A0519]',
               )}
-              asChild
             >
-              <Link href={heroData.secondaryCTA.href} className="flex items-center space-x-1.5">
-                <Play className="w-4 h-4 text-[#3A0519]" />
-                <span className="text-[#3A0519]">{heroData.secondaryCTA.text}</span>
-              </Link>
+              <Play className="w-4 h-4 text-[#3A0519] mr-1.5" />
+              <span className="text-[#3A0519]">{heroData.secondaryCTA.text}</span>
             </Button>
           </motion.div>
 
@@ -175,16 +182,48 @@ const HeroSection: React.FC<HeroSectionProps> = ({ className }) => {
                   <div className="text-base lg:text-lg font-bold text-white mb-1">
                     {indicator.value}
                   </div>
-                  <div className="text-xs sm:text-sm text-gray-200 font-medium">{indicator.label}</div>
+                  <div className="text-xs sm:text-sm text-gray-200 font-medium">
+                    {indicator.label}
+                  </div>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </motion.div>
+
+      {/* MODAL VIDEO */}
+      {isVideoOpen && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80"
+          onClick={closeVideo}
+        >
+          <div
+            className="relative w-full max-w-3xl aspect-video bg-black rounded-xl overflow-hidden shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Tombol close */}
+            <button
+              onClick={closeVideo}
+              className="absolute -top-10 right-0 text-white/80 hover:text-white text-sm"
+            >
+              Tutup ✕
+            </button>
+
+            <iframe
+              className="w-full h-full"
+              src={`https://www.youtube-nocookie.com/embed/${YOUTUBE_ID}?autoplay=1&rel=0&modestbranding=1&controls=0&showinfo=0`}
+              title="Video Rehlatours"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      )}
     </section>
   )
 }
 
 export default HeroSection
+
 
