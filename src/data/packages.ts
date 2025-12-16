@@ -9,7 +9,7 @@ export const brandName = 'Rehlatours.id'
 export const packagesData: Record<string, Package> = {
   'ekonomi-9-hari': {
     id: 'ekonomi-9-hari',
-    name: 'Umroh Ekonomi Hemat',
+    name: 'Umroh Subsidi Uang Saku',
     type: 'ekonomi',
     duration: 9,
     price: {
@@ -18,7 +18,7 @@ export const packagesData: Record<string, Package> = {
       currency: 'IDR',
     },
     image:
-      'https://i.pinimg.com/1200x/16/3b/05/163b053814ad3bb43e1d1fcafca14444.jpg',
+      'https://i.pinimg.com/1200x/3d/df/ac/3ddfacd73e38571f2cd8b48fb6975b7f.jpg',
     badge: 'Hemat',
     description:
       'Paket umrah 7 malam 6 hari dengan subsidi uang saku Rp 4.000.000 per jamaah. Standar PPIU Kemenag, bimbingan mutawwif berpengalaman, dan ziarah ke tempat-tempat bersejarah di Makkah dan Madinah.',
