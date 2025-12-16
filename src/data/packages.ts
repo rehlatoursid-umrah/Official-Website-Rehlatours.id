@@ -17,8 +17,7 @@ export const packagesData: Record<string, Package> = {
       discounted: 27000000,
       currency: 'IDR',
     },
-    image:
-      'subsidi.jpg',
+    image: '/subsidi.jpg',
     badge: 'Hemat',
     description:
       'Paket umrah 7 malam 6 hari dengan subsidi uang saku Rp 4.000.000 per jamaah. Standar PPIU Kemenag, bimbingan mutawwif berpengalaman, dan ziarah ke tempat-tempat bersejarah di Makkah dan Madinah.',
