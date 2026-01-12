@@ -9,7 +9,7 @@ export const brandName = 'Rehlatours.id'
 export const packagesData: Record<string, Package> = {
   'ekonomi-9-hari': {
     id: 'ekonomi-9-hari',
-    name: 'Umroh Subsidi Uang Saku',
+    name: 'Umrah Subsidi Uang Saku',
     type: 'ekonomi',
     duration: 9,
     price: {
@@ -57,7 +57,7 @@ export const packagesData: Record<string, Package> = {
   },
   'reguler-12-hari': {
     id: 'reguler-12-hari',
-    name: 'Umroh Reguler Plus',
+    name: 'Umrah Plus Mesir ',
     type: 'reguler',
     duration: 12,
     price: {
@@ -65,8 +65,7 @@ export const packagesData: Record<string, Package> = {
       discounted: 23500000,
       currency: 'IDR',
     },
-    image:
-      'https://images.unsplash.com/photo-1591604157118-b94e2684f857?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    image: '/umrahmesir.jpg',
     badge: 'Terpopuler',
     description:
       'Paket umroh lengkap dengan fasilitas terbaik dan city tour yang menarik. Ideal untuk jamaah yang menginginkan pengalaman spiritual yang berkesan dengan kenyamanan maksimal.',
