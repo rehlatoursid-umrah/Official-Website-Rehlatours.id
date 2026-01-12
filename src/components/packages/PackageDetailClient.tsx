@@ -30,6 +30,7 @@ import { cn } from '@/lib/utils'
 import type { Package } from '@/types/landing'
 import { itineraryData, reviewsData, formatPrice } from '@/data/packages'
 
+
 interface PackageDetailClientProps {
   packageData: Package
   discountPercentage: number
