@@ -204,7 +204,7 @@ export const packagesData: Record<string, Package> = {
     isBestSeller: true,
     popularityRank: 1,
   },
-  'premium-14-hari': {
+ 'premium-14-hari-turki': {
     id: 'premium-14-hari-turki',
     name: 'Umroh Plus Turki',
     type: 'premium',
