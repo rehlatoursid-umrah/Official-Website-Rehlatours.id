@@ -173,4 +173,122 @@ export const packagesData: Record<string, Package> = {
     highlights: [
       'Hotel nyaman & lokasi strategis',
       'Program umroh lengkap (Makkah & Madinah)',
-      'Itinerary Turki (Istanbul dan sekitarny
+      'Itinerary Turki (Istanbul dan sekitarnya)',
+      'Grup kecil untuk pelayanan lebih personal',
+      'Pembimbing ibadah & tour leader berpengalaman',
+      'Dokumentasi dan pendampingan perjalanan',
+    ],
+    included: {
+      accommodation: 'Hotel selama umroh & Turki (sesuai program)',
+      meals: 'Makan sesuai program',
+      transportation: 'Transportasi program (bus) + penerbangan sesuai itinerary',
+      guidance: 'Pembimbing ibadah + tour leader',
+      documentation: 'Visa umroh (sesuai kebutuhan) & asuransi (sesuai paket)',
+      extras: ['Air zam-zam', 'Perlengkapan (sesuai program)'],
+    },
+    features: [
+      { name: 'Hotel nyaman', included: true },
+      { name: 'City tour Turki', included: true },
+      { name: 'Bimbingan manasik', included: true },
+      { name: 'Asuransi perjalanan', included: true },
+      { name: 'Private guide', included: false },
+      { name: 'Business class flight', included: false },
+    ],
+    departureSchedule: [
+      { month: 'Februari 2026', dates: ['9', '23'], available: true },
+      { month: 'Maret 2026', dates: ['9', '23'], available: true },
+      { month: 'April 2026', dates: ['13', '27'], available: true },
+    ],
+    groupSize: { min: 15, max: 25 },
+    rating: 4.9,
+    reviewCount: 18,
+    isPopular: true,
+  },
+
+  'vip-16-hari': {
+    id: 'vip-16-hari',
+    name: 'Umroh VIP Deluxe',
+    type: 'vip',
+    duration: 16,
+    price: {
+      original: 48000000,
+      discounted: 45000000,
+      currency: 'IDR',
+    },
+    image:
+      'https://images.unsplash.com/photo-1591604157118-b94e2684f857?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
+    badge: 'VIP',
+    description:
+      'Paket umroh paling eksklusif dengan layanan VIP dan fasilitas terlengkap. Pengalaman spiritual yang tak terlupakan dengan kemewahan yang luar biasa.',
+    highlights: [
+      'Hotel mewah dengan suite room dan balkon view Haram',
+      'First class flight experience untuk kenyamanan perjalanan',
+      'Private guide & driver personal sepanjang perjalanan',
+      'Akses VIP ke area khusus di Masjidil Haram',
+      'Personal shopper untuk kebutuhan shopping',
+      'Helicopter tour untuk pengalaman tak terlupakan',
+    ],
+    included: {
+      accommodation: 'Hotel mewah suite room dengan balkon view Haram',
+      meals: 'Fine dining & private chef service',
+      transportation: 'First class flight, luxury private car',
+      guidance: 'Exclusive ustadz & spiritual mentor',
+      documentation: 'VIP visa processing, comprehensive insurance',
+      extras: ['Designer luggage set', 'Gold prayer accessories', 'Air zam-zam 50L', 'Personal shopper'],
+    },
+    features: [
+      { name: 'Suite room premium', included: true },
+      { name: 'First class flight', included: true },
+      { name: 'Private guide', included: true },
+      { name: 'VIP access areas', included: true },
+      { name: 'Personal shopper', included: true },
+      { name: 'Helicopter tour', included: true },
+    ],
+    departureSchedule: [
+      { month: 'Maret 2024', dates: ['5', '19'], available: true },
+      { month: 'April 2024', dates: ['2', '16', '30'], available: true },
+      { month: 'Mei 2024', dates: ['14', '28'], available: true },
+    ],
+    groupSize: { min: 8, max: 15 },
+    rating: 5.0,
+    reviewCount: 42,
+    isNewPackage: true,
+  },
+}
+
+// Convert to array for easier iteration
+export const packagesArray: Package[] = Object.values(packagesData)
+
+// Featured packages for homepage (silakan pilih mau yang mana ditampilkan)
+export const featuredPackages: Package[] = [
+  packagesData['reguler-12-hari'],
+  packagesData['ekonomi-9-hari'],
+  packagesData['premium-14-hari-turki'],
+  packagesData['vip-16-hari'],
+]
+
+// Helper functions
+export const getPackageById = (id: string): Package | undefined => {
+  return packagesData[id]
+}
+
+export const getPackagesByType = (type: Package['type']): Package[] => {
+  return packagesArray.filter((pkg) => pkg.type === type)
+}
+
+export const getPopularPackages = (): Package[] => {
+  return packagesArray.filter((pkg) => pkg.isPopular || pkg.isBestSeller)
+}
+
+export const formatPrice = (price: number): string => {
+  return new Intl.NumberFormat('id-ID', {
+    style: 'currency',
+    currency: 'IDR',
+    minimumFractionDigits: 0,
+  }).format(price)
+}
+
+export const getDiscountPercentage = (original: number, discounted?: number): number => {
+  if (!discounted) return 0
+  return Math.round(((original - discounted) / original) * 100)
+}
