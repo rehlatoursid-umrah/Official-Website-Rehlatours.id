@@ -292,3 +292,159 @@ export const getDiscountPercentage = (original: number, discounted?: number): nu
   if (!discounted) return 0
   return Math.round(((original - discounted) / original) * 100)
 }
+
+// Itinerary data for package details
+export const itineraryData = [
+  {
+    day: 1,
+    title: 'Keberangkatan Jakarta - Madinah',
+    activities: [
+      'Berkumpul di Bandara Soekarno-Hatta pukul 19.00 WIB',
+      'Check-in dan briefing keberangkatan oleh tour leader',
+      'Penerbangan Jakarta - Madinah (transit Jeddah)',
+      'Tiba di Madinah, transfer ke hotel dengan bus AC',
+      'Check-in hotel dan istirahat, persiapan ibadah',
+    ],
+    highlight: 'Perjalanan dimulai',
+  },
+  {
+    day: 2,
+    title: 'Ziarah Madinah - Kota Rasulullah',
+    activities: [
+      'Shalat Subuh berjamaah di Masjid Nabawi',
+      'Ziarah Raudhah dan berdoa di makam Rasulullah SAW',
+      'City tour: Masjid Quba, Jabal Uhud, dan Bir Ali',
+      'Ziarah Baqi dan masjid-masjid bersejarah',
+      'Kembali ke hotel dan istirahat, shalat Maghrib berjamaah',
+    ],
+    highlight: 'Ziarah di kota Nabi',
+  },
+  {
+    day: 3,
+    title: 'Madinah - Makkah',
+    activities: [
+      'Shalat Subuh dan sarapan di hotel',
+      'Check-out hotel Madinah',
+      'Perjalanan Madinah - Makkah dengan bus VIP (5-6 jam)',
+      'Tiba di Makkah, check-in hotel',
+      'Persiapan ihram dan miqat di hotel',
+    ],
+    highlight: 'Menuju Tanah Haram',
+  },
+  {
+    day: 4,
+    title: 'Umroh Pertama',
+    activities: [
+      'Persiapan mental dan spiritual untuk umroh',
+      "Pelaksanaan umroh pertama: Tawaf, Sa'i, dan tahallul",
+      'Istirahat di hotel setelah umroh',
+      'Shalat berjamaah di Masjidil Haram',
+      'Free time untuk ibadah pribadi dan tawaf sunnah',
+    ],
+    highlight: 'Umroh pertama',
+  },
+  {
+    day: 5,
+    title: 'City Tour Makkah',
+    activities: [
+      'Ziarah Jabal Rahmah dan Padang Arafah',
+      'Ziarah Ghar Hira dan Jabal Thaur',
+      'Kunjungi museum Makkah dan situs bersejarah',
+      'Shopping di Abraj Al Bait Mall',
+      'Kembali ke hotel, shalat dan istirahat',
+    ],
+    highlight: 'Wisata religi Makkah',
+  },
+  {
+    day: 6,
+    title: 'Ibadah di Masjidil Haram',
+    activities: [
+      'Shalat Subuh di Masjidil Haram',
+      "Tawaf sunnah dan sa'i sunnah",
+      'Kajian dan ceramah spiritual',
+      "I'tikaf di Masjidil Haram",
+      'Shalat Maghrib dan Isya berjamaah',
+    ],
+    highlight: 'Ibadah intensif',
+  },
+  {
+    day: 7,
+    title: 'Shopping dan Persiapan Pulang',
+    activities: [
+      'Shopping oleh-oleh di Souk Al Haramain',
+      'Kunjungi toko kurma dan air zam-zam',
+      'Persiapan packing dan check-out hotel',
+      'Umroh terakhir sebelum kepulangan',
+      'Transfer ke bandara untuk penerbangan pulang',
+    ],
+    highlight: 'Persiapan kepulangan',
+  },
+  {
+    day: 8,
+    title: 'Kepulangan',
+    activities: [
+      'Penerbangan Jeddah - Jakarta',
+      'Transit di bandara (jika ada)',
+      'Tiba di Bandara Soekarno-Hatta',
+      'Penjemputan keluarga',
+      'Pulang dengan penuh keberkahan',
+    ],
+    highlight: 'Kembali ke tanah air',
+  },
+]
+
+// Reviews data for package details
+export const reviewsData = [
+  {
+    id: 1,
+    name: 'Ibu Siti Aminah',
+    location: 'Jakarta',
+    rating: 5,
+    date: 'Januari 2024',
+    content:
+      'Alhamdulillah paket ini sangat memuaskan. Hotel dekat dengan Masjidil Haram, pelayanan tour guide sangat baik, dan city tour sangat informatif. Highly recommended untuk keluarga!',
+    helpful: 12,
+    package: 'Umroh Reguler Plus',
+    avatar:
+      'https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+  },
+  {
+    id: 2,
+    name: 'Bapak Ahmad Rizki',
+    location: 'Surabaya',
+    rating: 5,
+    date: 'Desember 2023',
+    content:
+      'Pengalaman umroh yang luar biasa. Grup kecil membuat suasana lebih intim, pembimbing sangat sabar menjelaskan. Fasilitas hotel juga sangat nyaman.',
+    helpful: 8,
+    package: 'Umroh Premium Exclusive',
+    avatar:
+      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+  },
+  {
+    id: 3,
+    name: 'Ibu Fatimah',
+    location: 'Bandung',
+    rating: 4,
+    date: 'November 2023',
+    content:
+      'Secara keseluruhan sangat puas. Makanan enak, transportasi nyaman. Hanya saja wifi hotel agak lambat, tapi overall excellent service!',
+    helpful: 6,
+    package: 'Umroh Ekonomi Hemat',
+    avatar:
+      'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+  },
+  {
+    id: 4,
+    name: 'Bapak Muhammad Yusuf',
+    location: 'Medan',
+    rating: 5,
+    date: 'Oktober 2023',
+    content:
+      'Rehlatours.id benar-benar amanah. Harga transparan, tidak ada biaya tersembunyi. Bimbingan spiritual yang diberikan sangat berkesan dan membantu.',
+    helpful: 15,
+    package: 'Umroh VIP Deluxe',
+    avatar:
+      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80',
+  },
+]
