@@ -18,7 +18,7 @@ const ctaData: CTAData = {
   description: `Wujudkan impian ke tanah suci dengan proses mudah, bimbingan ramah, dan harga terjangkau.
 Kami berkomitmen memberikan layanan jujur, transparan, dan selalu siap mendampingi setiap langkah perjalanan umroh Anda.`,
   buttonText: 'Daftar Sekarang - Promo Terbatas',
-  buttonHref: '#contact',
+  buttonHref: '/register',
   features: [
     'Pendaftaran mudah dan dibantu tim profesional﻿',
     'Bimbingan manasik & konsultasi gratis sebelum keberangkatan',

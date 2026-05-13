@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
   { label: 'Tentang Kami', href: '#about' },
   { label: 'Testimoni', href: '#testimonials' },
   { label: 'FAQ', href: '#faq' },
-  { label: 'Kontak', href: '#contact' },
+  { label: 'Cek Booking', href: '/booking-status' },
 ]
 
 const Navbar: React.FC<NavbarProps> = ({ className }) => {
@@ -154,9 +154,8 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               className="bg-[var(--secondary)] hover:bg-[var(--secondary)]/90 transition-all duration-300 hover:scale-105"
               asChild
             >
-              <Link href="https://wa.me/+6283197321658" className="flex items-center space-x-2">
-                <MessageCircle className="w-4 h-4 text-[#3a0519]" />
-                <span className="text-[#3a0519]">WhatsApp</span>
+              <Link href="/register" className="flex items-center space-x-2">
+                <span className="text-[#3a0519] font-bold">Daftar Sekarang</span>
               </Link>
             </Button>
           </div>
