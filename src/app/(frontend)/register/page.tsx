@@ -32,19 +32,24 @@ export default function RegisterPage() {
   const [result, setResult] = useState<any>(null)
   const [ktpFile, setKtpFile] = useState<File | null>(null)
   const [passportFile, setPassportFile] = useState<File | null>(null)
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [agreedTerms, setAgreedTerms] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
   const [form, setForm] = useState({
     fullName: '', nickname: '', gender: '', birthDate: '', birthPlace: '',
-    nik: '', phone: '', whatsapp: '', email: '', address: '', city: '', province: '',
+    nik: '', phoneCode: '+62', phone: '', whatsappCode: '+62', whatsapp: '', email: '', address: '', city: '', province: '',
     passportNumber: '', passportExpiry: '', passportIssued: '',
     bloodType: '', healthNotes: '', vaccineMeningitis: false, vaccineDate: '',
-    emergencyName: '', emergencyPhone: '', emergencyRelation: '',
+    emergencyName: '', emergencyPhone: '', emergencyPhoneCode: '+62', emergencyRelation: '',
     notes: '', packageId: '', roomType: 'QUAD', bookingNotes: '',
   })
 
+  const COUNTRY_CODES = ['+62', '+60', '+65', '+66', '+1', '+44', '+81', '+82', '+86', '+91', '+966', '+971', '+20']
+
   useEffect(() => {
     fetch(`${ERP}/api/public/packages`).then(r => r.json()).then(d => {
-      if (d.success) setPackages(d.packages)
-    }).catch(() => {})
+      if (d.success && d.packages) setPackages(d.packages)
+    }).catch(err => console.error('Failed to load packages:', err))
   }, [])
 
   const set = (k: string, v: any) => setForm(f => ({ ...f, [k]: v }))
@@ -57,23 +62,36 @@ export default function RegisterPage() {
   }
 
   const validate = () => {
-    if (step === 0 && !form.fullName.trim()) { alert('Nama lengkap wajib diisi'); return false }
-    if (step === 1 && !form.phone.trim()) { alert('Nomor HP wajib diisi'); return false }
-    return true
+    const e: Record<string, string> = {}
+    if (step === 0) {
+      if (!form.fullName.trim()) e.fullName = 'Nama lengkap wajib diisi'
+      if (!form.gender) e.gender = 'Jenis kelamin wajib dipilih'
+      if (!form.birthDate) e.birthDate = 'Tanggal lahir wajib diisi'
+      if (form.nik && form.nik.length !== 16) e.nik = 'NIK harus 16 digit'
+    }
+    if (step === 1) {
+      if (!form.phone.trim()) e.phone = 'Nomor HP wajib diisi'
+      if (form.phone && !/^\d{8,15}$/.test(form.phone)) e.phone = 'Format nomor HP tidak valid'
+      if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = 'Format email tidak valid'
+    }
+    setErrors(e)
+    return Object.keys(e).length === 0
   }
 
   const handleSubmit = async () => {
+    if (!agreedTerms) { setShowTerms(true); return }
     setLoading(true)
     try {
       const fd = new FormData()
-      Object.entries(form).forEach(([k, v]) => { if (v !== '' && v !== null && v !== undefined) fd.append(k, String(v)) })
+      const submitData = { ...form, phone: `${form.phoneCode}${form.phone}`, whatsapp: form.whatsapp ? `${form.whatsappCode}${form.whatsapp}` : '', emergencyPhone: form.emergencyPhone ? `${form.emergencyPhoneCode}${form.emergencyPhone}` : '' }
+      Object.entries(submitData).forEach(([k, v]) => { if (v !== '' && v !== null && v !== undefined && !k.endsWith('Code')) fd.append(k, String(v)) })
       if (ktpFile) fd.append('ktpFile', ktpFile)
       if (passportFile) fd.append('passportFile', passportFile)
       const res = await fetch(`${ERP}/api/public/register`, { method: 'POST', body: fd })
       const data = await res.json()
       if (data.success) { setResult(data); setSubmitted(true) }
-      else alert(data.error || 'Gagal mendaftar')
-    } catch { alert('Terjadi kesalahan jaringan') }
+      else setErrors({ submit: data.error || 'Gagal mendaftar' })
+    } catch { setErrors({ submit: 'Terjadi kesalahan jaringan. Silakan coba lagi.' }) }
     finally { setLoading(false) }
   }
 
@@ -141,24 +159,39 @@ export default function RegisterPage() {
           {step === 0 && (
             <div className="space-y-5">
               <Inp label="Nama Lengkap *" value={form.fullName} onChange={v => set('fullName', v)} placeholder="Sesuai paspor/KTP" />
+              {errors.fullName && <p className="text-xs text-red-500 -mt-3">{errors.fullName}</p>}
               <Inp label="Nama Panggilan" value={form.nickname} onChange={v => set('nickname', v)} />
               <div className="grid grid-cols-2 gap-5">
-                <Sel label="Jenis Kelamin" value={form.gender} onChange={v => set('gender', v)} opts={[['','Pilih...'],['MALE','Laki-laki'],['FEMALE','Perempuan']]} />
+                <div><Sel label="Jenis Kelamin *" value={form.gender} onChange={v => set('gender', v)} opts={[['','Pilih...'],['MALE','Laki-laki'],['FEMALE','Perempuan']]} />{errors.gender && <p className="text-xs text-red-500 mt-1">{errors.gender}</p>}</div>
                 <Inp label="Tempat Lahir" value={form.birthPlace} onChange={v => set('birthPlace', v)} />
               </div>
               <div className="grid grid-cols-2 gap-5">
-                <Inp label="Tanggal Lahir" type="date" value={form.birthDate} onChange={v => set('birthDate', v)} />
-                <Inp label="NIK KTP" value={form.nik} onChange={v => set('nik', v)} placeholder="16 digit" />
+                <div><Inp label="Tanggal Lahir *" type="date" value={form.birthDate} onChange={v => set('birthDate', v)} />{errors.birthDate && <p className="text-xs text-red-500 mt-1">{errors.birthDate}</p>}</div>
+                <div><Inp label="NIK KTP" value={form.nik} onChange={v => set('nik', v.replace(/\D/g,'').slice(0,16))} placeholder="16 digit" />{errors.nik && <p className="text-xs text-red-500 mt-1">{errors.nik}</p>}</div>
               </div>
             </div>
           )}
           {step === 1 && (
             <div className="space-y-5">
               <div className="grid grid-cols-2 gap-5">
-                <Inp label="No. Handphone *" value={form.phone} onChange={v => set('phone', v)} placeholder="081234567890" />
-                <Inp label="WhatsApp" value={form.whatsapp} onChange={v => set('whatsapp', v)} placeholder="081234567890" />
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5 tracking-wide">No. Handphone *</label>
+                  <div className="flex gap-2">
+                    <select value={form.phoneCode} onChange={e => set('phoneCode', e.target.value)} className="w-24 rounded-xl border-0 py-3 px-2 text-sm font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50">{COUNTRY_CODES.map(c => <option key={c} value={c}>{c}</option>)}</select>
+                    <input value={form.phone} onChange={e => set('phone', e.target.value.replace(/\D/g,''))} placeholder="81234567890" className="flex-1 rounded-xl border-0 py-3 px-4 text-sm font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50" />
+                  </div>
+                  {errors.phone && <p className="text-xs text-red-500 mt-1">{errors.phone}</p>}
+                </div>
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5 tracking-wide">WhatsApp</label>
+                  <div className="flex gap-2">
+                    <select value={form.whatsappCode} onChange={e => set('whatsappCode', e.target.value)} className="w-24 rounded-xl border-0 py-3 px-2 text-sm font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50">{COUNTRY_CODES.map(c => <option key={c} value={c}>{c}</option>)}</select>
+                    <input value={form.whatsapp} onChange={e => set('whatsapp', e.target.value.replace(/\D/g,''))} placeholder="81234567890" className="flex-1 rounded-xl border-0 py-3 px-4 text-sm font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50" />
+                  </div>
+                </div>
               </div>
               <Inp label="Email" type="email" value={form.email} onChange={v => set('email', v)} placeholder="email@domain.com" />
+              {errors.email && <p className="text-xs text-red-500 -mt-3">{errors.email}</p>}
               <Inp label="Alamat" value={form.address} onChange={v => set('address', v)} area placeholder="Alamat lengkap..." />
               <div className="grid grid-cols-2 gap-5">
                 <Inp label="Kota" value={form.city} onChange={v => set('city', v)} />
@@ -209,7 +242,13 @@ export default function RegisterPage() {
               <p className="text-sm font-bold text-[#3a0519]">Kontak Darurat</p>
               <div className="grid grid-cols-3 gap-4">
                 <Inp label="Nama" value={form.emergencyName} onChange={v => set('emergencyName', v)} />
-                <Inp label="No. HP" value={form.emergencyPhone} onChange={v => set('emergencyPhone', v)} />
+                <div>
+                  <label className="block text-xs font-bold text-gray-600 mb-1.5 tracking-wide">No. HP</label>
+                  <div className="flex gap-1">
+                    <select value={form.emergencyPhoneCode} onChange={e => set('emergencyPhoneCode', e.target.value)} className="w-20 rounded-xl border-0 py-3 px-1 text-xs font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50">{COUNTRY_CODES.map(c => <option key={c} value={c}>{c}</option>)}</select>
+                    <input value={form.emergencyPhone} onChange={e => set('emergencyPhone', e.target.value.replace(/\D/g,''))} className="flex-1 rounded-xl border-0 py-3 px-3 text-sm font-medium ring-1 ring-gray-200 focus:ring-2 focus:ring-[#3a0519] bg-gray-50/50" />
+                  </div>
+                </div>
                 <Inp label="Hubungan" value={form.emergencyRelation} onChange={v => set('emergencyRelation', v)} />
               </div>
             </div>
@@ -256,7 +295,7 @@ export default function RegisterPage() {
                 <p className="text-sm text-gray-500">Pastikan data benar sebelum mengirim</p>
               </div>
               <Rev title="Data Diri" rows={[['Nama', form.fullName],['NIK', form.nik || '-'],['Gender', form.gender === 'MALE' ? 'Laki-laki' : form.gender === 'FEMALE' ? 'Perempuan' : '-']]} />
-              <Rev title="Kontak" rows={[['HP', form.phone],['WA', form.whatsapp || '-'],['Email', form.email || '-'],['Alamat', `${form.address || '-'}, ${form.city || '-'}`]]} />
+              <Rev title="Kontak" rows={[['HP', `${form.phoneCode}${form.phone}`],['WA', form.whatsapp ? `${form.whatsappCode}${form.whatsapp}` : '-'],['Email', form.email || '-'],['Alamat', `${form.address || '-'}, ${form.city || '-'}`]]} />
               {form.packageId && (() => { const p = packages.find(x => x.id === form.packageId); return p ? (
                 <div className="border-2 border-[#3a0519] rounded-xl overflow-hidden">
                   <div className="bg-[#3a0519] px-4 py-3"><span className="text-xs text-white font-bold uppercase tracking-widest">Paket Terpilih</span></div>
@@ -271,25 +310,71 @@ export default function RegisterPage() {
           )}
         </motion.div>
 
+        {/* Error Banner */}
+        {errors.submit && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-4 text-sm text-red-700 font-medium">{errors.submit}</div>
+        )}
+
+        {/* Terms checkbox on final step */}
+        {step === STEPS.length - 1 && (
+          <label className="flex items-start gap-3 p-4 bg-white border border-gray-200 rounded-xl mb-4 cursor-pointer hover:border-[#3a0519]/30 transition-all">
+            <div className={`w-5 h-5 mt-0.5 rounded flex-shrink-0 flex items-center justify-center ${agreedTerms ? 'bg-[#3a0519]' : 'bg-gray-200'}`}>
+              {agreedTerms && <Check size={12} className="text-white" />}
+            </div>
+            <input type="checkbox" checked={agreedTerms} onChange={e => setAgreedTerms(e.target.checked)} className="hidden" />
+            <span className="text-sm text-gray-700">Saya menyetujui <button type="button" onClick={e => { e.preventDefault(); setShowTerms(true) }} className="text-[#3a0519] font-bold underline">Syarat & Ketentuan</button> pendaftaran umrah Rehlatours.id</span>
+          </label>
+        )}
+
         {/* Navigation */}
         <div className="flex justify-between">
           {step > 0 ? (
-            <button onClick={() => setStep(s => s - 1)} className="px-5 py-3 text-sm font-bold text-gray-500 hover:text-[#3a0519] rounded-xl flex items-center gap-2">
+            <button onClick={() => { setStep(s => s - 1); setErrors({}) }} className="px-5 py-3 text-sm font-bold text-gray-500 hover:text-[#3a0519] rounded-xl flex items-center gap-2">
               <ChevronLeft size={16} /> Kembali
             </button>
           ) : <div />}
           {step < STEPS.length - 1 ? (
-            <button onClick={() => { if (validate()) { setStep(s => s + 1); window.scrollTo({ top: 0, behavior: 'smooth' }) }}} className="flex items-center gap-2 bg-[#3a0519] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#5a0826] transition-all shadow-lg">
+            <button onClick={() => { if (validate()) { setStep(s => s + 1); setErrors({}); window.scrollTo({ top: 0, behavior: 'smooth' }) }}} className="flex items-center gap-2 bg-[#3a0519] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#5a0826] transition-all shadow-lg">
               Lanjutkan <ChevronRight size={18} />
             </button>
           ) : (
-            <button onClick={handleSubmit} disabled={loading} className="flex items-center gap-2 bg-[#3a0519] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#5a0826] transition-all shadow-lg disabled:opacity-60">
+            <button onClick={handleSubmit} disabled={loading || !agreedTerms} className="flex items-center gap-2 bg-[#3a0519] text-white px-8 py-3 rounded-xl font-bold hover:bg-[#5a0826] transition-all shadow-lg disabled:opacity-40 disabled:cursor-not-allowed">
               {loading ? <Loader2 size={18} className="animate-spin" /> : <Check size={18} />}
               {loading ? 'Memproses...' : 'Konfirmasi & Kirim'}
             </button>
           )}
         </div>
       </div>
+
+      {/* Terms & Conditions Modal */}
+      {showTerms && (
+        <div className="fixed inset-0 bg-black/60 z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-lg w-full max-h-[80vh] overflow-hidden shadow-2xl">
+            <div className="bg-[#3a0519] p-5 flex justify-between items-center">
+              <h3 className="text-white font-bold text-lg">Syarat & Ketentuan</h3>
+              <button onClick={() => setShowTerms(false)} className="text-white/60 hover:text-white text-xl">✕</button>
+            </div>
+            <div className="p-6 overflow-y-auto max-h-[55vh] text-sm text-gray-700 space-y-4">
+              <h4 className="font-bold text-[#3a0519]">1. Pendaftaran</h4>
+              <p>Calon jamaah wajib mengisi formulir pendaftaran dengan data yang benar dan lengkap sesuai identitas resmi (KTP/Paspor). Kesalahan data menjadi tanggung jawab pendaftar.</p>
+              <h4 className="font-bold text-[#3a0519]">2. Pembayaran</h4>
+              <p>DP (Down Payment) minimal harus dibayarkan sesuai ketentuan paket yang dipilih. Pelunasan wajib dilakukan sebelum tanggal yang ditentukan oleh pihak Rehlatours Indonesia.</p>
+              <h4 className="font-bold text-[#3a0519]">3. Pembatalan</h4>
+              <p>Pembatalan oleh jamaah setelah DP akan dikenakan biaya administrasi. Refund mengikuti kebijakan yang berlaku di Rehlatours Indonesia.</p>
+              <h4 className="font-bold text-[#3a0519]">4. Dokumen Perjalanan</h4>
+              <p>Jamaah wajib memiliki paspor yang masih berlaku minimal 7 bulan dari tanggal keberangkatan. Visa, vaksin meningitis, dan dokumen lainnya akan dibantu oleh Rehlatours.</p>
+              <h4 className="font-bold text-[#3a0519]">5. Kesehatan</h4>
+              <p>Jamaah wajib dalam kondisi sehat jasmani dan rohani. Jamaah dengan kondisi medis khusus wajib menginformasikan sebelum keberangkatan.</p>
+              <h4 className="font-bold text-[#3a0519]">6. Tanggung Jawab</h4>
+              <p>Rehlatours Indonesia tidak bertanggung jawab atas kerugian yang disebabkan oleh force majeure, perubahan kebijakan pemerintah, atau hal-hal di luar kendali perusahaan.</p>
+            </div>
+            <div className="p-5 border-t bg-gray-50 flex gap-3 justify-end">
+              <button onClick={() => setShowTerms(false)} className="px-5 py-2.5 text-sm font-bold text-gray-500 border border-gray-300 rounded-xl hover:bg-gray-100">Tutup</button>
+              <button onClick={() => { setAgreedTerms(true); setShowTerms(false) }} className="px-5 py-2.5 text-sm font-bold text-white bg-[#3a0519] rounded-xl hover:bg-[#5a0826]">Saya Setuju</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }
