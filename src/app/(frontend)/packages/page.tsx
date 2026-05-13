@@ -1,10 +1,6 @@
-/* UX: Comprehensive packages display with filtering, comparison, and clear pricing
-   Helps users find the perfect umroh package that matches their budget and preferences */
-/* DESIGN: Card-based layout with filtering sidebar, clear pricing, and prominent booking CTAs */
-
 'use client'
 
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -18,11 +14,13 @@ import {
   Search,
   Heart,
   ArrowRight,
+  Loader2,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import type { Package, PackageCategory } from '@/types/landing'
-import { packagesArray, formatPrice, getDiscountPercentage } from '@/data/packages'
+import { packagesArray as staticPackages, formatPrice, getDiscountPercentage } from '@/data/packages'
+import { transformERPPackages } from '@/lib/erp-packages'
 import Navbar from '@/components/landing/Navbar'
 import Footer from '@/components/landing/Footer'
 
@@ -68,6 +66,23 @@ export default function PackagesPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 50000000])
   const [favoritePackages, setFavoritePackages] = useState<Set<string>>(new Set())
+  const [packagesArray, setPackagesArray] = useState<Package[]>(staticPackages)
+  const [isLoadingPackages, setIsLoadingPackages] = useState(true)
+
+  // Fetch live packages from ERP API, fallback to static data
+  useEffect(() => {
+    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+    fetch(`${ERP_URL}/api/public/packages`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.success && data.packages?.length > 0) {
+          const transformed = transformERPPackages(data.packages)
+          setPackagesArray([...transformed, ...staticPackages])
+        }
+      })
+      .catch(() => {}) // Keep static data on failure
+      .finally(() => setIsLoadingPackages(false))
+  }, [])
 
   const filteredPackages = useMemo(() => {
     const filtered = packagesArray.filter((pkg) => {
