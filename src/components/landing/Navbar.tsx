@@ -38,9 +38,16 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
   const handleNavClick = (href: string) => {
     setIsOpen(false)
     if (href.startsWith('#')) {
-      const element = document.querySelector(href)
-      if (element) element.scrollIntoView({ behavior: 'smooth' })
+      // If we're on the home page, scroll to section
+      if (window.location.pathname === '/') {
+        const element = document.querySelector(href)
+        if (element) element.scrollIntoView({ behavior: 'smooth' })
+      } else {
+        // If we're on another page, navigate to home + hash
+        window.location.href = '/' + href
+      }
     }
+    // Non-hash links (like /packages, /booking-status) are handled by Next.js Link
   }
 
   return (
@@ -62,7 +69,6 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
           <Link
             href="/"
             className="flex items-center space-x-3 group"
-            onClick={() => handleNavClick('#hero')}
           >
             <div className="relative w-10 h-10 lg:w-12 lg:h-12">
               {/* Logo desktop: berubah sesuai scroll */}
