@@ -106,14 +106,16 @@ export default function StatsSection({ className }: StatsSectionProps) {
             <p className="text-gray-700 mb-4">
               Bergabunglah dan rasakan pengalaman umroh yang nyaman dan terjangkau bersama Rehlatours.id
             </p>
-            <Button
-              type="button"
-              size="lg"
-              className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-6 py-3 rounded-lg font-semibold text-base transition-colors duration-300"
-              aria-label="Konsultasi Gratis"
-            >
-              Konsultasi Gratis
-            </Button>
+            <a href="https://wa.me/6283197321658?text=Halo, saya ingin konsultasi umroh" target="_blank" rel="noopener noreferrer">
+              <Button
+                type="button"
+                size="lg"
+                className="bg-[#3A0519] hover:bg-[#3A0519]/90 text-white px-6 py-3 rounded-lg font-semibold text-base transition-colors duration-300"
+                aria-label="Konsultasi Gratis"
+              >
+                Konsultasi Gratis
+              </Button>
+            </a>
           </div>
         </motion.div>
       </div>

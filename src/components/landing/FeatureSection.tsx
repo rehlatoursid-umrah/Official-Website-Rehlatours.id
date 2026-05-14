@@ -208,13 +208,15 @@ const FeatureSection: React.FC<FeatureSectionProps> = ({ className }) => {
 
               {/* Right CTA */}
               <div className="text-center lg:text-right">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-[#3A0519] to-[#3A0519]/90 hover:from-[#3A0519]/90 hover:to-[#3A0519] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-lg w-full lg:w-auto"
-                >
-                  Konsultasi Sekarang
-                </motion.button>
+                <a href="https://wa.me/6283197321658?text=Halo, saya ingin konsultasi umroh" target="_blank" rel="noopener noreferrer">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-gradient-to-r from-[#3A0519] to-[#3A0519]/90 hover:from-[#3A0519]/90 hover:to-[#3A0519] text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl text-lg w-full lg:w-auto"
+                  >
+                    Konsultasi Sekarang
+                  </motion.button>
+                </a>
                 <p className="text-sm text-gray-500 mt-3">
                   Gratis & tanpa komitmen
                 </p>

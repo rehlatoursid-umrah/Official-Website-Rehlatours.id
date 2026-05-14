@@ -248,14 +248,16 @@ export default function StepsSection({ className }: StepsSectionProps) {
         Tim konsultan kami siap membantu Anda dari langkah pertama hingga kembali dengan
         penuh keberkahan.
       </p>
-      <Button
-        type="button"
-        size="lg"
-        className="bg-[#f7c566] hover:bg-[#f7c566]/90 text-[#3A0519] px-7 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl text-base md:text-lg transition-colors duration-300"
-        aria-label="Mulai Konsultasi Gratis"
-      >
-        Mulai Konsultasi Gratis
-      </Button>
+      <a href="https://wa.me/6283197321658?text=Halo, saya ingin konsultasi umroh" target="_blank" rel="noopener noreferrer">
+        <Button
+          type="button"
+          size="lg"
+          className="bg-[#f7c566] hover:bg-[#f7c566]/90 text-[#3A0519] px-7 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl text-base md:text-lg transition-colors duration-300"
+          aria-label="Mulai Konsultasi Gratis"
+        >
+          Mulai Konsultasi Gratis
+        </Button>
+      </a>
     </div>
     {/* Decorative Blurs */}
     <div
