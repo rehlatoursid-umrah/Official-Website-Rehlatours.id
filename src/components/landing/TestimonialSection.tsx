@@ -72,27 +72,50 @@ Perjalanan umroh pertama saya dan keluarga berjalan dengan sempurna. Grup kecil 
 const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isDragging, setIsDragging] = useState(false)
+  const [allTestimonials, setAllTestimonials] = useState<TestimonialItem[]>(testimonialsData)
   const x = useMotionValue(0)
   const dragProgress = useTransform(x, [-200, 0, 200], [1, 0, -1])
+
+  // Fetch live testimonials from ERP
+  useEffect(() => {
+    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp.rehlatours.id'
+    fetch(`${ERP_URL}/api/public/testimonials`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.success && data.testimonials?.length > 0) {
+          const erpItems: TestimonialItem[] = data.testimonials.map((t: any, i: number) => ({
+            id: i + 100,
+            name: t.name,
+            location: t.location,
+            rating: t.rating || 5,
+            content: t.content,
+            avatar: t.avatarUrl || '/default-avatar.png',
+            package: t.packageName || '',
+          }))
+          setAllTestimonials([...erpItems, ...testimonialsData])
+        }
+      })
+      .catch(() => {}) // Keep static data on failure
+  }, [])
 
   useEffect(() => {
     const timer = setInterval(() => {
       if (!isDragging) {
-        setCurrentIndex((prev) => (prev + 1) % testimonialsData.length)
+        setCurrentIndex((prev) => (prev + 1) % allTestimonials.length)
       }
     }, 5000)
 
     return () => clearInterval(timer)
-  }, [isDragging])
+  }, [isDragging, allTestimonials.length])
 
   const handleDragEnd = () => {
     setIsDragging(false)
     const dragValue = dragProgress.get()
 
     if (dragValue > 0.3) {
-      setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length)
+      setCurrentIndex((prev) => (prev - 1 + allTestimonials.length) % allTestimonials.length)
     } else if (dragValue < -0.3) {
-      setCurrentIndex((prev) => (prev + 1) % testimonialsData.length)
+      setCurrentIndex((prev) => (prev + 1) % allTestimonials.length)
     }
 
     x.set(0)
@@ -103,11 +126,11 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
   }
 
   const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonialsData.length) % testimonialsData.length)
+    setCurrentIndex((prev) => (prev - 1 + allTestimonials.length) % allTestimonials.length)
   }
 
   const goToNext = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonialsData.length)
+    setCurrentIndex((prev) => (prev + 1) % allTestimonials.length)
   }
 
   return (
@@ -172,8 +195,8 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
                   {/* Desktop Layout */}
                   <div className="hidden lg:grid lg:grid-cols-3 gap-6">
                     {[0, 1, 2].map((offset) => {
-                      const index = (currentIndex + offset) % testimonialsData.length
-                      const testimonial = testimonialsData[index]
+                      const index = (currentIndex + offset) % allTestimonials.length
+                      const testimonial = allTestimonials[index]
                       const isCenter = offset === 1
 
                       return (
@@ -207,7 +230,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
                       transition={{ duration: 0.5 }}
                       className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100"
                     >
-                      <TestimonialCard testimonial={testimonialsData[currentIndex]} />
+                      <TestimonialCard testimonial={allTestimonials[currentIndex]} />
                     </motion.div>
                   </div>
                 </motion.div>
@@ -235,7 +258,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ className }) =>
 
           {/* Dots Navigation */}
           <div className="flex justify-center space-x-2 mt-8">
-            {testimonialsData.map((_, index) => (
+            {allTestimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
