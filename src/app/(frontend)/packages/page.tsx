@@ -142,7 +142,7 @@ export default function PackagesPage() {
 
       {/* Page Header */}
       <section
-        className="pt-20 pb-12"
+        className="pt-32 pb-16 lg:pt-36 lg:pb-20"
         style={{
           background: `linear-gradient(to bottom right, ${primaryColor}, ${primaryColor}CC)`,
         }}
