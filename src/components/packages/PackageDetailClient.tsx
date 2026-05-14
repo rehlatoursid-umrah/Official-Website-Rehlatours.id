@@ -666,7 +666,7 @@ export default function PackageDetailClient({
                 asChild
               >
                 <a
-                  href={`https://wa.me/628123456789?text=Halo, saya tertarik dengan paket ${packageData.name}`}
+                  href={`https://wa.me/6283197321658?text=Halo, saya tertarik dengan paket ${packageData.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center space-x-2"
@@ -683,7 +683,7 @@ export default function PackageDetailClient({
                 className="w-full border-[#C19F50] text-[#C19F50] hover:bg-[#C19F50] hover:text-white py-3"
                 asChild
               >
-                <a href="tel:+628123456789" className="flex items-center justify-center space-x-2">
+                <a href="tel:+6283197321658" className="flex items-center justify-center space-x-2">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path
                       strokeLinecap="round"

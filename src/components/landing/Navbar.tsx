@@ -143,7 +143,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
               )}
               asChild
             >
-              <Link href="tel:+628123456789" className="flex items-center space-x-2">
+              <Link href="tel:+6283197321658" className="flex items-center space-x-2">
                 <Phone className="w-4 h-4" />
                 <span>Hubungi Kami</span>
               </Link>
@@ -214,7 +214,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     className="w-full border-[var(--primary)] text-[var(--primary)] hover:bg-[var(--primary)] hover:text-white"
                     asChild
                   >
-                    <Link href="tel:+628123456789" className="flex items-center justify-center space-x-2">
+                    <Link href="tel:+6283197321658" className="flex items-center justify-center space-x-2">
                       <Phone className="w-4 h-4" />
                       <span>Hubungi Kami</span>
                     </Link>
@@ -224,7 +224,7 @@ const Navbar: React.FC<NavbarProps> = ({ className }) => {
                     className="w-full bg-[var(--secondary)] hover:bg-[var(--secondary)]/90"
                     asChild
                   >
-                    <Link href="https://wa.me/628123456789" className="flex items-center justify-center space-x-2 text-[#3a0519]">
+                    <Link href="https://wa.me/6283197321658" className="flex items-center justify-center space-x-2 text-[#3a0519]">
                       <MessageCircle className="w-4 h-4 text-[#3a0519]" />
                       <span>Chat WhatsApp</span>
                     </Link>

@@ -472,7 +472,7 @@ const PackageCard: React.FC<PackageCardProps> = ({
             asChild
           >
             <Link
-              href={`https://wa.me/628123456789?text=Halo, saya tertarik dengan paket ${pkg.name}`}
+              href={`https://wa.me/6283197321658?text=Halo, saya tertarik dengan paket ${pkg.name}`}
             >
               Book Now
             </Link>
