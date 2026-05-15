@@ -107,17 +107,37 @@ export default function RegisterPage() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-[#faf8f9] to-white flex items-center justify-center p-4">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-3xl shadow-2xl border border-[#3a0519]/10 max-w-lg w-full p-10 text-center">
-          <div className="w-20 h-20 bg-[#3a0519]/5 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Check size={40} className="text-[#3a0519]" />
+          <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6 ring-4 ring-green-100">
+            <Check size={40} className="text-green-600" />
           </div>
-          <h2 className="text-3xl font-bold text-[#3a0519] mb-2">Pendaftaran Berhasil!</h2>
-          <p className="text-gray-500 mb-8 text-lg">Terima kasih, <strong className="text-[#3a0519]">{result.customerName}</strong></p>
+          <h2 className="text-3xl font-bold text-[#3a0519] mb-2">Pendaftaran Berhasil! 🎉</h2>
+          <p className="text-gray-500 mb-4 text-lg">Terima kasih, <strong className="text-[#3a0519]">{result.customerName}</strong></p>
+          
+          <div className="bg-[#faf8f9] border border-[#3a0519]/10 rounded-xl p-4 mb-5 text-left">
+            <div className="flex justify-between items-center">
+              <span className="text-gray-500 text-xs uppercase tracking-widest font-bold">Registration ID</span>
+              <span className="font-bold font-mono text-[#3a0519] text-lg">{result.customerId?.slice(0, 8).toUpperCase()}</span>
+            </div>
+          </div>
+
           {result.booking && (
-            <div className="bg-[#faf8f9] border border-[#3a0519]/10 rounded-xl p-6 mb-6 text-left space-y-3">
-              <div className="flex justify-between"><span className="text-gray-500 text-sm">Kode Booking</span><span className="font-bold font-mono text-[#3a0519]">{result.booking.bookingCode}</span></div>
-              <div className="flex justify-between"><span className="text-gray-500 text-sm">Total</span><span className="font-bold text-[#3a0519]">{fmt(result.booking.priceTotal)}</span></div>
+            <div className="bg-[#3a0519] rounded-xl p-6 mb-5 text-left text-white space-y-3">
+              <p className="text-xs uppercase tracking-widest font-bold text-white/60">Detail Booking Umrah</p>
+              <div className="flex justify-between"><span className="text-white/70 text-sm">Kode Booking</span><span className="font-bold font-mono text-lg">{result.booking.bookingCode}</span></div>
+              <div className="flex justify-between"><span className="text-white/70 text-sm">Total Biaya</span><span className="font-bold text-lg">{fmt(result.booking.priceTotal)}</span></div>
             </div>
           )}
+
+          <div className="bg-green-50 border border-green-200 rounded-xl p-4 mb-6 text-left flex gap-3 items-start">
+            <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+              <span className="text-lg">📱</span>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-green-800">Konfirmasi dikirim ke WhatsApp Anda</p>
+              <p className="text-xs text-green-700 mt-1">Dokumen PDF konfirmasi pendaftaran beserta Syarat & Ketentuan telah dikirim ke nomor WhatsApp yang terdaftar. Silakan cek pesan masuk Anda.</p>
+            </div>
+          </div>
+
           <div className="flex gap-3">
             <Link href="/" className="flex-1 py-3 border-2 border-[#3a0519] text-[#3a0519] rounded-xl font-bold text-center hover:bg-[#3a0519]/5 transition-all">Kembali ke Beranda</Link>
             <Link href="/booking-status" className="flex-1 py-3 bg-[#3a0519] text-white rounded-xl font-bold text-center hover:bg-[#5a0826] transition-all">Cek Booking</Link>
