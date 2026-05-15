@@ -152,53 +152,53 @@ export default function RegisterPage() {
     <div className="min-h-screen bg-gradient-to-br from-[#faf8f9] to-white">
       {/* Header */}
       <nav className="bg-white/95 backdrop-blur-md border-b border-gray-200 sticky top-0 z-30 shadow-sm">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <ArrowLeft size={18} className="text-[#3a0519] group-hover:-translate-x-1 transition-transform" />
-            <img src="/rehlasticky.png" alt="Rehla" className="w-8 h-8 object-contain" onError={e => (e.currentTarget.style.display = 'none')} />
-            <div>
-              <h1 className="text-sm font-bold text-[#3a0519]">REHLATOURS.ID</h1>
-              <p className="text-[10px] text-gray-500 uppercase tracking-widest">Portal Pendaftaran Umrah</p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+          <Link href="/" className="flex items-center gap-2.5 group min-w-0">
+            <ArrowLeft size={16} className="text-[#3a0519] group-hover:-translate-x-1 transition-transform flex-shrink-0" />
+            <img src="/rehlasticky.png" alt="Rehla" className="w-7 h-7 sm:w-8 sm:h-8 object-contain flex-shrink-0" onError={e => (e.currentTarget.style.display = 'none')} />
+            <div className="min-w-0">
+              <h1 className="text-xs sm:text-sm font-bold text-[#3a0519] leading-tight">REHLATOURS.ID</h1>
+              <p className="text-[9px] sm:text-[10px] text-gray-500 uppercase tracking-widest leading-tight">Portal Pendaftaran Umrah</p>
             </div>
           </Link>
-          <div className="text-sm text-gray-500">Langkah {step + 1} / {STEPS.length}</div>
+          <div className="text-xs sm:text-sm text-gray-500 font-medium flex-shrink-0 bg-gray-50 px-2.5 py-1 rounded-lg">{step + 1} / {STEPS.length}</div>
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-5 sm:py-8">
         {/* Progress Bar */}
-        <div className="flex gap-1.5 h-1.5 mb-8">
+        <div className="flex gap-1 sm:gap-1.5 h-1 sm:h-1.5 mb-5 sm:mb-8">
           {STEPS.map((_, i) => (
             <div key={i} className={`flex-1 rounded-full transition-all duration-500 ${i <= step ? 'bg-[#3a0519]' : 'bg-gray-200'}`} />
           ))}
         </div>
 
         {/* Step Header */}
-        <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="mb-6 flex items-center gap-4">
-          <div className="w-12 h-12 bg-[#3a0519] rounded-2xl flex items-center justify-center"><Icon size={22} className="text-white" /></div>
+        <motion.div key={step} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="mb-5 sm:mb-6 flex items-center gap-3 sm:gap-4">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#3a0519] rounded-xl sm:rounded-2xl flex items-center justify-center flex-shrink-0"><Icon size={20} className="text-white" /></div>
           <div>
-            <h2 className="text-2xl font-bold text-[#3a0519]">{STEPS[step].id}</h2>
-            <p className="text-sm text-gray-500">{STEPS[step].desc}</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-[#3a0519] leading-tight">{STEPS[step].id}</h2>
+            <p className="text-xs sm:text-sm text-gray-500">{STEPS[step].desc}</p>
           </div>
         </motion.div>
 
         {/* Form Card */}
-        <motion.div key={`form-${step}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6 sm:p-8 mb-6">
+        <motion.div key={`form-${step}`} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-4 sm:p-6 md:p-8 mb-5 sm:mb-6">
           {step === 0 && (
             <div className="space-y-5">
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div><Inp label="Nama Lengkap *" value={form.fullName} onChange={v => set('fullName', v)} placeholder="Contoh: Ahmad Sulaiman" />{errors.fullName && <p className="text-xs text-red-500 mt-1">{errors.fullName}</p>}</div>
                 <div><Inp label="NIK (Nomor Induk Kependudukan) *" value={form.nik} onChange={v => set('nik', v.replace(/\D/g,'').slice(0,16))} placeholder="16 digit NIK" />{errors.nik && <p className="text-xs text-red-500 mt-1">{errors.nik}</p>}</div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Tempat Lahir *" value={form.birthPlace} onChange={v => set('birthPlace', v)} placeholder="Contoh: Jakarta" />
                 <div><Inp label="Tanggal Lahir *" type="date" value={form.birthDate} onChange={v => set('birthDate', v)} />{errors.birthDate && <p className="text-xs text-red-500 mt-1">{errors.birthDate}</p>}</div>
               </div>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Nama Ayah *" value={form.fatherName} onChange={v => set('fatherName', v)} placeholder="Masukkan nama ayah" />
                 <Inp label="Nama Ibu *" value={form.motherName} onChange={v => set('motherName', v)} placeholder="Masukkan nama ibu" />
               </div>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div><Sel label="Jenis Kelamin *" value={form.gender} onChange={v => set('gender', v)} opts={[['','Pilih jenis kelamin'],['MALE','Laki-laki'],['FEMALE','Perempuan']]} />{errors.gender && <p className="text-xs text-red-500 mt-1">{errors.gender}</p>}</div>
                 <Sel label="Status Pernikahan *" value={form.maritalStatus} onChange={v => set('maritalStatus', v)} opts={[['','Pilih status'],['SINGLE','Belum Menikah'],['MARRIED','Menikah'],['DIVORCED','Cerai'],['WIDOWED','Janda/Duda']]} />
               </div>
@@ -207,7 +207,7 @@ export default function RegisterPage() {
           )}
           {step === 1 && (
             <div className="space-y-5">
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <div>
                   <label className="block text-xs font-bold text-gray-600 mb-1.5 tracking-wide">Nomor Telepon *</label>
                   <div className="flex gap-2">
@@ -219,11 +219,11 @@ export default function RegisterPage() {
                 <div><Inp label="Email *" type="email" value={form.email} onChange={v => set('email', v)} placeholder="contoh@email.com" />{errors.email && <p className="text-xs text-red-500 mt-1">{errors.email}</p>}</div>
               </div>
               <Inp label="Alamat Lengkap *" value={form.address} onChange={v => set('address', v)} area placeholder="Alamat lengkap dengan RT/RW, Kelurahan, Kecamatan" />
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Kota *" value={form.city} onChange={v => set('city', v)} placeholder="Masukkan kota" />
                 <Inp label="Provinsi *" value={form.province} onChange={v => set('province', v)} placeholder="Masukkan provinsi" />
               </div>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Kode Pos *" value={form.postalCode} onChange={v => set('postalCode', v)} placeholder="Masukkan kode pos" />
                 <div>
                   <label className="block text-xs font-bold text-gray-600 mb-1.5 tracking-wide">Nomor WhatsApp *</label>
@@ -235,7 +235,7 @@ export default function RegisterPage() {
               </div>
               <hr />
               <p className="text-sm font-bold text-[#3a0519]">Kontak Darurat</p>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Nama Kontak Darurat *" value={form.emergencyName} onChange={v => set('emergencyName', v)} placeholder="Nama kontak darurat" />
                 <Sel label="Hubungan *" value={form.emergencyRelation} onChange={v => set('emergencyRelation', v)} opts={[['','Pilih hubungan'],['SPOUSE','Suami/Istri'],['PARENT','Orang Tua'],['CHILD','Anak'],['SIBLING','Saudara'],['OTHER','Lainnya']]} />
               </div>
@@ -262,11 +262,11 @@ export default function RegisterPage() {
               </div>
               <hr />
               <p className="text-sm font-bold text-[#3a0519]">Informasi Paspor</p>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Nomor Paspor *" value={form.passportNumber} onChange={v => set('passportNumber', v)} placeholder="Contoh: A1234567" />
                 <Inp label="Tanggal Penerbitan *" type="date" value={form.passportIssued} onChange={v => set('passportIssued', v)} />
               </div>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
                 <Inp label="Tanggal Kadaluarsa *" type="date" value={form.passportExpiry} onChange={v => set('passportExpiry', v)} />
                 <Inp label="Tempat Penerbitan *" value={form.passportPlace} onChange={v => set('passportPlace', v)} placeholder="Contoh: Jakarta" />
               </div>
