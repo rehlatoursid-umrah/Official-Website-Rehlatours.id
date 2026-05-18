@@ -71,18 +71,16 @@ export default function PackagesPage() {
 
   // Fetch live packages from ERP API, fallback to static data
   useEffect(() => {
-    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
+    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
     fetch(`${ERP_URL}/api/public/packages`)
       .then(r => r.json())
       .then(data => {
         if (data.success && data.packages?.length > 0) {
+          // Use ONLY ERP data — no more static merge
           const transformed = transformERPPackages(data.packages)
-          // Remove static packages that are already in ERP to prevent React duplicate key errors
-          const transformedIds = new Set(transformed.map(p => p.id))
-          const filteredStatic = staticPackages.filter(p => !transformedIds.has(p.id))
-          
-          setPackagesArray([...transformed, ...filteredStatic])
+          setPackagesArray(transformed)
         }
+        // If ERP returns empty, keep static data as fallback
       })
       .catch(() => {}) // Keep static data on failure
       .finally(() => setIsLoadingPackages(false))
@@ -488,5 +486,3 @@ const PackageCard: React.FC<PackageCardProps> = ({
 }
 
 
-
-// trigger vercel build

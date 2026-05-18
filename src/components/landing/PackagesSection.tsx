@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { motion, useInView } from 'framer-motion'
@@ -19,7 +19,9 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-import { featuredPackages, formatPrice, getDiscountPercentage } from '@/data/packages'
+import { featuredPackages as staticFeaturedPackages, formatPrice, getDiscountPercentage } from '@/data/packages'
+import { transformERPPackages } from '@/lib/erp-packages'
+import type { Package } from '@/types/landing'
 
 interface PackagesSectionProps {
   className?: string
@@ -30,9 +32,32 @@ interface PackagesSectionProps {
 const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [favoritePackages, setFavoritePackages] = useState<Set<string>>(new Set())
+  const [displayPackages, setDisplayPackages] = useState<Package[]>(staticFeaturedPackages)
   const sliderRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
+
+  // Fetch live packages from ERP
+  useEffect(() => {
+    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+    fetch(`${ERP_URL}/api/public/packages`)
+      .then(r => r.json())
+      .then(data => {
+        if (data.success && data.packages?.length > 0) {
+          const transformed = transformERPPackages(data.packages)
+          // Show max 4 featured packages (prioritize popular/bestseller)
+          const sorted = [...transformed].sort((a, b) => {
+            if (a.isBestSeller && !b.isBestSeller) return -1
+            if (!a.isBestSeller && b.isBestSeller) return 1
+            if (a.isPopular && !b.isPopular) return -1
+            if (!a.isPopular && b.isPopular) return 1
+            return b.rating - a.rating
+          })
+          setDisplayPackages(sorted.slice(0, 4))
+        }
+      })
+      .catch(() => {}) // Keep static on failure
+  }, [])
 
   const slidesToShow = {
     mobile: 1,
@@ -40,7 +65,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
     desktop: 3,
   }
 
-  const maxSlides = Math.max(0, featuredPackages.length - slidesToShow.desktop)
+  const maxSlides = Math.max(0, displayPackages.length - slidesToShow.desktop)
 
   const nextSlide = () => {
     setCurrentSlide((prev) => Math.min(prev + 1, maxSlides))
@@ -140,7 +165,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
                 transform: `translateX(-${currentSlide * (100 / slidesToShow.desktop)}%)`,
               }}
             >
-              {featuredPackages.map((pkg, index) => {
+              {displayPackages.map((pkg, index) => {
                 const Icon = getPackageIcon(pkg.type)
                 const discountPercentage = getDiscountPercentage(
                   pkg.price.original,
@@ -304,7 +329,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
 
           {/* Mobile Navigation Dots */}
           <div className="flex lg:hidden justify-center space-x-2 mt-6">
-            {Array.from({ length: featuredPackages.length }, (_, index) => (
+            {Array.from({ length: displayPackages.length }, (_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentSlide(index)}
