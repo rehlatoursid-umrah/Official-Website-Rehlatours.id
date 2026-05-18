@@ -7,10 +7,10 @@
 const getBaseUrl = () => {
   if (typeof window === 'undefined') {
     // Server-side
-    return process.env.ERP_API_URL || 'http://localhost:3000';
+    return process.env.ERP_API_URL || 'https://erp-rehlasystem.vercel.app';
   }
   // Client-side
-  return process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000';
+  return process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app';
 };
 
 // ─── Types ───────────────────────────────────
@@ -94,10 +94,11 @@ export interface BookingLookupResult {
  * Fetch all active packages from the ERP system.
  * Uses ISR (revalidate every 5 minutes) on the server side.
  */
-export async function fetchActivePackages(): Promise<ERPPackage[]> {
+export async function fetchPackagesFromERP(): Promise<ERPPackage[]> {
+  const ERP_URL = getBaseUrl();
   try {
-    const res = await fetch(`${getBaseUrl()}/api/public/packages`, {
-      next: { revalidate: 300 }, // ISR: refresh every 5 minutes
+    const res = await fetch(`${ERP_URL}/api/public/packages`, {
+      next: { revalidate: 300 }, // ISR: 5 minutes
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();
