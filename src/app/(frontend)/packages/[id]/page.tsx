@@ -6,20 +6,48 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowLeft, AlertCircle } from 'lucide-react'
-import { packagesData, formatPrice, getDiscountPercentage } from '@/data/packages'
+import { formatPrice, getDiscountPercentage } from '@/data/packages'
 import Navbar from '@/components/landing/Navbar'
 import Footer from '@/components/landing/Footer'
 import PackageDetailClient from '@/components/packages/PackageDetailClient'
 import type { Metadata } from 'next'
+import { fetchActivePackages } from '@/lib/erp-api'
+import { transformERPPackage } from '@/lib/erp-packages'
+import type { Package } from '@/types/landing'
 
 interface PackageDetailPageProps {
   params: Promise<{ id: string }>
 }
 
+// Helper to get package from ERP
+async function getPackageFromERP(id: string): Promise<Package | null> {
+  try {
+    const erpPackages = await fetchActivePackages()
+    const erpMatch = erpPackages.find((p: any) => p.slug === id || p.id === id)
+    if (erpMatch) {
+      return transformERPPackage(erpMatch as any)
+    }
+  } catch (error) {
+    console.error('[PackageDetail] Error fetching package:', error)
+  }
+  return null
+}
+
+// Helper to get all packages from ERP
+async function getAllPackagesFromERP(): Promise<Package[]> {
+  try {
+    const erpPackages = await fetchActivePackages()
+    return erpPackages.map((p: any) => transformERPPackage(p))
+  } catch (error) {
+    console.error('[PackageDetail] Error fetching all packages:', error)
+    return []
+  }
+}
+
 // Generate metadata for SEO
 export async function generateMetadata({ params }: PackageDetailPageProps): Promise<Metadata> {
   const { id } = await params
-  const packageData = packagesData[id]
+  const packageData = await getPackageFromERP(id)
 
   if (!packageData) {
     return {
@@ -66,21 +94,18 @@ export async function generateMetadata({ params }: PackageDetailPageProps): Prom
   }
 }
 
-// Using shared data from centralized packages data file
-
 // Generate static params for all packages
 export async function generateStaticParams() {
-  return Object.keys(packagesData).map((id) => ({
-    id: id,
+  const packages = await getAllPackagesFromERP()
+  return packages.map((pkg) => ({
+    id: pkg.id,
   }))
 }
-
-// Using shared data from centralized packages data file
 
 export default async function PackageDetailPage(props: PackageDetailPageProps) {
   const params = await props.params
 
-  const packageData = packagesData[params.id]
+  const packageData = await getPackageFromERP(params.id)
 
   if (!packageData) {
     return (
@@ -91,7 +116,7 @@ export default async function PackageDetailPage(props: PackageDetailPageProps) {
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-4">Package tidak ditemukan</h1>
           <p className="text-gray-600 mb-6">
-            Maaf, paket umroh yang Anda cari tidak dapat ditemukan.
+            Maaf, paket umroh yang Anda cari tidak dapat ditemukan di sistem kami.
           </p>
           <Link
             href="/packages"
@@ -109,6 +134,8 @@ export default async function PackageDetailPage(props: PackageDetailPageProps) {
     packageData.price.original,
     packageData.price.discounted,
   )
+
+  const allPackages = await getAllPackagesFromERP()
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -155,7 +182,7 @@ export default async function PackageDetailPage(props: PackageDetailPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Paket Lainnya</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Object.values(packagesData)
+            {allPackages
               .filter((pkg) => pkg.id !== packageData.id)
               .slice(0, 3)
               .map((pkg) => (
