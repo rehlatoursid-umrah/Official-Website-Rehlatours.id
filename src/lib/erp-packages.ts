@@ -37,7 +37,9 @@ export interface ERPPackageData {
 }
 
 const TYPE_MAP: Record<string, Package['type']> = {
+  ECONOMY: 'ekonomi',
   REGULAR: 'reguler',
+  PREMIUM: 'premium',
   VIP: 'vip',
   VVIP: 'executive',
   CUSTOM: 'premium',
