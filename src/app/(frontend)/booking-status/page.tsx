@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { Search, ArrowLeft, Package, CreditCard, Clock, CheckCircle2, XCircle, AlertCircle, Loader2 } from 'lucide-react'
 
-const ERP = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+const ERP = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
 const fmt = (n: number) => `Rp ${n.toLocaleString('id-ID')}`
 
 const statusMap: Record<string, { color: string; icon: any; label: string }> = {

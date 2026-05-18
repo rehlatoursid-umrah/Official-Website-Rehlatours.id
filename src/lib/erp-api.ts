@@ -94,11 +94,10 @@ export interface BookingLookupResult {
  * Fetch all active packages from the ERP system.
  * Uses ISR (revalidate every 5 minutes) on the server side.
  */
-export async function fetchPackagesFromERP(): Promise<ERPPackage[]> {
-  const ERP_URL = getBaseUrl();
+export async function fetchActivePackages(): Promise<ERPPackage[]> {
   try {
-    const res = await fetch(`${ERP_URL}/api/public/packages`, {
-      next: { revalidate: 300 }, // ISR: 5 minutes
+    const res = await fetch(`${getBaseUrl()}/api/public/packages`, {
+      next: { revalidate: 300 }, // ISR: refresh every 5 minutes
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const data = await res.json();

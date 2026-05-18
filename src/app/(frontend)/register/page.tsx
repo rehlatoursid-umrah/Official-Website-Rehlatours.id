@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { User, Phone, FileText, Heart, Star, CheckCircle2, ChevronRight, ChevronLeft, Check, Loader2, Calendar, Building2, Shield, Info, Image as ImageIcon, ArrowLeft, MapPin } from 'lucide-react'
 
-const ERP = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+const ERP = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
 
 type Pkg = {
   id: string; name: string; type: string; description: string | null;

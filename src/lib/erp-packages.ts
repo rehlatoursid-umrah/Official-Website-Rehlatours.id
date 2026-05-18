@@ -115,7 +115,7 @@ export function transformERPPackages(erpPackages: ERPPackageData[]): Package[] {
  * Fetch packages from ERP and return as Website Package format.
  */
 export async function fetchPackagesFromERP(): Promise<Package[]> {
-  const ERP_URL = process.env.ERP_API_URL || process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+  const ERP_URL = process.env.ERP_API_URL || process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
 
   try {
     const res = await fetch(`${ERP_URL}/api/public/packages`, {

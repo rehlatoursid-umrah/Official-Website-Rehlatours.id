@@ -39,7 +39,7 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
 
   // Fetch live packages from ERP
   useEffect(() => {
-    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'http://localhost:3000'
+    const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
     fetch(`${ERP_URL}/api/public/packages`)
       .then(r => r.json())
       .then(data => {
