@@ -77,7 +77,11 @@ export default function PackagesPage() {
       .then(data => {
         if (data.success && data.packages?.length > 0) {
           const transformed = transformERPPackages(data.packages)
-          setPackagesArray([...transformed, ...staticPackages])
+          // Remove static packages that are already in ERP to prevent React duplicate key errors
+          const transformedIds = new Set(transformed.map(p => p.id))
+          const filteredStatic = staticPackages.filter(p => !transformedIds.has(p.id))
+          
+          setPackagesArray([...transformed, ...filteredStatic])
         }
       })
       .catch(() => {}) // Keep static data on failure
