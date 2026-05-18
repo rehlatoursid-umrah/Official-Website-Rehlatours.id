@@ -101,6 +101,13 @@ export interface PackageIncluded {
   extras: string[];
 }
 
+export interface PackageItineraryDay {
+  day: number;
+  title: string;
+  highlight: string;
+  activities: string[];
+}
+
 export interface Package {
   id: string;
   name: string;
@@ -117,6 +124,7 @@ export interface Package {
   highlights: string[];
   included: PackageIncluded;
   features: PackageFeature[];
+  itinerary?: PackageItineraryDay[];
   departureSchedule: {
     month: string;
     dates: string[];

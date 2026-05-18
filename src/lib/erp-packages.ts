@@ -69,6 +69,56 @@ export function transformERPPackage(erp: ERPPackageData): Package {
       : ['Perlengkapan umroh', 'Air zam-zam 5L'],
   }
 
+  // Parse itinerary
+  let parsedItinerary = undefined
+  if (erp.itinerary) {
+    try {
+      parsedItinerary = JSON.parse(erp.itinerary)
+    } catch (e) {
+      console.error('Failed to parse itinerary for', erp.name)
+    }
+  }
+
+  // Parse features from includes and excludes
+  const features: { name: string; included: boolean }[] = []
+  if (erp.includes) {
+    erp.includes.split('\n').filter(Boolean).forEach(f => {
+      features.push({ name: f.trim(), included: true })
+    })
+  } else {
+    // Default includes
+    features.push({ name: `Hotel ${erp.hotelMakkah || 'Bintang 4'}`, included: true })
+    features.push({ name: 'Makan 3x sehari', included: true })
+    features.push({ name: 'Transfer bandara + city tour', included: true })
+    features.push({ name: 'Bimbingan manasik', included: true })
+    features.push({ name: 'Visa umroh', included: true })
+    features.push({ name: erp.airline ? `Pesawat ${erp.airline}` : 'Pesawat PP', included: true })
+  }
+
+  if (erp.excludes) {
+    erp.excludes.split('\n').filter(Boolean).forEach(f => {
+      features.push({ name: f.trim(), included: false })
+    })
+  } else {
+    // Default excludes
+    features.push({ name: 'Pembuatan Passport', included: false })
+    features.push({ name: 'Suntik Meningitis', included: false })
+  }
+
+  // Parse departures
+  const departureSchedule = erp.departures
+    ? erp.departures.map((dep: any) => {
+        const date = new Date(dep.date)
+        const month = date.toLocaleString('id-ID', { month: 'long', year: 'numeric' })
+        const dateStr = date.getDate().toString()
+        return {
+          month,
+          dates: [dateStr],
+          available: dep.availableSeats > 0,
+        }
+      })
+    : []
+
   return {
     id: erp.slug || erp.id,
     name: erp.name,
@@ -84,15 +134,9 @@ export function transformERPPackage(erp: ERPPackageData): Package {
     description: erp.description || `Paket umrah ${erp.durationDays} hari ${erp.durationNights} malam`,
     highlights,
     included,
-    features: [
-      { name: `Hotel ${erp.hotelMakkah || 'Bintang 4'}`, included: true },
-      { name: 'Makan 3x sehari', included: true },
-      { name: 'Transfer bandara + city tour', included: true },
-      { name: 'Bimbingan manasik', included: true },
-      { name: 'Visa umroh', included: true },
-      { name: erp.airline ? `Pesawat ${erp.airline}` : 'Pesawat PP', included: true },
-    ],
-    departureSchedule: [],
+    features,
+    itinerary: parsedItinerary,
+    departureSchedule,
     groupSize: {
       min: erp.groupSizeMin || 15,
       max: erp.groupSizeMax || 45,

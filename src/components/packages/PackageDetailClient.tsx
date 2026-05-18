@@ -54,7 +54,9 @@ export default function PackageDetailClient({
   const [showAllItinerary, setShowAllItinerary] = useState(false)
   const [showAllFeatures, setShowAllFeatures] = useState(false)
 
-  const itinerary = itineraryData
+  const itinerary = packageData.itinerary && packageData.itinerary.length > 0 
+    ? packageData.itinerary 
+    : itineraryData
   const reviews = reviewsData
 
   const getPackageTypeIcon = (type: string) => {
