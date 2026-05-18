@@ -66,23 +66,28 @@ export default function PackagesPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 50000000])
   const [favoritePackages, setFavoritePackages] = useState<Set<string>>(new Set())
-  const [packagesArray, setPackagesArray] = useState<Package[]>(staticPackages)
+  const [packagesArray, setPackagesArray] = useState<Package[]>([])
   const [isLoadingPackages, setIsLoadingPackages] = useState(true)
 
-  // Fetch live packages from ERP API, fallback to static data
+  // Fetch live packages from ERP API
   useEffect(() => {
     const ERP_URL = process.env.NEXT_PUBLIC_ERP_API_URL || 'https://erp-rehlasystem.vercel.app'
     fetch(`${ERP_URL}/api/public/packages`)
       .then(r => r.json())
       .then(data => {
         if (data.success && data.packages?.length > 0) {
-          // Use ONLY ERP data — no more static merge
           const transformed = transformERPPackages(data.packages)
           setPackagesArray(transformed)
+        } else {
+          // If ERP returns empty or fails to get data, we could fallback to staticPackages here if needed,
+          // but user requested to remove the static data completely.
+          setPackagesArray([])
         }
-        // If ERP returns empty, keep static data as fallback
       })
-      .catch(() => {}) // Keep static data on failure
+      .catch(() => {
+        setPackagesArray([])
+      }) 
+
       .finally(() => setIsLoadingPackages(false))
   }, [])
 

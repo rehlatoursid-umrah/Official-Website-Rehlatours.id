@@ -32,7 +32,7 @@ interface PackagesSectionProps {
 const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
   const [currentSlide, setCurrentSlide] = useState(0)
   const [favoritePackages, setFavoritePackages] = useState<Set<string>>(new Set())
-  const [displayPackages, setDisplayPackages] = useState<Package[]>(staticFeaturedPackages)
+  const [displayPackages, setDisplayPackages] = useState<Package[]>([])
   const sliderRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
@@ -54,9 +54,13 @@ const PackagesSection: React.FC<PackagesSectionProps> = ({ className }) => {
             return b.rating - a.rating
           })
           setDisplayPackages(sorted.slice(0, 4))
+        } else {
+          setDisplayPackages([])
         }
       })
-      .catch(() => {}) // Keep static on failure
+      .catch(() => {
+        setDisplayPackages([])
+      }) 
   }, [])
 
   const slidesToShow = {
