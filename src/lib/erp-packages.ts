@@ -60,10 +60,14 @@ export function transformERPPackage(erp: ERPPackageData): Package {
     accommodation: erp.hotelMakkah
       ? `Hotel ${erp.hotelMakkah}${erp.hotelMadinah ? ` & ${erp.hotelMadinah}` : ''}`
       : 'Hotel bintang 4/setaraf',
-    meals: 'Makan 3x sehari (buffet halal)',
-    transportation: 'Transfer bandara + city tour',
-    guidance: 'Mutawwif berpengalaman',
-    documentation: 'Visa umroh & asuransi perjalanan',
+    hotelMakkahDesc: erp.hotelMakkahDesc || undefined,
+    hotelMadinahDesc: erp.hotelMadinahDesc || undefined,
+    meals: erp.meals || 'Makan 3x sehari (buffet halal)',
+    transportation: erp.transportation || 'Transfer bandara + city tour',
+    busDesc: erp.busDesc || undefined,
+    flightDesc: erp.flightDesc || undefined,
+    guidance: erp.guidance || 'Mutawwif berpengalaman',
+    documentation: erp.documentation || 'Visa umroh & asuransi perjalanan',
     extras: includesText
       ? includesText.split('\n').filter(Boolean).map(s => s.trim())
       : ['Perlengkapan umroh', 'Air zam-zam 5L'],
@@ -76,6 +80,16 @@ export function transformERPPackage(erp: ERPPackageData): Package {
       parsedItinerary = JSON.parse(erp.itinerary)
     } catch (e) {
       console.error('Failed to parse itinerary for', erp.name)
+    }
+  }
+
+  // Parse reviews
+  let parsedReviews = undefined
+  if (erp.reviews) {
+    try {
+      parsedReviews = JSON.parse(erp.reviews)
+    } catch (e) {
+      console.error('Failed to parse reviews for', erp.name)
     }
   }
 
@@ -136,6 +150,7 @@ export function transformERPPackage(erp: ERPPackageData): Package {
     included,
     features,
     itinerary: parsedItinerary,
+    reviews: parsedReviews,
     departureSchedule,
     groupSize: {
       min: erp.groupSizeMin || 15,

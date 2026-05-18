@@ -94,8 +94,12 @@ export interface PackageFeature {
 
 export interface PackageIncluded {
   accommodation: string;
+  hotelMakkahDesc?: string;
+  hotelMadinahDesc?: string;
   meals: string;
   transportation: string;
+  busDesc?: string;
+  flightDesc?: string;
   guidance: string;
   documentation: string;
   extras: string[];
@@ -106,6 +110,18 @@ export interface PackageItineraryDay {
   title: string;
   highlight: string;
   activities: string[];
+}
+
+export interface PackageReview {
+  id: string | number;
+  name: string;
+  location: string;
+  date: string;
+  rating: number;
+  content: string;
+  avatar: string;
+  package: string;
+  helpful: number;
 }
 
 export interface Package {
@@ -125,6 +141,7 @@ export interface Package {
   included: PackageIncluded;
   features: PackageFeature[];
   itinerary?: PackageItineraryDay[];
+  reviews?: PackageReview[];
   departureSchedule: {
     month: string;
     dates: string[];

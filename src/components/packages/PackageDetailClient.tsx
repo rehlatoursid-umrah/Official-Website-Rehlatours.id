@@ -57,7 +57,9 @@ export default function PackageDetailClient({
   const itinerary = packageData.itinerary && packageData.itinerary.length > 0 
     ? packageData.itinerary 
     : itineraryData
-  const reviews = reviewsData
+  const reviews = packageData.reviews && packageData.reviews.length > 0 
+    ? packageData.reviews 
+    : reviewsData
 
   const getPackageTypeIcon = (type: string) => {
     switch (type) {
@@ -415,13 +417,13 @@ export default function PackageDetailClient({
                         Hotel Makkah
                       </h4>
                       <p className="text-sm text-gray-600 mb-3">
-                        {packageData.type === 'vip'
+                        {packageData.included.hotelMakkahDesc || (packageData.type === 'vip'
                           ? 'Hotel mewah 5 bintang dengan suite room'
                           : packageData.type === 'premium'
                             ? 'Hotel bintang 5 dengan view Haram'
                             : packageData.type === 'reguler'
                               ? 'Hotel bintang 4 lokasi strategis'
-                              : 'Hotel bintang 3 dekat Masjidil Haram'}
+                              : 'Hotel bintang 3 dekat Masjidil Haram')}
                       </p>
                       <div className="space-y-1">
                         <div className="flex items-center text-xs text-gray-500">
@@ -445,13 +447,13 @@ export default function PackageDetailClient({
                         Hotel Madinah
                       </h4>
                       <p className="text-sm text-gray-600 mb-3">
-                        {packageData.type === 'vip'
+                        {packageData.included.hotelMadinahDesc || (packageData.type === 'vip'
                           ? 'Hotel mewah dekat Masjid Nabawi'
                           : packageData.type === 'premium'
                             ? 'Hotel bintang 5 premium'
                             : packageData.type === 'reguler'
                               ? 'Hotel bintang 4 nyaman'
-                              : 'Hotel bintang 3 dekat Masjid Nabawi'}
+                              : 'Hotel bintang 3 dekat Masjid Nabawi')}
                       </p>
                       <div className="space-y-1">
                         <div className="flex items-center text-xs text-gray-500">
@@ -476,23 +478,23 @@ export default function PackageDetailClient({
                       <div>
                         <h5 className="font-medium text-gray-800 mb-2">Pesawat</h5>
                         <p className="text-sm text-gray-600">
-                          {packageData.type === 'vip'
+                          {packageData.included.flightDesc || (packageData.type === 'vip'
                             ? 'First class flight'
                             : packageData.type === 'premium'
                               ? 'Business class flight'
-                              : 'Economy class flight dengan maskapai terpercaya'}
+                              : 'Economy class flight dengan maskapai terpercaya')}
                         </p>
                       </div>
                       <div>
                         <h5 className="font-medium text-gray-800 mb-2">Bus Lokal</h5>
                         <p className="text-sm text-gray-600">
-                          {packageData.type === 'vip'
+                          {packageData.included.busDesc || (packageData.type === 'vip'
                             ? 'Luxury private car'
                             : packageData.type === 'premium'
                               ? 'Private bus AC'
                               : packageData.type === 'reguler'
                                 ? 'Bus VIP AC'
-                                : 'Bus AC yang nyaman'}
+                                : 'Bus AC yang nyaman')}
                         </p>
                       </div>
                     </div>
