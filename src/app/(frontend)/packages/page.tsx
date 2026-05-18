@@ -126,7 +126,7 @@ export default function PackagesPage() {
     }
 
     return filtered
-  }, [selectedCategory, sortBy, searchTerm, priceRange])
+  }, [packagesArray, selectedCategory, sortBy, searchTerm, priceRange])
 
   const toggleFavorite = (packageId: string) => {
     const newFavorites = new Set(favoritePackages)
