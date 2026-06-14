@@ -34,6 +34,18 @@ export interface ERPPackageData {
   isBestSeller: boolean
   groupSizeMin: number | null
   groupSizeMax: number | null
+  // Detail fields
+  hotelMakkahDesc: string | null
+  hotelMadinahDesc: string | null
+  meals: string | null
+  transportation: string | null
+  busDesc: string | null
+  flightDesc: string | null
+  guidance: string | null
+  documentation: string | null
+  itinerary: string | null
+  reviews: string | null
+  departures?: { date: string; availableSeats: number }[]
 }
 
 const TYPE_MAP: Record<string, Package['type']> = {
